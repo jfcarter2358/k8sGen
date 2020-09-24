@@ -1,0 +1,7 @@
+{
+    "name": "<string>",
+    "nodePort": "<integer>",
+    "port": "<integer>",
+    "protocol": "<string>",
+    "targetPort": "<string>"
+}

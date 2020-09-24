@@ -1,0 +1,7 @@
+{
+    "backend": {
+        "serviceName": "<string>",
+        "servicePort": "<string>"
+    },
+    "path": "<string>"
+}

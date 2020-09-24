@@ -1,0 +1,8 @@
+{
+    "JSONPath": "<string>",
+    "description": "<string>",
+    "format": "<string>",
+    "name": "<string>",
+    "priority": "<integer>",
+    "type": "<string>"
+}

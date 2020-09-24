@@ -1,0 +1,45 @@
+{
+    "description": "Pod is a collection of containers that can run on a host. This resource is created by clients and scheduled onto hosts.",
+    "json": {
+        "apiVersion": "v1",
+        "kind": "Pod",
+        "metadata": "<COMPONENT.Metadata>",
+        "spec": {
+            "activeDeadlineSeconds": "<integer>",
+            "affinity": {
+                "nodeAffinity": "<COMPONENT.NodeAffinity>",
+                "podAffinity": "<COMPONENT.PodAffinity>",
+                "podAntiAffinity": "<COMPONENT.PodAntiAffinity>"
+            },
+            "automountServiceAccountToken": "<boolean>",
+            "containers": "<[]COMPONENT.Container>",
+            "dnsConfig": "<COMPONENT.DNSConfig>",
+            "dnsPolicy": "<string>",
+            "enableServiceLinks": "<boolean>",
+            "hostAliases": "<[]COMPONENT.HostAlias>",
+            "hostIPC": "<boolean>",
+            "hostNetwork": "<boolean>",
+            "hostPID": "<boolean>",
+            "hostname": "<string>",
+            "imagePullSecrets": "<[]COMPONENT.ImagePullSecret>",
+            "initContainers": "<[]COMPONENT.Container>",
+            "nodeName": "<string>",
+            "nodeSelector": "<map[string]string>",
+            "preemptionPolicy": "<string>",
+            "priority": "<integer>",
+            "priorityClassName": "<string>",
+            "readinessGates": "<[]COMPONENT.ReadinessGate>",
+            "restartPolicy": "<string>",
+            "runtimeClassName": "<string>",
+            "schedulerName": "<string>",
+            "securityContext": "<COMPONENT.SecurityContext>",
+            "serviceAccount": "<string>",
+            "serviceAccountName": "<string>",
+            "shareProcessNamespace": "<boolean>",
+            "subdomain": "<string>",
+            "terminationGracePeriodSeconds": "<integer>",
+            "tolerations": "<[]COMPONENT.Tolerations>",
+            "volumes": "<[]COMPONENT.Volume>"
+        }
+    }
+}

@@ -1,0 +1,7 @@
+{
+    "apiVersion": "<string>",
+    "fields": "<map[string]>",
+    "manager": "<string>",
+    "operation": "<string>",
+    "time": "<string>"
+}

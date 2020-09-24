@@ -1,0 +1,10 @@
+{
+    "caBundle": "<string>",
+    "service": {
+        "name": "<string>",
+        "namespace": "<string>",
+        "path": "<string>",
+        "port": "<integer>"
+    },
+    "url": "<string>"
+}

@@ -1,0 +1,24 @@
+{
+    "description": "DEPRECATED - This group version of DaemonSet is deprecated by apps/v1beta2/DaemonSet. See the release notes for more information. DaemonSet represents the configuration of a daemon set.",
+    "json": {
+        "apiVersion": "extensions/v1beta1",
+        "kind": "DaemonSet",
+        "metadata": "<COMPONENT.Metadata>",
+        "spec": {
+            "minReadySeconds": "<integer>",
+            "revisionHistoryLimit": "<integer>",
+            "selector": "<COMPONENT.Selector>",
+            "template": {
+                "metadata": "<COMPONENT.Metadata>",
+                "spec": "<COMPONENT.ContainerSpec>"
+            },
+            "templateGeneration": "<integer>",
+            "updateStrategy": {
+                "rollingUpdate": {
+                    "maxUnavailable": "<string>"
+                },
+                "type": "<string>"
+            }
+        }
+    }
+}

@@ -1,0 +1,29 @@
+{
+    "args": "<[]string>",
+    "command": "<[]string>",
+    "env": "<[]COMPONENT.EnvironmentVariable>",
+    "envFrom": "<[]COMPONENT.EnvironmentVariableSource>",
+    "image": "<string>",
+    "imagePullPolicy": "<string>",
+    "lifecycle": {
+        "postStart": "<[]COMPONENT.LifecycleDefinition>",
+        "preStop": "<[]COMPONENT.LifecycleDefinition>"
+    },
+    "livenessProbe": "<COMPONENT.Probe>",
+    "name": "<string>",
+    "ports": "<[]COMPONENT.Port>",
+    "readinessProbe": "<COMPONENT.Probe>",
+    "resources": {
+        "limits": "<map[string]string>",
+        "requests": "<map[string]string>"
+    },
+    "securityContext": "<COMPONENT.SecurityContext>",
+    "stdin": "<boolean>",
+    "stdinOnce": "<boolean>",
+    "terminationMessagePath": "<string>",
+    "terminationMessagePolicy": "<string>",
+    "tty": "<boolean>",
+    "volumeDevices": "<[]COMPONENT.VolumeDevice>",
+    "volumeMounts": "<[]COMPONENT.VolumeMount>",
+    "workingDir": "<string>"
+}
