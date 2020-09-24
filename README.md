@@ -6,5 +6,5 @@ k8sGen was developed out of a need for a framework to enable to creation of kube
 
 Documentation for k8sGen is available here:
 
-## Author
+
 This project is maintained by John Carter with the support of [ModelOp](http://modelop.com)
