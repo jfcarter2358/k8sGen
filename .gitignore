@@ -3,3 +3,5 @@ docs/build
 .DS_Store
 build/data/resources/*
 build/data/resources.txt
+test.py
+.python-version
