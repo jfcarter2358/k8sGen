@@ -3,6 +3,12 @@ import yaml
 from k8sgen import utils
 import pkgutil
 
+'''
+Kubernetes VolumeMount component for use in API resources
+
+Available manifest keys are:
+    (( MANIFEST_KEYS ))
+'''
 class VolumeMount:
     def __init__(self, **kwargs):
         self.elements = {}
@@ -42,7 +48,7 @@ class VolumeMount:
             if ky in self.elements.keys():
                 ret[key] = self.elements[ky]
             else:
-                return ('Invalid key', key)
+                return ('Invalid key name', key)
         return ret
 
     # get the fields that the component utilizes and return them
@@ -81,6 +87,12 @@ class VolumeMount:
     def __str__(self):
         return self.to_string()
 
+'''
+Kubernetes ManagedField component for use in API resources
+
+Available manifest keys are:
+    (( MANIFEST_KEYS ))
+'''
 class ManagedField:
     def __init__(self, **kwargs):
         self.elements = {}
@@ -120,7 +132,7 @@ class ManagedField:
             if ky in self.elements.keys():
                 ret[key] = self.elements[ky]
             else:
-                return ('Invalid key', key)
+                return ('Invalid key name', key)
         return ret
 
     # get the fields that the component utilizes and return them
@@ -159,6 +171,12 @@ class ManagedField:
     def __str__(self):
         return self.to_string()
 
+'''
+Kubernetes HostAlias component for use in API resources
+
+Available manifest keys are:
+    (( MANIFEST_KEYS ))
+'''
 class HostAlias:
     def __init__(self, **kwargs):
         self.elements = {}
@@ -198,7 +216,7 @@ class HostAlias:
             if ky in self.elements.keys():
                 ret[key] = self.elements[ky]
             else:
-                return ('Invalid key', key)
+                return ('Invalid key name', key)
         return ret
 
     # get the fields that the component utilizes and return them
@@ -237,6 +255,12 @@ class HostAlias:
     def __str__(self):
         return self.to_string()
 
+'''
+Kubernetes NetworkPolicyIngress component for use in API resources
+
+Available manifest keys are:
+    (( MANIFEST_KEYS ))
+'''
 class NetworkPolicyIngress:
     def __init__(self, **kwargs):
         self.elements = {}
@@ -276,7 +300,7 @@ class NetworkPolicyIngress:
             if ky in self.elements.keys():
                 ret[key] = self.elements[ky]
             else:
-                return ('Invalid key', key)
+                return ('Invalid key name', key)
         return ret
 
     # get the fields that the component utilizes and return them
@@ -315,6 +339,12 @@ class NetworkPolicyIngress:
     def __str__(self):
         return self.to_string()
 
+'''
+Kubernetes VolumeClaimTemplate component for use in API resources
+
+Available manifest keys are:
+    (( MANIFEST_KEYS ))
+'''
 class VolumeClaimTemplate:
     def __init__(self, **kwargs):
         self.elements = {}
@@ -354,7 +384,7 @@ class VolumeClaimTemplate:
             if ky in self.elements.keys():
                 ret[key] = self.elements[ky]
             else:
-                return ('Invalid key', key)
+                return ('Invalid key name', key)
         return ret
 
     # get the fields that the component utilizes and return them
@@ -393,6 +423,12 @@ class VolumeClaimTemplate:
     def __str__(self):
         return self.to_string()
 
+'''
+Kubernetes DownwardAPIItem component for use in API resources
+
+Available manifest keys are:
+    (( MANIFEST_KEYS ))
+'''
 class DownwardAPIItem:
     def __init__(self, **kwargs):
         self.elements = {}
@@ -432,7 +468,7 @@ class DownwardAPIItem:
             if ky in self.elements.keys():
                 ret[key] = self.elements[ky]
             else:
-                return ('Invalid key', key)
+                return ('Invalid key name', key)
         return ret
 
     # get the fields that the component utilizes and return them
@@ -471,6 +507,12 @@ class DownwardAPIItem:
     def __str__(self):
         return self.to_string()
 
+'''
+Kubernetes NodePreferredAffinity component for use in API resources
+
+Available manifest keys are:
+    (( MANIFEST_KEYS ))
+'''
 class NodePreferredAffinity:
     def __init__(self, **kwargs):
         self.elements = {}
@@ -510,7 +552,7 @@ class NodePreferredAffinity:
             if ky in self.elements.keys():
                 ret[key] = self.elements[ky]
             else:
-                return ('Invalid key', key)
+                return ('Invalid key name', key)
         return ret
 
     # get the fields that the component utilizes and return them
@@ -549,6 +591,12 @@ class NodePreferredAffinity:
     def __str__(self):
         return self.to_string()
 
+'''
+Kubernetes Volume component for use in API resources
+
+Available manifest keys are:
+    (( MANIFEST_KEYS ))
+'''
 class Volume:
     def __init__(self, **kwargs):
         self.elements = {}
@@ -588,7 +636,7 @@ class Volume:
             if ky in self.elements.keys():
                 ret[key] = self.elements[ky]
             else:
-                return ('Invalid key', key)
+                return ('Invalid key name', key)
         return ret
 
     # get the fields that the component utilizes and return them
@@ -627,6 +675,12 @@ class Volume:
     def __str__(self):
         return self.to_string()
 
+'''
+Kubernetes IngressTLS component for use in API resources
+
+Available manifest keys are:
+    (( MANIFEST_KEYS ))
+'''
 class IngressTLS:
     def __init__(self, **kwargs):
         self.elements = {}
@@ -666,7 +720,7 @@ class IngressTLS:
             if ky in self.elements.keys():
                 ret[key] = self.elements[ky]
             else:
-                return ('Invalid key', key)
+                return ('Invalid key name', key)
         return ret
 
     # get the fields that the component utilizes and return them
@@ -705,6 +759,12 @@ class IngressTLS:
     def __str__(self):
         return self.to_string()
 
+'''
+Kubernetes IngressRulePath component for use in API resources
+
+Available manifest keys are:
+    (( MANIFEST_KEYS ))
+'''
 class IngressRulePath:
     def __init__(self, **kwargs):
         self.elements = {}
@@ -744,7 +804,7 @@ class IngressRulePath:
             if ky in self.elements.keys():
                 ret[key] = self.elements[ky]
             else:
-                return ('Invalid key', key)
+                return ('Invalid key name', key)
         return ret
 
     # get the fields that the component utilizes and return them
@@ -783,6 +843,12 @@ class IngressRulePath:
     def __str__(self):
         return self.to_string()
 
+'''
+Kubernetes AllowedFlexVolume component for use in API resources
+
+Available manifest keys are:
+    (( MANIFEST_KEYS ))
+'''
 class AllowedFlexVolume:
     def __init__(self, **kwargs):
         self.elements = {}
@@ -822,7 +888,7 @@ class AllowedFlexVolume:
             if ky in self.elements.keys():
                 ret[key] = self.elements[ky]
             else:
-                return ('Invalid key', key)
+                return ('Invalid key name', key)
         return ret
 
     # get the fields that the component utilizes and return them
@@ -861,6 +927,12 @@ class AllowedFlexVolume:
     def __str__(self):
         return self.to_string()
 
+'''
+Kubernetes ComponentStatusCondition component for use in API resources
+
+Available manifest keys are:
+    (( MANIFEST_KEYS ))
+'''
 class ComponentStatusCondition:
     def __init__(self, **kwargs):
         self.elements = {}
@@ -900,7 +972,7 @@ class ComponentStatusCondition:
             if ky in self.elements.keys():
                 ret[key] = self.elements[ky]
             else:
-                return ('Invalid key', key)
+                return ('Invalid key name', key)
         return ret
 
     # get the fields that the component utilizes and return them
@@ -939,6 +1011,12 @@ class ComponentStatusCondition:
     def __str__(self):
         return self.to_string()
 
+'''
+Kubernetes NonResourceAttribute component for use in API resources
+
+Available manifest keys are:
+    (( MANIFEST_KEYS ))
+'''
 class NonResourceAttribute:
     def __init__(self, **kwargs):
         self.elements = {}
@@ -978,7 +1056,7 @@ class NonResourceAttribute:
             if ky in self.elements.keys():
                 ret[key] = self.elements[ky]
             else:
-                return ('Invalid key', key)
+                return ('Invalid key name', key)
         return ret
 
     # get the fields that the component utilizes and return them
@@ -1017,6 +1095,12 @@ class NonResourceAttribute:
     def __str__(self):
         return self.to_string()
 
+'''
+Kubernetes EnvironmentVariable component for use in API resources
+
+Available manifest keys are:
+    (( MANIFEST_KEYS ))
+'''
 class EnvironmentVariable:
     def __init__(self, **kwargs):
         self.elements = {}
@@ -1056,7 +1140,7 @@ class EnvironmentVariable:
             if ky in self.elements.keys():
                 ret[key] = self.elements[ky]
             else:
-                return ('Invalid key', key)
+                return ('Invalid key name', key)
         return ret
 
     # get the fields that the component utilizes and return them
@@ -1095,6 +1179,12 @@ class EnvironmentVariable:
     def __str__(self):
         return self.to_string()
 
+'''
+Kubernetes Webhook component for use in API resources
+
+Available manifest keys are:
+    (( MANIFEST_KEYS ))
+'''
 class Webhook:
     def __init__(self, **kwargs):
         self.elements = {}
@@ -1134,7 +1224,7 @@ class Webhook:
             if ky in self.elements.keys():
                 ret[key] = self.elements[ky]
             else:
-                return ('Invalid key', key)
+                return ('Invalid key name', key)
         return ret
 
     # get the fields that the component utilizes and return them
@@ -1173,6 +1263,12 @@ class Webhook:
     def __str__(self):
         return self.to_string()
 
+'''
+Kubernetes ProjectedVolumeSource component for use in API resources
+
+Available manifest keys are:
+    (( MANIFEST_KEYS ))
+'''
 class ProjectedVolumeSource:
     def __init__(self, **kwargs):
         self.elements = {}
@@ -1212,7 +1308,7 @@ class ProjectedVolumeSource:
             if ky in self.elements.keys():
                 ret[key] = self.elements[ky]
             else:
-                return ('Invalid key', key)
+                return ('Invalid key name', key)
         return ret
 
     # get the fields that the component utilizes and return them
@@ -1251,6 +1347,12 @@ class ProjectedVolumeSource:
     def __str__(self):
         return self.to_string()
 
+'''
+Kubernetes AllowedHostPath component for use in API resources
+
+Available manifest keys are:
+    (( MANIFEST_KEYS ))
+'''
 class AllowedHostPath:
     def __init__(self, **kwargs):
         self.elements = {}
@@ -1290,7 +1392,7 @@ class AllowedHostPath:
             if ky in self.elements.keys():
                 ret[key] = self.elements[ky]
             else:
-                return ('Invalid key', key)
+                return ('Invalid key name', key)
         return ret
 
     # get the fields that the component utilizes and return them
@@ -1329,6 +1431,12 @@ class AllowedHostPath:
     def __str__(self):
         return self.to_string()
 
+'''
+Kubernetes ImagePullSecret component for use in API resources
+
+Available manifest keys are:
+    (( MANIFEST_KEYS ))
+'''
 class ImagePullSecret:
     def __init__(self, **kwargs):
         self.elements = {}
@@ -1368,7 +1476,7 @@ class ImagePullSecret:
             if ky in self.elements.keys():
                 ret[key] = self.elements[ky]
             else:
-                return ('Invalid key', key)
+                return ('Invalid key name', key)
         return ret
 
     # get the fields that the component utilizes and return them
@@ -1407,6 +1515,12 @@ class ImagePullSecret:
     def __str__(self):
         return self.to_string()
 
+'''
+Kubernetes RoleRule component for use in API resources
+
+Available manifest keys are:
+    (( MANIFEST_KEYS ))
+'''
 class RoleRule:
     def __init__(self, **kwargs):
         self.elements = {}
@@ -1446,7 +1560,7 @@ class RoleRule:
             if ky in self.elements.keys():
                 ret[key] = self.elements[ky]
             else:
-                return ('Invalid key', key)
+                return ('Invalid key name', key)
         return ret
 
     # get the fields that the component utilizes and return them
@@ -1485,6 +1599,12 @@ class RoleRule:
     def __str__(self):
         return self.to_string()
 
+'''
+Kubernetes ServicePort component for use in API resources
+
+Available manifest keys are:
+    (( MANIFEST_KEYS ))
+'''
 class ServicePort:
     def __init__(self, **kwargs):
         self.elements = {}
@@ -1524,7 +1644,7 @@ class ServicePort:
             if ky in self.elements.keys():
                 ret[key] = self.elements[ky]
             else:
-                return ('Invalid key', key)
+                return ('Invalid key name', key)
         return ret
 
     # get the fields that the component utilizes and return them
@@ -1563,6 +1683,12 @@ class ServicePort:
     def __str__(self):
         return self.to_string()
 
+'''
+Kubernetes Selector component for use in API resources
+
+Available manifest keys are:
+    (( MANIFEST_KEYS ))
+'''
 class Selector:
     def __init__(self, **kwargs):
         self.elements = {}
@@ -1602,7 +1728,7 @@ class Selector:
             if ky in self.elements.keys():
                 ret[key] = self.elements[ky]
             else:
-                return ('Invalid key', key)
+                return ('Invalid key name', key)
         return ret
 
     # get the fields that the component utilizes and return them
@@ -1641,6 +1767,12 @@ class Selector:
     def __str__(self):
         return self.to_string()
 
+'''
+Kubernetes Range component for use in API resources
+
+Available manifest keys are:
+    (( MANIFEST_KEYS ))
+'''
 class Range:
     def __init__(self, **kwargs):
         self.elements = {}
@@ -1680,7 +1812,7 @@ class Range:
             if ky in self.elements.keys():
                 ret[key] = self.elements[ky]
             else:
-                return ('Invalid key', key)
+                return ('Invalid key name', key)
         return ret
 
     # get the fields that the component utilizes and return them
@@ -1719,6 +1851,12 @@ class Range:
     def __str__(self):
         return self.to_string()
 
+'''
+Kubernetes AllowedCSIDriver component for use in API resources
+
+Available manifest keys are:
+    (( MANIFEST_KEYS ))
+'''
 class AllowedCSIDriver:
     def __init__(self, **kwargs):
         self.elements = {}
@@ -1758,7 +1896,7 @@ class AllowedCSIDriver:
             if ky in self.elements.keys():
                 ret[key] = self.elements[ky]
             else:
-                return ('Invalid key', key)
+                return ('Invalid key name', key)
         return ret
 
     # get the fields that the component utilizes and return them
@@ -1797,6 +1935,12 @@ class AllowedCSIDriver:
     def __str__(self):
         return self.to_string()
 
+'''
+Kubernetes PrinterColumn component for use in API resources
+
+Available manifest keys are:
+    (( MANIFEST_KEYS ))
+'''
 class PrinterColumn:
     def __init__(self, **kwargs):
         self.elements = {}
@@ -1836,7 +1980,7 @@ class PrinterColumn:
             if ky in self.elements.keys():
                 ret[key] = self.elements[ky]
             else:
-                return ('Invalid key', key)
+                return ('Invalid key name', key)
         return ret
 
     # get the fields that the component utilizes and return them
@@ -1875,6 +2019,12 @@ class PrinterColumn:
     def __str__(self):
         return self.to_string()
 
+'''
+Kubernetes ConfigMapItem component for use in API resources
+
+Available manifest keys are:
+    (( MANIFEST_KEYS ))
+'''
 class ConfigMapItem:
     def __init__(self, **kwargs):
         self.elements = {}
@@ -1914,7 +2064,7 @@ class ConfigMapItem:
             if ky in self.elements.keys():
                 ret[key] = self.elements[ky]
             else:
-                return ('Invalid key', key)
+                return ('Invalid key name', key)
         return ret
 
     # get the fields that the component utilizes and return them
@@ -1953,6 +2103,12 @@ class ConfigMapItem:
     def __str__(self):
         return self.to_string()
 
+'''
+Kubernetes NodeSelectorTerm component for use in API resources
+
+Available manifest keys are:
+    (( MANIFEST_KEYS ))
+'''
 class NodeSelectorTerm:
     def __init__(self, **kwargs):
         self.elements = {}
@@ -1992,7 +2148,7 @@ class NodeSelectorTerm:
             if ky in self.elements.keys():
                 ret[key] = self.elements[ky]
             else:
-                return ('Invalid key', key)
+                return ('Invalid key name', key)
         return ret
 
     # get the fields that the component utilizes and return them
@@ -2031,6 +2187,12 @@ class NodeSelectorTerm:
     def __str__(self):
         return self.to_string()
 
+'''
+Kubernetes DNSConfigOptions component for use in API resources
+
+Available manifest keys are:
+    (( MANIFEST_KEYS ))
+'''
 class DNSConfigOptions:
     def __init__(self, **kwargs):
         self.elements = {}
@@ -2070,7 +2232,7 @@ class DNSConfigOptions:
             if ky in self.elements.keys():
                 ret[key] = self.elements[ky]
             else:
-                return ('Invalid key', key)
+                return ('Invalid key name', key)
         return ret
 
     # get the fields that the component utilizes and return them
@@ -2109,6 +2271,12 @@ class DNSConfigOptions:
     def __str__(self):
         return self.to_string()
 
+'''
+Kubernetes Metadata component for use in API resources
+
+Available manifest keys are:
+    (( MANIFEST_KEYS ))
+'''
 class Metadata:
     def __init__(self, **kwargs):
         self.elements = {}
@@ -2148,7 +2316,7 @@ class Metadata:
             if ky in self.elements.keys():
                 ret[key] = self.elements[ky]
             else:
-                return ('Invalid key', key)
+                return ('Invalid key name', key)
         return ret
 
     # get the fields that the component utilizes and return them
@@ -2187,6 +2355,12 @@ class Metadata:
     def __str__(self):
         return self.to_string()
 
+'''
+Kubernetes ClusterRule component for use in API resources
+
+Available manifest keys are:
+    (( MANIFEST_KEYS ))
+'''
 class ClusterRule:
     def __init__(self, **kwargs):
         self.elements = {}
@@ -2226,7 +2400,7 @@ class ClusterRule:
             if ky in self.elements.keys():
                 ret[key] = self.elements[ky]
             else:
-                return ('Invalid key', key)
+                return ('Invalid key name', key)
         return ret
 
     # get the fields that the component utilizes and return them
@@ -2265,6 +2439,12 @@ class ClusterRule:
     def __str__(self):
         return self.to_string()
 
+'''
+Kubernetes PodPreferredAffinity component for use in API resources
+
+Available manifest keys are:
+    (( MANIFEST_KEYS ))
+'''
 class PodPreferredAffinity:
     def __init__(self, **kwargs):
         self.elements = {}
@@ -2304,7 +2484,7 @@ class PodPreferredAffinity:
             if ky in self.elements.keys():
                 ret[key] = self.elements[ky]
             else:
-                return ('Invalid key', key)
+                return ('Invalid key name', key)
         return ret
 
     # get the fields that the component utilizes and return them
@@ -2343,6 +2523,12 @@ class PodPreferredAffinity:
     def __str__(self):
         return self.to_string()
 
+'''
+Kubernetes ResourceDefinitionVersion component for use in API resources
+
+Available manifest keys are:
+    (( MANIFEST_KEYS ))
+'''
 class ResourceDefinitionVersion:
     def __init__(self, **kwargs):
         self.elements = {}
@@ -2382,7 +2568,7 @@ class ResourceDefinitionVersion:
             if ky in self.elements.keys():
                 ret[key] = self.elements[ky]
             else:
-                return ('Invalid key', key)
+                return ('Invalid key name', key)
         return ret
 
     # get the fields that the component utilizes and return them
@@ -2421,6 +2607,12 @@ class ResourceDefinitionVersion:
     def __str__(self):
         return self.to_string()
 
+'''
+Kubernetes AllowedTopology component for use in API resources
+
+Available manifest keys are:
+    (( MANIFEST_KEYS ))
+'''
 class AllowedTopology:
     def __init__(self, **kwargs):
         self.elements = {}
@@ -2460,7 +2652,7 @@ class AllowedTopology:
             if ky in self.elements.keys():
                 ret[key] = self.elements[ky]
             else:
-                return ('Invalid key', key)
+                return ('Invalid key name', key)
         return ret
 
     # get the fields that the component utilizes and return them
@@ -2499,6 +2691,12 @@ class AllowedTopology:
     def __str__(self):
         return self.to_string()
 
+'''
+Kubernetes SecurityContext component for use in API resources
+
+Available manifest keys are:
+    (( MANIFEST_KEYS ))
+'''
 class SecurityContext:
     def __init__(self, **kwargs):
         self.elements = {}
@@ -2538,7 +2736,7 @@ class SecurityContext:
             if ky in self.elements.keys():
                 ret[key] = self.elements[ky]
             else:
-                return ('Invalid key', key)
+                return ('Invalid key name', key)
         return ret
 
     # get the fields that the component utilizes and return them
@@ -2577,6 +2775,12 @@ class SecurityContext:
     def __str__(self):
         return self.to_string()
 
+'''
+Kubernetes LifecycleDefinition component for use in API resources
+
+Available manifest keys are:
+    (( MANIFEST_KEYS ))
+'''
 class LifecycleDefinition:
     def __init__(self, **kwargs):
         self.elements = {}
@@ -2616,7 +2820,7 @@ class LifecycleDefinition:
             if ky in self.elements.keys():
                 ret[key] = self.elements[ky]
             else:
-                return ('Invalid key', key)
+                return ('Invalid key name', key)
         return ret
 
     # get the fields that the component utilizes and return them
@@ -2655,6 +2859,12 @@ class LifecycleDefinition:
     def __str__(self):
         return self.to_string()
 
+'''
+Kubernetes OwnerReference component for use in API resources
+
+Available manifest keys are:
+    (( MANIFEST_KEYS ))
+'''
 class OwnerReference:
     def __init__(self, **kwargs):
         self.elements = {}
@@ -2694,7 +2904,7 @@ class OwnerReference:
             if ky in self.elements.keys():
                 ret[key] = self.elements[ky]
             else:
-                return ('Invalid key', key)
+                return ('Invalid key name', key)
         return ret
 
     # get the fields that the component utilizes and return them
@@ -2733,6 +2943,12 @@ class OwnerReference:
     def __str__(self):
         return self.to_string()
 
+'''
+Kubernetes SecretItem component for use in API resources
+
+Available manifest keys are:
+    (( MANIFEST_KEYS ))
+'''
 class SecretItem:
     def __init__(self, **kwargs):
         self.elements = {}
@@ -2772,7 +2988,7 @@ class SecretItem:
             if ky in self.elements.keys():
                 ret[key] = self.elements[ky]
             else:
-                return ('Invalid key', key)
+                return ('Invalid key name', key)
         return ret
 
     # get the fields that the component utilizes and return them
@@ -2811,6 +3027,12 @@ class SecretItem:
     def __str__(self):
         return self.to_string()
 
+'''
+Kubernetes PodAntiAffinity component for use in API resources
+
+Available manifest keys are:
+    (( MANIFEST_KEYS ))
+'''
 class PodAntiAffinity:
     def __init__(self, **kwargs):
         self.elements = {}
@@ -2850,7 +3072,7 @@ class PodAntiAffinity:
             if ky in self.elements.keys():
                 ret[key] = self.elements[ky]
             else:
-                return ('Invalid key', key)
+                return ('Invalid key name', key)
         return ret
 
     # get the fields that the component utilizes and return them
@@ -2889,6 +3111,12 @@ class PodAntiAffinity:
     def __str__(self):
         return self.to_string()
 
+'''
+Kubernetes Container component for use in API resources
+
+Available manifest keys are:
+    (( MANIFEST_KEYS ))
+'''
 class Container:
     def __init__(self, **kwargs):
         self.elements = {}
@@ -2928,7 +3156,7 @@ class Container:
             if ky in self.elements.keys():
                 ret[key] = self.elements[ky]
             else:
-                return ('Invalid key', key)
+                return ('Invalid key name', key)
         return ret
 
     # get the fields that the component utilizes and return them
@@ -2967,6 +3195,12 @@ class Container:
     def __str__(self):
         return self.to_string()
 
+'''
+Kubernetes Address component for use in API resources
+
+Available manifest keys are:
+    (( MANIFEST_KEYS ))
+'''
 class Address:
     def __init__(self, **kwargs):
         self.elements = {}
@@ -3006,7 +3240,7 @@ class Address:
             if ky in self.elements.keys():
                 ret[key] = self.elements[ky]
             else:
-                return ('Invalid key', key)
+                return ('Invalid key name', key)
         return ret
 
     # get the fields that the component utilizes and return them
@@ -3045,6 +3279,12 @@ class Address:
     def __str__(self):
         return self.to_string()
 
+'''
+Kubernetes IngressRule component for use in API resources
+
+Available manifest keys are:
+    (( MANIFEST_KEYS ))
+'''
 class IngressRule:
     def __init__(self, **kwargs):
         self.elements = {}
@@ -3084,7 +3324,7 @@ class IngressRule:
             if ky in self.elements.keys():
                 ret[key] = self.elements[ky]
             else:
-                return ('Invalid key', key)
+                return ('Invalid key name', key)
         return ret
 
     # get the fields that the component utilizes and return them
@@ -3123,6 +3363,12 @@ class IngressRule:
     def __str__(self):
         return self.to_string()
 
+'''
+Kubernetes ScopeSelector component for use in API resources
+
+Available manifest keys are:
+    (( MANIFEST_KEYS ))
+'''
 class ScopeSelector:
     def __init__(self, **kwargs):
         self.elements = {}
@@ -3162,7 +3408,7 @@ class ScopeSelector:
             if ky in self.elements.keys():
                 ret[key] = self.elements[ky]
             else:
-                return ('Invalid key', key)
+                return ('Invalid key name', key)
         return ret
 
     # get the fields that the component utilizes and return them
@@ -3201,6 +3447,12 @@ class ScopeSelector:
     def __str__(self):
         return self.to_string()
 
+'''
+Kubernetes UserGroup component for use in API resources
+
+Available manifest keys are:
+    (( MANIFEST_KEYS ))
+'''
 class UserGroup:
     def __init__(self, **kwargs):
         self.elements = {}
@@ -3240,7 +3492,7 @@ class UserGroup:
             if ky in self.elements.keys():
                 ret[key] = self.elements[ky]
             else:
-                return ('Invalid key', key)
+                return ('Invalid key name', key)
         return ret
 
     # get the fields that the component utilizes and return them
@@ -3279,6 +3531,12 @@ class UserGroup:
     def __str__(self):
         return self.to_string()
 
+'''
+Kubernetes PodRequiredAntiAffinity component for use in API resources
+
+Available manifest keys are:
+    (( MANIFEST_KEYS ))
+'''
 class PodRequiredAntiAffinity:
     def __init__(self, **kwargs):
         self.elements = {}
@@ -3318,7 +3576,7 @@ class PodRequiredAntiAffinity:
             if ky in self.elements.keys():
                 ret[key] = self.elements[ky]
             else:
-                return ('Invalid key', key)
+                return ('Invalid key name', key)
         return ret
 
     # get the fields that the component utilizes and return them
@@ -3357,6 +3615,12 @@ class PodRequiredAntiAffinity:
     def __str__(self):
         return self.to_string()
 
+'''
+Kubernetes EnvironmentVariableSource component for use in API resources
+
+Available manifest keys are:
+    (( MANIFEST_KEYS ))
+'''
 class EnvironmentVariableSource:
     def __init__(self, **kwargs):
         self.elements = {}
@@ -3396,7 +3660,7 @@ class EnvironmentVariableSource:
             if ky in self.elements.keys():
                 ret[key] = self.elements[ky]
             else:
-                return ('Invalid key', key)
+                return ('Invalid key name', key)
         return ret
 
     # get the fields that the component utilizes and return them
@@ -3435,6 +3699,12 @@ class EnvironmentVariableSource:
     def __str__(self):
         return self.to_string()
 
+'''
+Kubernetes Limit component for use in API resources
+
+Available manifest keys are:
+    (( MANIFEST_KEYS ))
+'''
 class Limit:
     def __init__(self, **kwargs):
         self.elements = {}
@@ -3474,7 +3744,7 @@ class Limit:
             if ky in self.elements.keys():
                 ret[key] = self.elements[ky]
             else:
-                return ('Invalid key', key)
+                return ('Invalid key name', key)
         return ret
 
     # get the fields that the component utilizes and return them
@@ -3513,6 +3783,12 @@ class Limit:
     def __str__(self):
         return self.to_string()
 
+'''
+Kubernetes NodeAffinity component for use in API resources
+
+Available manifest keys are:
+    (( MANIFEST_KEYS ))
+'''
 class NodeAffinity:
     def __init__(self, **kwargs):
         self.elements = {}
@@ -3552,7 +3828,7 @@ class NodeAffinity:
             if ky in self.elements.keys():
                 ret[key] = self.elements[ky]
             else:
-                return ('Invalid key', key)
+                return ('Invalid key name', key)
         return ret
 
     # get the fields that the component utilizes and return them
@@ -3591,6 +3867,12 @@ class NodeAffinity:
     def __str__(self):
         return self.to_string()
 
+'''
+Kubernetes NetworkPolicyEgress component for use in API resources
+
+Available manifest keys are:
+    (( MANIFEST_KEYS ))
+'''
 class NetworkPolicyEgress:
     def __init__(self, **kwargs):
         self.elements = {}
@@ -3630,7 +3912,7 @@ class NetworkPolicyEgress:
             if ky in self.elements.keys():
                 ret[key] = self.elements[ky]
             else:
-                return ('Invalid key', key)
+                return ('Invalid key name', key)
         return ret
 
     # get the fields that the component utilizes and return them
@@ -3669,6 +3951,12 @@ class NetworkPolicyEgress:
     def __str__(self):
         return self.to_string()
 
+'''
+Kubernetes Subset component for use in API resources
+
+Available manifest keys are:
+    (( MANIFEST_KEYS ))
+'''
 class Subset:
     def __init__(self, **kwargs):
         self.elements = {}
@@ -3708,7 +3996,7 @@ class Subset:
             if ky in self.elements.keys():
                 ret[key] = self.elements[ky]
             else:
-                return ('Invalid key', key)
+                return ('Invalid key name', key)
         return ret
 
     # get the fields that the component utilizes and return them
@@ -3747,6 +4035,12 @@ class Subset:
     def __str__(self):
         return self.to_string()
 
+'''
+Kubernetes DNSConfig component for use in API resources
+
+Available manifest keys are:
+    (( MANIFEST_KEYS ))
+'''
 class DNSConfig:
     def __init__(self, **kwargs):
         self.elements = {}
@@ -3786,7 +4080,7 @@ class DNSConfig:
             if ky in self.elements.keys():
                 ret[key] = self.elements[ky]
             else:
-                return ('Invalid key', key)
+                return ('Invalid key name', key)
         return ret
 
     # get the fields that the component utilizes and return them
@@ -3825,6 +4119,12 @@ class DNSConfig:
     def __str__(self):
         return self.to_string()
 
+'''
+Kubernetes PodAffinity component for use in API resources
+
+Available manifest keys are:
+    (( MANIFEST_KEYS ))
+'''
 class PodAffinity:
     def __init__(self, **kwargs):
         self.elements = {}
@@ -3864,7 +4164,7 @@ class PodAffinity:
             if ky in self.elements.keys():
                 ret[key] = self.elements[ky]
             else:
-                return ('Invalid key', key)
+                return ('Invalid key name', key)
         return ret
 
     # get the fields that the component utilizes and return them
@@ -3903,6 +4203,12 @@ class PodAffinity:
     def __str__(self):
         return self.to_string()
 
+'''
+Kubernetes MatchExpression component for use in API resources
+
+Available manifest keys are:
+    (( MANIFEST_KEYS ))
+'''
 class MatchExpression:
     def __init__(self, **kwargs):
         self.elements = {}
@@ -3942,7 +4248,7 @@ class MatchExpression:
             if ky in self.elements.keys():
                 ret[key] = self.elements[ky]
             else:
-                return ('Invalid key', key)
+                return ('Invalid key name', key)
         return ret
 
     # get the fields that the component utilizes and return them
@@ -3981,6 +4287,12 @@ class MatchExpression:
     def __str__(self):
         return self.to_string()
 
+'''
+Kubernetes Probe component for use in API resources
+
+Available manifest keys are:
+    (( MANIFEST_KEYS ))
+'''
 class Probe:
     def __init__(self, **kwargs):
         self.elements = {}
@@ -4020,7 +4332,7 @@ class Probe:
             if ky in self.elements.keys():
                 ret[key] = self.elements[ky]
             else:
-                return ('Invalid key', key)
+                return ('Invalid key name', key)
         return ret
 
     # get the fields that the component utilizes and return them
@@ -4059,6 +4371,12 @@ class Probe:
     def __str__(self):
         return self.to_string()
 
+'''
+Kubernetes Port component for use in API resources
+
+Available manifest keys are:
+    (( MANIFEST_KEYS ))
+'''
 class Port:
     def __init__(self, **kwargs):
         self.elements = {}
@@ -4098,7 +4416,7 @@ class Port:
             if ky in self.elements.keys():
                 ret[key] = self.elements[ky]
             else:
-                return ('Invalid key', key)
+                return ('Invalid key name', key)
         return ret
 
     # get the fields that the component utilizes and return them
@@ -4137,6 +4455,12 @@ class Port:
     def __str__(self):
         return self.to_string()
 
+'''
+Kubernetes ServiceAccountSecret component for use in API resources
+
+Available manifest keys are:
+    (( MANIFEST_KEYS ))
+'''
 class ServiceAccountSecret:
     def __init__(self, **kwargs):
         self.elements = {}
@@ -4176,7 +4500,7 @@ class ServiceAccountSecret:
             if ky in self.elements.keys():
                 ret[key] = self.elements[ky]
             else:
-                return ('Invalid key', key)
+                return ('Invalid key name', key)
         return ret
 
     # get the fields that the component utilizes and return them
@@ -4215,6 +4539,12 @@ class ServiceAccountSecret:
     def __str__(self):
         return self.to_string()
 
+'''
+Kubernetes ReadinessGate component for use in API resources
+
+Available manifest keys are:
+    (( MANIFEST_KEYS ))
+'''
 class ReadinessGate:
     def __init__(self, **kwargs):
         self.elements = {}
@@ -4254,7 +4584,7 @@ class ReadinessGate:
             if ky in self.elements.keys():
                 ret[key] = self.elements[ky]
             else:
-                return ('Invalid key', key)
+                return ('Invalid key name', key)
         return ret
 
     # get the fields that the component utilizes and return them
@@ -4293,6 +4623,12 @@ class ReadinessGate:
     def __str__(self):
         return self.to_string()
 
+'''
+Kubernetes Toleration component for use in API resources
+
+Available manifest keys are:
+    (( MANIFEST_KEYS ))
+'''
 class Toleration:
     def __init__(self, **kwargs):
         self.elements = {}
@@ -4332,7 +4668,7 @@ class Toleration:
             if ky in self.elements.keys():
                 ret[key] = self.elements[ky]
             else:
-                return ('Invalid key', key)
+                return ('Invalid key name', key)
         return ret
 
     # get the fields that the component utilizes and return them
@@ -4371,6 +4707,12 @@ class Toleration:
     def __str__(self):
         return self.to_string()
 
+'''
+Kubernetes NodeRequiredAffinity component for use in API resources
+
+Available manifest keys are:
+    (( MANIFEST_KEYS ))
+'''
 class NodeRequiredAffinity:
     def __init__(self, **kwargs):
         self.elements = {}
@@ -4410,7 +4752,7 @@ class NodeRequiredAffinity:
             if ky in self.elements.keys():
                 ret[key] = self.elements[ky]
             else:
-                return ('Invalid key', key)
+                return ('Invalid key name', key)
         return ret
 
     # get the fields that the component utilizes and return them
@@ -4449,6 +4791,12 @@ class NodeRequiredAffinity:
     def __str__(self):
         return self.to_string()
 
+'''
+Kubernetes MatchLabelExpression component for use in API resources
+
+Available manifest keys are:
+    (( MANIFEST_KEYS ))
+'''
 class MatchLabelExpression:
     def __init__(self, **kwargs):
         self.elements = {}
@@ -4488,7 +4836,7 @@ class MatchLabelExpression:
             if ky in self.elements.keys():
                 ret[key] = self.elements[ky]
             else:
-                return ('Invalid key', key)
+                return ('Invalid key name', key)
         return ret
 
     # get the fields that the component utilizes and return them
@@ -4527,6 +4875,12 @@ class MatchLabelExpression:
     def __str__(self):
         return self.to_string()
 
+'''
+Kubernetes Sysctl component for use in API resources
+
+Available manifest keys are:
+    (( MANIFEST_KEYS ))
+'''
 class Sysctl:
     def __init__(self, **kwargs):
         self.elements = {}
@@ -4566,7 +4920,7 @@ class Sysctl:
             if ky in self.elements.keys():
                 ret[key] = self.elements[ky]
             else:
-                return ('Invalid key', key)
+                return ('Invalid key name', key)
         return ret
 
     # get the fields that the component utilizes and return them
@@ -4605,6 +4959,12 @@ class Sysctl:
     def __str__(self):
         return self.to_string()
 
+'''
+Kubernetes HTTPHeader component for use in API resources
+
+Available manifest keys are:
+    (( MANIFEST_KEYS ))
+'''
 class HTTPHeader:
     def __init__(self, **kwargs):
         self.elements = {}
@@ -4644,7 +5004,7 @@ class HTTPHeader:
             if ky in self.elements.keys():
                 ret[key] = self.elements[ky]
             else:
-                return ('Invalid key', key)
+                return ('Invalid key name', key)
         return ret
 
     # get the fields that the component utilizes and return them
@@ -4683,6 +5043,12 @@ class HTTPHeader:
     def __str__(self):
         return self.to_string()
 
+'''
+Kubernetes ResourceAttribute component for use in API resources
+
+Available manifest keys are:
+    (( MANIFEST_KEYS ))
+'''
 class ResourceAttribute:
     def __init__(self, **kwargs):
         self.elements = {}
@@ -4722,7 +5088,7 @@ class ResourceAttribute:
             if ky in self.elements.keys():
                 ret[key] = self.elements[ky]
             else:
-                return ('Invalid key', key)
+                return ('Invalid key name', key)
         return ret
 
     # get the fields that the component utilizes and return them
@@ -4761,6 +5127,12 @@ class ResourceAttribute:
     def __str__(self):
         return self.to_string()
 
+'''
+Kubernetes ClientConfig component for use in API resources
+
+Available manifest keys are:
+    (( MANIFEST_KEYS ))
+'''
 class ClientConfig:
     def __init__(self, **kwargs):
         self.elements = {}
@@ -4800,7 +5172,7 @@ class ClientConfig:
             if ky in self.elements.keys():
                 ret[key] = self.elements[ky]
             else:
-                return ('Invalid key', key)
+                return ('Invalid key name', key)
         return ret
 
     # get the fields that the component utilizes and return them
@@ -4839,6 +5211,12 @@ class ClientConfig:
     def __str__(self):
         return self.to_string()
 
+'''
+Kubernetes VolumeDevice component for use in API resources
+
+Available manifest keys are:
+    (( MANIFEST_KEYS ))
+'''
 class VolumeDevice:
     def __init__(self, **kwargs):
         self.elements = {}
@@ -4878,7 +5256,7 @@ class VolumeDevice:
             if ky in self.elements.keys():
                 ret[key] = self.elements[ky]
             else:
-                return ('Invalid key', key)
+                return ('Invalid key name', key)
         return ret
 
     # get the fields that the component utilizes and return them
@@ -4917,6 +5295,12 @@ class VolumeDevice:
     def __str__(self):
         return self.to_string()
 
+'''
+Kubernetes PodPreferredAntiAffinity component for use in API resources
+
+Available manifest keys are:
+    (( MANIFEST_KEYS ))
+'''
 class PodPreferredAntiAffinity:
     def __init__(self, **kwargs):
         self.elements = {}
@@ -4956,7 +5340,7 @@ class PodPreferredAntiAffinity:
             if ky in self.elements.keys():
                 ret[key] = self.elements[ky]
             else:
-                return ('Invalid key', key)
+                return ('Invalid key name', key)
         return ret
 
     # get the fields that the component utilizes and return them
@@ -4995,6 +5379,12 @@ class PodPreferredAntiAffinity:
     def __str__(self):
         return self.to_string()
 
+'''
+Kubernetes PodRequiredAffinity component for use in API resources
+
+Available manifest keys are:
+    (( MANIFEST_KEYS ))
+'''
 class PodRequiredAffinity:
     def __init__(self, **kwargs):
         self.elements = {}
@@ -5034,7 +5424,7 @@ class PodRequiredAffinity:
             if ky in self.elements.keys():
                 ret[key] = self.elements[ky]
             else:
-                return ('Invalid key', key)
+                return ('Invalid key name', key)
         return ret
 
     # get the fields that the component utilizes and return them
@@ -5073,6 +5463,12 @@ class PodRequiredAffinity:
     def __str__(self):
         return self.to_string()
 
+'''
+Kubernetes Taint component for use in API resources
+
+Available manifest keys are:
+    (( MANIFEST_KEYS ))
+'''
 class Taint:
     def __init__(self, **kwargs):
         self.elements = {}
@@ -5112,7 +5508,7 @@ class Taint:
             if ky in self.elements.keys():
                 ret[key] = self.elements[ky]
             else:
-                return ('Invalid key', key)
+                return ('Invalid key name', key)
         return ret
 
     # get the fields that the component utilizes and return them
@@ -5151,6 +5547,12 @@ class Taint:
     def __str__(self):
         return self.to_string()
 
+'''
+Kubernetes ContainerSpec component for use in API resources
+
+Available manifest keys are:
+    (( MANIFEST_KEYS ))
+'''
 class ContainerSpec:
     def __init__(self, **kwargs):
         self.elements = {}
@@ -5190,7 +5592,7 @@ class ContainerSpec:
             if ky in self.elements.keys():
                 ret[key] = self.elements[ky]
             else:
-                return ('Invalid key', key)
+                return ('Invalid key name', key)
         return ret
 
     # get the fields that the component utilizes and return them
@@ -5229,6 +5631,12 @@ class ContainerSpec:
     def __str__(self):
         return self.to_string()
 
+'''
+Kubernetes ClusterRoleBindingSubject component for use in API resources
+
+Available manifest keys are:
+    (( MANIFEST_KEYS ))
+'''
 class ClusterRoleBindingSubject:
     def __init__(self, **kwargs):
         self.elements = {}
@@ -5268,7 +5676,7 @@ class ClusterRoleBindingSubject:
             if ky in self.elements.keys():
                 ret[key] = self.elements[ky]
             else:
-                return ('Invalid key', key)
+                return ('Invalid key name', key)
         return ret
 
     # get the fields that the component utilizes and return them
@@ -5307,6 +5715,12 @@ class ClusterRoleBindingSubject:
     def __str__(self):
         return self.to_string()
 
+'''
+Kubernetes CSINodeDriver component for use in API resources
+
+Available manifest keys are:
+    (( MANIFEST_KEYS ))
+'''
 class CSINodeDriver:
     def __init__(self, **kwargs):
         self.elements = {}
@@ -5346,7 +5760,7 @@ class CSINodeDriver:
             if ky in self.elements.keys():
                 ret[key] = self.elements[ky]
             else:
-                return ('Invalid key', key)
+                return ('Invalid key name', key)
         return ret
 
     # get the fields that the component utilizes and return them

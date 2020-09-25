@@ -10,6 +10,11 @@ Welcome to k8sGen's documentation!
    :maxdepth: 2
    :caption: Contents:
 
+   Components.rst
+   APIResources.rst
+
+.. _Address:
+
 Indices and tables
 ==================
 

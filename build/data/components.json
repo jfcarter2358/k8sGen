@@ -1,0 +1,494 @@
+{
+    "build": {
+        "Metadata": "APIService.metadata",
+        "NodeAffinity": "CronJob.spec.jobTemplate.spec.template.spec.affinity.nodeAffinity",
+        "PodAffinity": "CronJob.spec.jobTemplate.spec.template.spec.affinity.podAffinity",
+        "PodAntiAffinity": "CronJob.spec.jobTemplate.spec.template.spec.affinity.podAntiAffinity",
+        "NodePreferredAffinity": "CronJob.spec.jobTemplate.spec.template.spec.affinity.nodeAffinity.preferredDuringSchedulingIgnoredDuringExecution",
+        "PodPreferredAffinity": "CronJob.spec.jobTemplate.spec.template.spec.affinity.podAffinity.preferredDuringSchedulingIgnoredDuringExecution",
+        "PodPreferredAntiAffinity": "CronJob.spec.jobTemplate.spec.template.spec.affinity.podAntiAffinity.preferredDuringSchedulingIgnoredDuringExecution",
+        "NodeRequiredAffinity": "CronJob.spec.jobTemplate.spec.template.spec.affinity.nodeAffinity.requiredDuringSchedulingIgnoredDuringExecution",
+        "PodRequiredAffinity": "CronJob.spec.jobTemplate.spec.template.spec.affinity.podAffinity.requiredDuringSchedulingIgnoredDuringExecution",
+        "PodRequiredAntiAffinity": "CronJob.spec.jobTemplate.spec.template.spec.affinity.podAntiAffinity.requiredDuringSchedulingIgnoredDuringExecution",
+        "Container": "CronJob.spec.jobTemplate.spec.template.spec.containers",
+        "DNSConfig": "CronJob.spec.jobTemplate.spec.template.spec.dnsConfig",
+        "DNSConfigOptions": "CronJob.spec.jobTemplate.spec.template.spec.dnsConfig.options",
+        "ImagePullSecret": "CronJob.spec.jobTemplate.spec.template.spec.imagePullSecrets",
+        "SecurityContext": "CronJob.spec.jobTemplate.spec.template.spec.securityContext",
+        "Sysctl": "CronJob.spec.jobTemplate.spec.template.spec.securityContext.sysctls",
+        "Volume": "CronJob.spec.jobTemplate.spec.template.spec.volumes",
+        "ConfigMapItem": "CronJob.spec.jobTemplate.spec.template.spec.volumes.projected.sources.configMap.items",
+        "DownwardAPIItem": "CronJob.spec.jobTemplate.spec.template.spec.volumes.projected.sources.downwardAPI.items",
+        "SecretItem": "CronJob.spec.jobTemplate.spec.template.spec.volumes.projected.sources.secret.items",
+        "ProjectedVolumeSource": "CronJob.spec.jobTemplate.spec.template.spec.volumes.projected.sources",
+        "MatchExpression": "ClusterRole.aggregationRule.clusterRoleSelectors.matchExpressions",
+        "HostAlias": "CronJob.spec.jobTemplate.spec.template.spec.hostAliases",
+        "Toleration": "CronJob.spec.jobTemplate.spec.template.spec.tolerations",
+        "Port": "Endpoints.subsets.ports",
+        "Address": "Endpoints.subsets.addresses",
+        "IngressRule": "Ingress.spec.rules",
+        "IngressRulePath": "Ingress.spec.rules.http.paths",
+        "Limit": "LimitRange.spec.limits",
+        "ResourceAttribute": "LocalSubjectAccessReview.spec.resourceAttributes",
+        "NonResourceAttribute": "LocalSubjectAccessReview.spec.nonResourceAttributes",
+        "ClientConfig": "CustomResourceDefinition.spec.conversion.webhookClientConfig",
+        "Webhook": "MutatingWebhookConfiguration.webhooks",
+        "ClusterRule": "MutatingWebhookConfiguration.webhooks.rules",
+        "RoleRule": "Role.rules",
+        "Subset": "Endpoints.subsets",
+        "ContainerSpec": "Job.spec.template.spec",
+        "ReadinessGate": "Pod.spec.readinessGates",
+        "UserGroup": "PodSecurityPolicy.spec.fsGroup",
+        "Range": "PodSecurityPolicy.spec.fsGroup.ranges",
+        "Probe": "Deployment.spec.template.spec.containers.livenessProbe",
+        "VolumeMount": "Deployment.spec.template.spec.containers.volumeMounts",
+        "ManagedField": "Deployment.metadata.managedFields",
+        "OwnerReference": "Deployment.metadata.ownerReferences",
+        "EnvironmentVariable": "CronJob.spec.jobTemplate.spec.template.spec.containers.env",
+        "EnvironmentVariableSource": "CronJob.spec.jobTemplate.spec.template.spec.containers.envFrom",
+        "HTTPHeader": "CronJob.spec.jobTemplate.spec.template.spec.containers.lifecycle.postStart.httpGet.httpHeaders",
+        "LifecycleDefinition": "CronJob.spec.jobTemplate.spec.template.spec.containers.lifecycle.postStart",
+        "VolumeDevice": "CronJob.spec.jobTemplate.spec.template.spec.containers.volumeDevices",
+        "NodeSelectorTerm": "CronJob.spec.jobTemplate.spec.template.spec.affinity.nodeAffinity.requiredDuringSchedulingIgnoredDuringExecution.nodeSelectorTerms",
+        "Selector": "ClusterRole.aggregationRule.clusterRoleSelectors",
+        "ClusterRoleBindingSubject": "ClusterRoleBinding.subjects",
+        "ComponentStatusCondition": "ComponentStatus.conditions",
+        "CSINodeDriver": "CSINode.spec.drivers",
+        "IngressTLS": "Ingress.spec.tls",
+        "PrinterColumn": "CustomResourceDefinition.spec.additionalPrinterColumns",
+        "ResourceDefinitionVersion": "CustomResourceDefinition.spec.versions",
+        "ServicePort": "Service.spec.ports",
+        "ServiceAccountSecret": "ServiceAccount.secrets",
+        "NetworkPolicyEgress": "NetworkPolicy.spec.egress",
+        "NetworkPolicyIngress": "NetworkPolicy.spec.ingress",
+        "Taint": "Node.spec.taints",
+        "AllowedCSIDriver": "PodSecurityPolicy.spec.allowedCSIDrivers",
+        "AllowedFlexVolume": "PodSecurityPolicy.spec.allowedFlexVolumes",
+        "AllowedHostPath": "PodSecurityPolicy.spec.allowedHostPaths",
+        "ScopeSelector": "ResourceQuota.spec.scopeSelector.matchExpressions",
+        "VolumeClaimTemplate": "StatefulSet.spec.volumeClaimTemplates",
+        "MatchLabelExpression": "StorageClass.allowedTopologies.matchLabelExpressions",
+        "AllowedTopology": "StorageClass.allowedTopologies"
+    },
+    "replace": {
+        "AllowedTopology.matchLabelExpressions": "<[]COMPONENT.MatchLabelExpression>",
+        "APIService.metadata": "<COMPONENT.Metadata>",
+        "Binding.metadata": "<COMPONENT.Metadata>",
+        "CertificateSigningRequest.metadata": "<COMPONENT.Metadata>",
+        "ClusterRole.metadata": "<COMPONENT.Metadata>",
+        "ClusterRole.aggregationRule.clusterRoleSelectors": "<[]COMPONENT.ClusterRoleSelector>",
+        "ClusterRole.rules": "<[]COMPONENT.ClusterRule>",
+        "ClusterRoleBinding.metadata": "<COMPONENT.Metadata>",
+        "ClusterRoleBinding.subjects": "<[]COMPONENT.ClusterRoleBindingSubject>",
+        "ComponentStatus.metadata": "<COMPONENT.Metadata>",
+        "ComponentStatus.conditions": "<[]COMPONENT.ComponentStatusCondition>",
+        "ConfigMap.metadata": "<COMPONENT.Metadata>",
+        "Container.env": "<[]COMPONENT.EnvironmentVariable>",
+        "Container.envFrom": "<[]COMPONENT.EnvironmentVariableSource>",
+        "Container.lifecycle.postStart": "<[]COMPONENT.LifecycleDefinition>",
+        "Container.lifecycle.preStop": "<[]COMPONENT.LifecycleDefinition>",
+        "Container.livenessProbe": "<COMPONENT.Probe>",
+        "Container.ports": "<[]COMPONENT.Port>",
+        "Container.readinessProbe": "<COMPONENT.Probe>",
+        "Container.securityContext": "<COMPONENT.SecurityContext>",
+        "Container.volumeDevices": "<[]COMPONENT.VolumeDevice>",
+        "Container.volumeMounts": "<[]COMPONENT.VolumeMount>",
+        "ContainerSpec.affinity.nodeAffinity": "<COMPONENT.NodeAffinity>",
+        "ContainerSpec.affinity.podAffinity": "<COMPONENT.PodAffinity>",
+        "ContainerSpec.affinity.podAntiAffinity": "<COMPONENT.PodAntiAffinity>",
+        "ContainerSpec.containers": "<[]COMPONENT.Container>",
+        "ContainerSpec.dnsConfig": "<COMPONENT.DNSConfig>",
+        "ContainerSpec.hostAliases": "<[]COMPONENT.HostAlias>",
+        "ContainerSpec.imagePullSecrets": "<[]COMPONENT.ImagePullSecret>",
+        "ContainerSpec.initContainers": "<[]COMPONENT.Container>",
+        "ContainerSpec.readinessGates": "<[]COMPONENT.ReadinessGate>",
+        "ContainerSpec.securityContext": "<COMPONENT.SecurityContext>",
+        "ContainerSpec.tolerations": "<[]COMPONENT.Tolerations>",
+        "ContainerSpec.volumes": "<[]COMPONENT.Volume>",
+        "ControllerRevision.metadata": "<COMPONENT.Metadata>",
+        "CronJob.metadata": "<COMPONENT.Metadata>",
+        "CronJob.spec.jobTemplate.metadata": "<COMPONENT.Metadata>",
+        "CronJob.spec.jobTemplate.spec.selector": "<COMPONENT.Selector>",
+        "CronJob.spec.jobTemplate.spec.template.metadata": "<COMPONENT.Metadata>",
+        "CronJob.spec.jobTemplate.spec.template.spec": "<COMPONENT.ContainerSpec>",
+        "CSIDriver.metadata": "<COMPONENT.Metadata>",
+        "CSINode.metadata": "<COMPONENT.Metadata>",
+        "CSINode.spec.drivers": "<[]COMPONENT.CSINodeDriver>",
+        "CustomResourceDefinition.metadata": "<COMPONENT.Metadata>",
+        "CustomResourceDefinition.spec.additionalPrinterColumns": "<[]COMPONENT.PrinterColumn>",
+        "CustomResourceDefinition.spec.conversion.webhookClientConfig": "<COMPONENT.ClientConfig>",
+        "CustomResourceDefinition.spec.versions": "<[]COMPONENT.ResourceDefinitionVersion>",
+        "DaemonSet.spec.template.spec": "<COMPONENT.ContainerSpec>",
+        "DaemonSet.metadata": "<COMPONENT.Metadata>",
+        "DaemonSet.spec.selector": "<COMPONENT.Selector>",
+        "DaemonSet.spec.template.metadata": "<COMPONENT.Metadata>",
+        "Deployment.spec.template.spec": "<COMPONENT.ContainerSpec>",
+        "Deployment.metadata": "<COMPONENT.Metadata>",
+        "Deployment.spec.selector": "<COMPONENT.Selector>",
+        "Deployment.spec.template.metadata": "<COMPONENT.Metadata>",
+        "DNSConfig.options": "<[]COMPONENTS.DNSConfigOptions>",
+        "Endpoints.metadata": "<COMPONENT.Metadata>",
+        "Endpoints.subsets": "<[]COMPONENT.subsets>",
+        "Event.metadata": "<COMPONENT.Metadata>",
+        "HorizontalPodAutoscaler.metadata": "<COMPONENT.Metadata>",
+        "Ingress.metadata": "<COMPONENT.Metadata>",
+        "Ingress.spec.rules": "<[]COMPONENT.IngressRule>",
+        "Ingress.spec.tls": "<[]COMPONENT.IngressTLS>",
+        "IngressRule.http.paths": "<[]COMPONENT.IngressRulePath>",
+        "Job.spec.template.spec": "<COMPONENT.ContainerSpec>",
+        "Job.metadata": "<COMPONENT.Metadata>",
+        "Job.spec.selector": "<COMPONENT.Selector>",
+        "Job.spec.template.metadata": "<COMPONENT.Metadata>",
+        "Lease.metadata": "<COMPONENT.Metadata>",
+        "LifecycleDefinition.httpGet.httpHeaders": "<[]COMPONENT.HTTPHeader>",
+        "LimitRange.metadata": "<COMPONENT.Metadata>",
+        "LimitRange.spec.limits": "<[]COMPONENT.Limit>",
+        "LocalSubjectAccessReview.metadata": "<COMPONENT.Metadata>",
+        "LocalSubjectAccessReview.nonResourceAttributes": "<[]COMPONENT.NonResourceAttribute>",
+        "LocalSubjectAccessReview.resourceAttributes": "<COMPONENT.ResourceAttribute>",
+        "Metadata.managedFields": "<[]COMPONENT.ManagedField>",
+        "Metadata.ownerReferences": "<[]COMPONENT.OwnerReference>",
+        "MutatingWebhookConfiguration.metadata": "<COMPONENT.Metadata>",
+        "MutatingWebhookConfiguration.webhooks": "<[]COMPONENT.Webhook>",
+        "Namespace.metadata": "<COMPONENT.Metadata>",
+        "NetworkPolicy.metadata": "<COMPONENT.Metadata>",
+        "NetworkPolicy.spec.egress": "<[]COMPONENT.NetworkPolicyEgress>",
+        "NetworkPolicy.spec.ingress": "<[]COMPONENT.NetworkPolicyIngress>",
+        "NetworkPolicy.spec.podSelector": "<COMPONENT.Selector>",
+        "Node.metadata": "<COMPONENT.Metadata>",
+        "Node.spec.taints": "<[]COMPONENT.Taint>",
+        "NodeAffinity.preferredDuringSchedulingIgnoredDuringExecution": "<[]COMPONENT.NodePreferredAffinity>",
+        "NodeAffinity.requiredDuringSchedulingIgnoredDuringExecution": "<[]COMPONENT.NodeRequiredAffinity>",
+        "NodePreferredAffinity.preference": "<COMPONENT.NodeSelectorTerm>",
+        "NodeRequiredAffinity.nodeSelectorTerms": "<[]COMPONENT.NodeSelectorTerm>",
+        "NodeSelectorTerm.matchExpressions": "<[]COMPONENT.MatchExpression>",
+        "NodeSelectorTerm.matchFields": "<[]COMPONENT.MatchExpression>",
+        "PersistentVolume.metadata": "<COMPONENT.Metadata>",
+        "PersistentVolume.nodeAffinity": "<COMPONENT.NodeAffinity>",
+        "PersistentVolume.spec.nodeAffinity.required.nodeSelectorTerms": "<[]COMPONENT.NodeSelectorTerm>",
+        "PersistentVolumeClaim.metadata": "<COMPONENT.Metadata>",
+        "PersistentVolumeClaim.spec.selector": "<COMPONENT.Selector>",
+        "Pod.metadata": "<COMPONENT.Metadata>",
+        "Pod.spec.affinity.nodeAffinity": "<COMPONENT.NodeAffinity>",
+        "Pod.spec.affinity.podAffinity": "<COMPONENT.PodAffinity>",
+        "Pod.spec.affinity.podAntiAffinity": "<COMPONENT.PodAntiAffinity>",
+        "Pod.spec.containers": "<[]COMPONENT.Container>",
+        "Pod.spec.dnsConfig": "<COMPONENT.DNSConfig>",
+        "Pod.spec.hostAliases": "<[]COMPONENT.HostAlias>",
+        "Pod.spec.imagePullSecrets": "<[]COMPONENT.ImagePullSecret>",
+        "Pod.spec.initContainers": "<[]COMPONENT.Container>",
+        "Pod.spec.readinessGates": "<[]COMPONENT.ReadinessGate>",
+        "Pod.spec.securityContext": "<COMPONENT.SecurityContext>",
+        "Pod.spec.tolerations": "<[]COMPONENT.Tolerations>",
+        "Pod.spec.volumes": "<[]COMPONENT.Volume>",
+        "PodAffinity.preferredDuringSchedulingIgnoredDuringExecution": "<[]COMPONENT.PodPreferredAffinity>",
+        "PodAffinity.requiredDuringSchedulingIgnoredDuringExecution": "<[]COMPONENT.PodRequiredAffinity>",
+        "PodAntiAffinity.preferredDuringSchedulingIgnoredDuringExecution": "<[]COMPONENT.PodPreferredAntiAffinity>",
+        "PodAntiAffinity.requiredDuringSchedulingIgnoredDuringExecution": "<[]COMPONENT.PodRequiredAntiAffinity>",
+        "PodDisruptionBudget.metadata": "<COMPONENT.Metadata>",
+        "PodDisruptionBudget.spec.selector": "<COMPONENT.Selector>",
+        "PodPreferredAffinity.podAffinityTerm.labelSelector.matchExpressions": "<[]COMPONENT.MatchExpression>",
+        "PodPreferredAntiAffinity.podAffinityTerm.labelSelector.matchExpressions": "<[]COMPONENT.MatchExpression>",
+        "PodRequiredAffinity.labelSelector.matchExpressions": "<[]COMPONENT.MatchExpression>",
+        "PodRequiredAntiAffinity.labelSelector.matchExpressions": "<[]COMPONENT.MatchExpression>",
+        "PodSecurityPolicy.metadata": "<COMPONENT.Metadata>",
+        "PodSecurityPolicy.spec.runAsGroup": "<COMPONENT.UserGroup>",
+        "PodSecurityPolicy.spec.runAsUser": "<COMPONENT.UserGroup>",
+        "PodSecurityPolicy.spec.supplementalGroups": "<COMPONENT.UserGroup>",
+        "PodSecurityPolicy.spec.volumes": "<[]COMPONENT.Volume>",
+        "PodSecurityPolicy.spec.allowedCSIDrivers": "<[]COMPONENT.AllowedCSIDriver>",
+        "PodSecurityPolicy.spec.allowedFlexVolumes": "<[]COMPONENT.AllowedFlexVolume>",
+        "PodSecurityPolicy.spec.allowedHostPaths": "<[]COMPONENT.AllowedHostPath>",
+        "PodSecurityPolicy.spec.fsGroup": "<COMPONENT.UserGroup>",
+        "PodSecurityPolicy.spec.hostPorts": "<[]COMPONENT.Range>",
+        "PodTemplate.metadata": "<COMPONENT.Metadata>",
+        "PodTemplate.template.metadata": "<COMPONENT.Metadata>",
+        "PodTemplate.template.spec.affinity.nodeAffinity": "<COMPONENT.NodeAffinity>",
+        "PodTemplate.template.spec.affinity.podAffinity": "<COMPONENT.PodAffinity>",
+        "PodTemplate.template.spec.affinity.podAntiAffinity": "<COMPONENT.PodAntiAffinity>",
+        "PodTemplate.template.spec.containers": "<[]COMPONENT.Container>",
+        "PodTemplate.template.spec.dnsConfig": "<COMPONENT.DNSConfig>",
+        "PodTemplate.template.spec.hostAliases": "<[]COMPONENT.HostAlias>",
+        "PodTemplate.template.spec.imagePullSecrets": "<[]COMPONENT.ImagePullSecret>",
+        "PodTemplate.template.spec.initContainers": "<[]COMPONENT.Container>",
+        "PodTemplate.template.spec.readinessGates": "<[]COMPONENT.ReadinessGate>",
+        "PodTemplate.template.spec.securityContext": "<COMPONENT.SecurityContext>",
+        "PodTemplate.template.spec.tolerations": "<[]COMPONENT.Tolerations>",
+        "PodTemplate.template.spec.volumes": "<[]COMPONENT.Volume>",
+        "PriorityClass.metadata": "<COMPONENT.Metadata>",
+        "Probe.httpGet.httpHeaders":  "<[]COMPONENT.HTTPHeader>",
+        "ProjectedVolumeSource.configMap.items": "<[]COMPONENT.ConfigMapItem>", 
+        "ProjectedVolumeSource.downwardAPI.items": "<[]COMPONENT.DownwardAPIItem>", 
+        "ProjectedVolumeSource.secret.items": "<[]COMPONENT.SecretItem>", 
+        "ReplicaSet.spec.template.spec": "<COMPONENT.ContainerSpec>",
+        "ReplicaSet.metadata": "<COMPONENT.Metadata>",
+        "ReplicaSet.spec.selector": "<COMPONENT.Selector>",
+        "ReplicaSet.spec.template.metadata": "<COMPONENT.Metadata>",
+        "ReplicationController.metadata": "<COMPONENT.Metadata>",
+        "ReplicationController.spec.template.metadata": "<COMPONENT.Metadata>",
+        "ReplicationController.spec.template.spec.affinity.nodeAffinity": "<COMPONENT.NodeAffinity>",
+        "ReplicationController.spec.template.spec.affinity.podAffinity": "<COMPONENT.PodAffinity>",
+        "ReplicationController.spec.template.spec.affinity.podAntiAffinity": "<COMPONENT.PodAntiAffinity>",
+        "ReplicationController.spec.template.spec.containers": "<[]COMPONENT.Container>",
+        "ReplicationController.spec.template.spec.dnsConfig": "<COMPONENT.DNSConfig>",
+        "ReplicationController.spec.template.spec.hostAliases": "<[]COMPONENT.HostAlias>",
+        "ReplicationController.spec.template.spec.imagePullSecrets": "<[]COMPONENT.ImagePullSecret>",
+        "ReplicationController.spec.template.spec.initContainers": "<[]COMPONENT.Container>",
+        "ReplicationController.spec.template.spec.readinessGates": "<[]COMPONENT.ReadinessGate>",
+        "ReplicationController.spec.template.spec.securityContext": "<COMPONENT.SecurityContext>",
+        "ReplicationController.spec.template.spec.tolerations": "<[]COMPONENT.Tolerations>",
+        "ReplicationController.spec.template.spec.volumes": "<[]COMPONENT.Volume>",
+        "ResourceDefinitionVersion.additionalPrinterColumns": "<[]COMPONENT.PrinterColumn>",
+        "ResourceQuota.metadata": "<COMPONENT.Metadata>",
+        "ResourceQuota.spec.scopeSelector.matchExpressions": "<[]COMPONENT.ScopeSelector>",
+        "Role.metadata": "<COMPONENT.Metadata>",
+        "Role.rules": "<[]COMPONENT.RoleRule",
+        "RoleBinding.metadata": "<COMPONENT.Metadata>",
+        "RoleBinding.subjects": "<[]COMPONENT.ClusterRoleBindingSubject>",
+        "RuntimeClass.metadata": "<COMPONENT.Metadata>",
+        "Secret.metadata": "<COMPONENT.Metadata>",
+        "SecurityContext.fsGroup": "<COMPONENT.UserGroup>",
+        "SecurityContext.runAsGroup": "<COMPONENT.UserGroup>",
+        "SecurityContext.runAsUser": "<COMPONENT.UserGroup>",
+        "SecurityContext.supplementalGroups": "<COMPONENT.UserGroup>",
+        "SecurityContext.sysctls": "<[]COMPONENTS.Sysctl>",
+        "Selector.matchExpressions": "<[]COMPONENT.MatchExpression>",
+        "SelfSubjectAccessReview.metadata": "<COMPONENT.Metadata>",
+        "SelfSubjectAccessReview.spec.nonResourceAttributes": "<[]COMPONENT.NonResourceAttribute>",
+        "SelfSubjectAccessReview.spec.resourceAttributes": "<COMPONENT.ResourceAttribute>",
+        "SelfSubjectRulesReview.metadata": "<COMPONENT.Metadata>",
+        "Service.metadata": "<COMPONENT.Metadata>",
+        "Service.spec.ports": "<[]COMPONENT.ServicePort>",
+        "ServiceAccount.metadata": "<COMPONENT.Metadata>",
+        "ServiceAccount.imagePullSecrets": "<[]COMPONENT.ImagePullSecret>",
+        "ServiceAccount.secrets": "<[]COMPONENT.ServiceAccountSecret>",
+        "StatefulSet.metadata": "<COMPONENT.Metadata>",
+        "StatefulSet.spec.selector": "<COMPONENT.Selector>",
+        "StatefulSet.spec.template.metadata": "<COMPONENT.Metadata>",
+        "StatefulSet.spec.template.spec.affinity.nodeAffinity": "<COMPONENT.NodeAffinity>",
+        "StatefulSet.spec.template.spec.affinity.podAffinity": "<COMPONENT.PodAffinity>",
+        "StatefulSet.spec.template.spec.affinity.podAntiAffinity": "<COMPONENT.PodAntiAffinity>",
+        "StatefulSet.spec.template.spec.containers": "<[]COMPONENT.Container>",
+        "StatefulSet.spec.template.spec.dnsConfig": "<COMPONENT.DNSConfig>",
+        "StatefulSet.spec.template.spec.hostAliases": "<[]COMPONENT.HostAlias>",
+        "StatefulSet.spec.template.spec.imagePullSecrets": "<[]COMPONENT.ImagePullSecret>",
+        "StatefulSet.spec.template.spec.initContainers": "<[]COMPONENT.Container>",
+        "StatefulSet.spec.template.spec.readinessGates": "<[]COMPONENT.ReadinessGate>",
+        "StatefulSet.spec.template.spec.securityContext": "<COMPONENT.SecurityContext>",
+        "StatefulSet.spec.template.spec.tolerations": "<[]COMPONENT.Tolerations>",
+        "StatefulSet.spec.template.spec.volumes": "<[]COMPONENT.Volume>",
+        "StatefulSet.spec.volumeClaimTemplates" : "<[]COMPONENT.VolumeClaimTemplate>",
+        "StorageClass.metadata": "<COMPONENT.Metadata>",
+        "StorageClass.allowedTopologies": "<[]COMPONENT.AllowedTopology>",
+        "SubjectAccessReview.metadata": "<COMPONENT.Metadata>",
+        "SubjectAccessReview.spec.nonResourceAttributes": "<[]COMPONENT.NonResourceAttribute>",
+        "SubjectAccessReview.spec.resourceAttributes": "<COMPONENT.ResourceAttribute>",
+        "Subset.addresses": "<[]COMPONENT.Address>",
+        "Subset.notReadyAddresses": "<[]COMPONENT.Address>",
+        "Subset.ports": "<[]COMPONENT.Port>",
+        "TokenReview.metadata": "<COMPONENT.Metadata>",
+        "ValidatingWebhookConfiguration.metadata": "<COMPONENT.Metadata>",
+        "ValidatingWebhookConfiguration.webhooks": "<[]COMPONENT.Webhook>",
+        "UserGroup.ranges": "<[]COMPONENTS.Range>",
+        "Volume.configMap.items": "<[]COMPONENT.ConfigMapItem>", 
+        "Volume.downwardAPI.items": "<[]COMPONENT.DownwardAPIItem>", 
+        "Volume.secret.items": "<[]COMPONENT.SecretItem>", 
+        "Volume.projected.sources": "<[]COMPONENT.ProjectedVolumeSources>",
+        "VolumeAttachment.metadata": "<COMPONENT.Metadata>",
+        "VolumeAttachment.spec.source.inlineVolumeSpec.nodeAffinity.required.nodeSelectorTerms": "<[]COMPONENT.NodeSelectorTerm>",
+        "VolumeClaimTemplate.metadata": "<COMPONENT.Metadata>",
+        "VolumeClaimTemplate.spec.selector": "<COMPONENT.Selector>",
+        "Webhook.rules": "<[]COMPONENT.Rule>",
+        "Webhook.namespaceSelector": "<COMPONENT.Selector",
+        "Webhook.objectSelector": "<COMPONENT.Selector"
+    },
+    "ignore": {
+        "Components": [
+            "status",
+            "initializers"
+        ],
+        "APIService": [
+            "status",
+            "initializers"
+        ],
+        "Binding": [
+            "initializers"
+        ],
+        "CertificateSigningRequest": [
+            "status",
+            "initializers"
+        ],
+        "ClusterRole": [
+            "initializers"
+        ],
+        "ClusterRoleBinding": [
+            "initializers"
+        ],
+        "ComponentStatus": [
+            "initializers"
+        ],
+        "ConfigMap": [
+            "initializers"
+        ],
+        "ControllerRevision": [
+            "initializers"
+        ],
+        "CronJob": [
+            "status",
+            "initializers"
+        ],
+        "CSIDriver": [
+            "initializers"
+        ],
+        "CSINode": [
+            "initializers"
+        ],
+        "CustomResourceDefinition": [
+            "status",
+            "initializers"
+        ],
+        "DaemonSet": [
+            "status",
+            "initializers"
+        ],
+        "Deployment": [
+            "status",
+            "initializers"
+        ],
+        "Endpoints": [
+            "initializers"
+        ],
+        "ENIConfig": [
+            "initializers"
+        ],
+        "Event": [
+            "initializers"
+        ],
+        "HorizontalPodAutoscaler": [
+            "status",
+            "initializers"
+        ],
+        "Ingress": [
+            "status",
+            "initializers"
+        ],
+        "Job": [
+            "status",
+            "initializers"
+        ],
+        "Lease": [
+            "initializers"
+        ],
+        "LimitRange": [
+            "initializers"
+        ],
+        "LocalSubjectAccessReview": [
+            "status",
+            "initializers"
+        ],
+        "MutatingWebhookConfiguration": [
+            "initializers"
+        ],
+        "Namespace": [
+            "status",
+            "initializers"
+        ],
+        "NetworkPolicy": [
+            "initializers"
+        ],
+        "Node": [
+            "status",
+            "initializers"
+        ],
+        "PersistentVolume": [
+            "status",
+            "initializers"
+        ],
+        "PersistentVolumeClaim": [
+            "status",
+            "initializers"
+        ],
+        "Pod": [
+            "status",
+            "initializers"
+        ],
+        "PodDisruptionBudget": [
+            "status",
+            "initializers"
+        ],
+        "PodSecurityPolicy": [
+            "initializers"
+        ],
+        "PodTemplate": [
+            "initializers"
+        ],
+        "PriorityClass": [
+            "initializers"
+        ],
+        "ReplicaSet": [
+            "status",
+            "initializers"
+        ],
+        "ReplicationController": [
+            "status",
+            "initializers"
+        ],
+        "ResourceQuota": [
+            "status",
+            "initializers"
+        ],
+        "Role": [
+            "initializers"
+        ],
+        "RoleBinding": [
+            "initializers"
+        ],
+        "RuntimeClass": [
+            "initializers"
+        ],
+        "Secret": [
+            "initializers"
+        ],
+        "SelfSubjectAccessReview": [
+            "status",
+            "initializers"
+        ],
+        "SelfSubjectRulesReview": [
+            "status",
+            "initializers"
+        ],
+        "Service": [
+            "status",
+            "initializers"
+        ],
+        "ServiceAccount": [
+            "initializers"
+        ],
+        "Stack": [
+            "status",
+            "initializers"
+        ],
+        "StatefulSet": [
+            "status",
+            "initializers"
+        ],
+        "StorageClass": [
+            "initializers"
+        ],
+        "SubjectAccessReview": [
+            "status",
+            "initializers"
+        ],
+        "TokenReview": [
+            "status",
+            "initializers"
+        ],
+        "ValidatingWebhookConfiguration": [
+            "initializers"
+        ],
+        "VolumeAttachment": [
+            "status",
+            "initializers"
+        ]
+    }
+}
