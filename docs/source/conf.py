@@ -21,6 +21,8 @@ project = 'k8sGen'
 copyright = '2020, John Carter'
 author = 'John Carter'
 
+master_doc = 'index'
+
 
 # -- General configuration ---------------------------------------------------
 
