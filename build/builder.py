@@ -199,14 +199,8 @@ def set_from_key_list(data, keys, value):
         data[keys[0]] = value
     return data
 
-with open('build/data/resources.txt') as f:
-    resources = f.read().split('\n')
-
-with open('build/data/components.json') as f:
-    components = json.load(f)
-
-if os.path.exists('data'):
-    shutil.rmtree('data')
+if os.path.exists('k8sgen/data'):
+    shutil.rmtree('k8sgen/data')
 os.mkdir('k8sgen/data')
 os.mkdir('k8sgen/data/APIResources')
 os.mkdir('k8sgen/data/Components')
@@ -218,6 +212,12 @@ if sys.argv[1] == 'y':
 
     print('getting resources...')
     build_resources()
+
+with open('build/data/resources.txt') as f:
+    resources = f.read().split('\n')
+
+with open('build/data/components.json') as f:
+    components = json.load(f)
 
 print('building components...')
 build_components(components)

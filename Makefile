@@ -7,8 +7,6 @@ build-all:
 	python build/builder.py y
 
 generate:
-	rm -rf k8sgen/data
-	cp -r data k8sgen/data
 	python build/generator.py
 
 docs:

@@ -16,12 +16,14 @@ Webhook
 ProjectedVolumeSource
 AllowedHostPath
 ImagePullSecret
+SubsetPort
 RoleRule
 ServicePort
 Selector
 Range
 AllowedCSIDriver
 PrinterColumn
+ContainerPort
 ConfigMapItem
 NodeSelectorTerm
 DNSConfigOptions
@@ -50,7 +52,6 @@ DNSConfig
 PodAffinity
 MatchExpression
 Probe
-Port
 ServiceAccountSecret
 ReadinessGate
 Toleration

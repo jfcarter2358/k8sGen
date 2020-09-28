@@ -1,4 +1,4 @@
-Subset
+SubsetPort
 ==================================
 
 .. toctree::
@@ -77,15 +77,15 @@ Possible return values include:
 Key Names and Types
 -------------------
 
-+-------------------+--------------------------+
-| Key               | Type                     |
-+===================+==========================+
-| addresses         | <[]COMPONENT.Address>    |
-+-------------------+--------------------------+
-| notReadyAddresses | <[]COMPONENT.Address>    |
-+-------------------+--------------------------+
-| ports             | <[]COMPONENT.SubsetPort> |
-+-------------------+--------------------------+
++----------+-----------+
+| Key      | Type      |
++==========+===========+
+| name     | <string>  |
++----------+-----------+
+| port     | <integer> |
++----------+-----------+
+| protocol | <string>  |
++----------+-----------+
 
 
 JSON fields
@@ -94,7 +94,7 @@ JSON fields
 .. code-block:: JSON
 
     {
-        "addresses": "<[]COMPONENT.Address>",
-        "notReadyAddresses": "<[]COMPONENT.Address>",
-        "ports": "<[]COMPONENT.SubsetPort>"
+        "name": "<string>",
+        "port": "<integer>",
+        "protocol": "<string>"
     }

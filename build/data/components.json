@@ -24,7 +24,8 @@
         "MatchExpression": "ClusterRole.aggregationRule.clusterRoleSelectors.matchExpressions",
         "HostAlias": "CronJob.spec.jobTemplate.spec.template.spec.hostAliases",
         "Toleration": "CronJob.spec.jobTemplate.spec.template.spec.tolerations",
-        "Port": "Endpoints.subsets.ports",
+        "SubsetPort": "Endpoints.subsets.ports",
+        "ContainerPort": "CronJob.spec.jobTemplate.spec.template.spec.containers.ports",
         "Address": "Endpoints.subsets.addresses",
         "IngressRule": "Ingress.spec.rules",
         "IngressRulePath": "Ingress.spec.rules.http.paths",
@@ -88,7 +89,7 @@
         "Container.lifecycle.postStart": "<[]COMPONENT.LifecycleDefinition>",
         "Container.lifecycle.preStop": "<[]COMPONENT.LifecycleDefinition>",
         "Container.livenessProbe": "<COMPONENT.Probe>",
-        "Container.ports": "<[]COMPONENT.Port>",
+        "Container.ports": "<[]COMPONENT.ContainerPort>",
         "Container.readinessProbe": "<COMPONENT.Probe>",
         "Container.securityContext": "<COMPONENT.SecurityContext>",
         "Container.volumeDevices": "<[]COMPONENT.VolumeDevice>",
@@ -285,7 +286,7 @@
         "SubjectAccessReview.spec.resourceAttributes": "<COMPONENT.ResourceAttribute>",
         "Subset.addresses": "<[]COMPONENT.Address>",
         "Subset.notReadyAddresses": "<[]COMPONENT.Address>",
-        "Subset.ports": "<[]COMPONENT.Port>",
+        "Subset.ports": "<[]COMPONENT.SubsetPort>",
         "TokenReview.metadata": "<COMPONENT.Metadata>",
         "ValidatingWebhookConfiguration.metadata": "<COMPONENT.Metadata>",
         "ValidatingWebhookConfiguration.webhooks": "<[]COMPONENT.Webhook>",
@@ -489,6 +490,114 @@
         "VolumeAttachment": [
             "status",
             "initializers"
+        ]
+    },
+    "required": {
+        "Address": [
+        ],
+        "APIService": [
+        ],
+        "Binding": [
+        ],
+        "CertificateSigningRequest": [
+        ],
+        "ClusterRole": [
+        ],
+        "ClusterRoleBinding": [
+        ],
+        "ComponentStatus": [
+        ],
+        "ConfigMap": [
+        ],
+        "ControllerRevision": [
+        ],
+        "CronJob": [
+        ],
+        "CSIDriver": [
+        ],
+        "CSINode": [
+        ],
+        "CustomResourceDefinition": [
+        ],
+        "DaemonSet": [
+        ],
+        "Deployment": [
+        ],
+        "Endpoints": [
+        ],
+        "ENIConfig": [
+        ],
+        "Event": [
+        ],
+        "HorizontalPodAutoscaler": [
+        ],
+        "Ingress": [
+        ],
+        "Job": [
+        ],
+        "Lease": [
+        ],
+        "LimitRange": [
+        ],
+        "LocalSubjectAccessReview": [
+        ],
+        "MutatingWebhookConfiguration": [
+        ],
+        "Namespace": [
+        ],
+        "NetworkPolicy": [
+        ],
+        "Node": [
+        ],
+        "PersistentVolume": [
+        ],
+        "PersistentVolumeClaim": [
+        ],
+        "Pod": [
+        ],
+        "PodDisruptionBudget": [
+        ],
+        "PodSecurityPolicy": [
+        ],
+        "PodTemplate": [
+        ],
+        "PriorityClass": [
+        ],
+        "ReplicaSet": [
+        ],
+        "ReplicationController": [
+        ],
+        "ResourceQuota": [
+        ],
+        "Role": [
+        ],
+        "RoleBinding": [
+        ],
+        "RuntimeClass": [
+        ],
+        "Secret": [
+        ],
+        "SelfSubjectAccessReview": [
+        ],
+        "SelfSubjectRulesReview": [
+        ],
+        "Service": [
+        ],
+        "ServiceAccount": [
+        ],
+        "Stack": [
+        ],
+        "StatefulSet": [
+        ],
+        "StorageClass": [
+        ],
+        "SubjectAccessReview": [
+        ],
+        "TokenReview": [
+        ],
+        "ValidatingWebhookConfiguration": [
+        ],
+        "VolumeAttachment": [
         ]
     }
 }

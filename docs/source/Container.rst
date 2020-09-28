@@ -100,7 +100,7 @@ Key Names and Types
 +--------------------------+-----------------------------------------+
 | name                     | <string>                                |
 +--------------------------+-----------------------------------------+
-| ports                    | <[]COMPONENT.Port>                      |
+| ports                    | <[]COMPONENT.ContainerPort>             |
 +--------------------------+-----------------------------------------+
 | readinessProbe           | <COMPONENT.Probe>                       |
 +--------------------------+-----------------------------------------+
@@ -146,7 +146,7 @@ JSON fields
         },
         "livenessProbe": "<COMPONENT.Probe>",
         "name": "<string>",
-        "ports": "<[]COMPONENT.Port>",
+        "ports": "<[]COMPONENT.ContainerPort>",
         "readinessProbe": "<COMPONENT.Probe>",
         "resources": {
             "limits": "<map[string]string>",

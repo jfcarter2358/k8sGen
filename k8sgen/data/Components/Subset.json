@@ -1,5 +1,5 @@
 {
     "addresses": "<[]COMPONENT.Address>",
     "notReadyAddresses": "<[]COMPONENT.Address>",
-    "ports": "<[]COMPONENT.Port>"
+    "ports": "<[]COMPONENT.SubsetPort>"
 }

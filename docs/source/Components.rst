@@ -17,6 +17,7 @@ Components
    ComponentStatusCondition.rst
    ConfigMapItem.rst
    Container.rst
+   ContainerPort.rst
    ContainerSpec.rst
    DNSConfig.rst
    DNSConfigOptions.rst
@@ -49,7 +50,6 @@ Components
    PodPreferredAntiAffinity.rst
    PodRequiredAffinity.rst
    PodRequiredAntiAffinity.rst
-   Port.rst
    PrinterColumn.rst
    Probe.rst
    ProjectedVolumeSource.rst
@@ -65,6 +65,7 @@ Components
    ServiceAccountSecret.rst
    ServicePort.rst
    Subset.rst
+   SubsetPort.rst
    Sysctl.rst
    Taint.rst
    Toleration.rst
