@@ -18,6 +18,6 @@ setuptools.setup(
         "License :: OSI Approved :: MIT License",
         "Operating System :: OS Independent",
     ],
-    package_data={'k8sgen': ['data/APIResources/*.json', 'data/Components/*.json']},
+    package_data={'k8sgen': ['data/*.txt', 'data/APIResources/*.json', 'data/Components/*.json']},
     python_requires='>=3.7',
 )
