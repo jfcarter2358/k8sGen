@@ -77,15 +77,17 @@ Possible return values include:
 Key Names and Types
 -------------------
 
-+--------------+------------+
-| Key          | Type       |
-+==============+============+
-| name         | <string>   |
-+--------------+------------+
-| nodeID       | <string>   |
-+--------------+------------+
-| topologyKeys | <[]string> |
-+--------------+------------+
++-------------------+------------+
+| Key               | Type       |
++===================+============+
+| allocatable_count | <integer>  |
++-------------------+------------+
+| name              | <string>   |
++-------------------+------------+
+| nodeID            | <string>   |
++-------------------+------------+
+| topologyKeys      | <[]string> |
++-------------------+------------+
 
 
 JSON fields
@@ -94,6 +96,9 @@ JSON fields
 .. code-block:: JSON
 
     {
+        "allocatable": {
+            "count": "<integer>"
+        },
         "name": "<string>",
         "nodeID": "<string>",
         "topologyKeys": "<[]string>"

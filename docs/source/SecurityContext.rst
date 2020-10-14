@@ -82,6 +82,8 @@ Key Names and Types
 +=======================================+=======================+
 | fsGroup                               | <COMPONENT.UserGroup> |
 +---------------------------------------+-----------------------+
+| fsGroupChangePolicy                   | <string>              |
++---------------------------------------+-----------------------+
 | runAsGroup                            | <COMPONENT.UserGroup> |
 +---------------------------------------+-----------------------+
 | runAsNonRoot                          | <boolean>             |
@@ -104,6 +106,8 @@ Key Names and Types
 +---------------------------------------+-----------------------+
 | windowsOptions_gmsaCredentialSpecName | <string>              |
 +---------------------------------------+-----------------------+
+| windowsOptions_runAsUserName          | <string>              |
++---------------------------------------+-----------------------+
 
 
 JSON fields
@@ -113,6 +117,7 @@ JSON fields
 
     {
         "fsGroup": "<COMPONENT.UserGroup>",
+        "fsGroupChangePolicy": "<string>",
         "runAsGroup": "<COMPONENT.UserGroup>",
         "runAsNonRoot": "<boolean>",
         "runAsUser": "<COMPONENT.UserGroup>",
@@ -126,6 +131,7 @@ JSON fields
         "sysctls": "<[]COMPONENTS.Sysctl>",
         "windowsOptions": {
             "gmsaCredentialSpec": "<string>",
-            "gmsaCredentialSpecName": "<string>"
+            "gmsaCredentialSpecName": "<string>",
+            "runAsUserName": "<string>"
         }
     }

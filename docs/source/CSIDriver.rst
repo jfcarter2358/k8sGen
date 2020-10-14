@@ -77,19 +77,21 @@ Possible return values include:
 Key Names and Types
 -------------------
 
-+---------------------+------------------------+
-| Key                 | Type                   |
-+=====================+========================+
-| apiVersion          | storage.k8s.io/v1beta1 |
-+---------------------+------------------------+
-| kind                | CSIDriver              |
-+---------------------+------------------------+
-| metadata            | <COMPONENT.Metadata>   |
-+---------------------+------------------------+
-| spec_attachRequired | <boolean>              |
-+---------------------+------------------------+
-| spec_podInfoOnMount | <boolean>              |
-+---------------------+------------------------+
++---------------------------+----------------------+
+| Key                       | Type                 |
++===========================+======================+
+| apiVersion                | storage.k8s.io/v1    |
++---------------------------+----------------------+
+| kind                      | CSIDriver            |
++---------------------------+----------------------+
+| metadata                  | <COMPONENT.Metadata> |
++---------------------------+----------------------+
+| spec_attachRequired       | <boolean>            |
++---------------------------+----------------------+
+| spec_podInfoOnMount       | <boolean>            |
++---------------------------+----------------------+
+| spec_volumeLifecycleModes | <[]string>           |
++---------------------------+----------------------+
 
 
 JSON fields
@@ -98,11 +100,12 @@ JSON fields
 .. code-block:: JSON
 
     {
-        "apiVersion": "storage.k8s.io/v1beta1",
+        "apiVersion": "storage.k8s.io/v1",
         "kind": "CSIDriver",
         "metadata": "<COMPONENT.Metadata>",
         "spec": {
             "attachRequired": "<boolean>",
-            "podInfoOnMount": "<boolean>"
+            "podInfoOnMount": "<boolean>",
+            "volumeLifecycleModes": "<[]string>"
         }
     }

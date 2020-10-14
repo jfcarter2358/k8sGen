@@ -80,7 +80,7 @@ Key Names and Types
 +--------------------------------------------+---------------------------+
 | Key                                        | Type                      |
 +============================================+===========================+
-| apiVersion                                 | extensions/v1beta1        |
+| apiVersion                                 | apps/v1                   |
 +--------------------------------------------+---------------------------+
 | kind                                       | Deployment                |
 +--------------------------------------------+---------------------------+
@@ -95,8 +95,6 @@ Key Names and Types
 | spec_replicas                              | <integer>                 |
 +--------------------------------------------+---------------------------+
 | spec_revisionHistoryLimit                  | <integer>                 |
-+--------------------------------------------+---------------------------+
-| spec_rollbackTo_revision                   | <integer>                 |
 +--------------------------------------------+---------------------------+
 | spec_selector                              | <COMPONENT.Selector>      |
 +--------------------------------------------+---------------------------+
@@ -118,7 +116,7 @@ JSON fields
 .. code-block:: JSON
 
     {
-        "apiVersion": "extensions/v1beta1",
+        "apiVersion": "apps/v1",
         "kind": "Deployment",
         "metadata": "<COMPONENT.Metadata>",
         "spec": {
@@ -127,9 +125,6 @@ JSON fields
             "progressDeadlineSeconds": "<integer>",
             "replicas": "<integer>",
             "revisionHistoryLimit": "<integer>",
-            "rollbackTo": {
-                "revision": "<integer>"
-            },
             "selector": "<COMPONENT.Selector>",
             "strategy": {
                 "rollingUpdate": {

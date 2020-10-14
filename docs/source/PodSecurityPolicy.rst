@@ -80,7 +80,7 @@ Key Names and Types
 +--------------------------------------------+---------------------------------+
 | Key                                        | Type                            |
 +============================================+=================================+
-| apiVersion                                 | extensions/v1beta1              |
+| apiVersion                                 | policy/v1beta1                  |
 +--------------------------------------------+---------------------------------+
 | kind                                       | PodSecurityPolicy               |
 +--------------------------------------------+---------------------------------+
@@ -152,7 +152,7 @@ JSON fields
 .. code-block:: JSON
 
     {
-        "apiVersion": "extensions/v1beta1",
+        "apiVersion": "policy/v1beta1",
         "kind": "PodSecurityPolicy",
         "metadata": "<COMPONENT.Metadata>",
         "spec": {

@@ -80,7 +80,7 @@ Key Names and Types
 +------------------------+---------------------------+
 | Key                    | Type                      |
 +========================+===========================+
-| apiVersion             | extensions/v1beta1        |
+| apiVersion             | apps/v1                   |
 +------------------------+---------------------------+
 | kind                   | ReplicaSet                |
 +------------------------+---------------------------+
@@ -104,7 +104,7 @@ JSON fields
 .. code-block:: JSON
 
     {
-        "apiVersion": "extensions/v1beta1",
+        "apiVersion": "apps/v1",
         "kind": "ReplicaSet",
         "metadata": "<COMPONENT.Metadata>",
         "spec": {

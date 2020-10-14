@@ -1,5 +1,6 @@
 {
     "fsGroup": "<COMPONENT.UserGroup>",
+    "fsGroupChangePolicy": "<string>",
     "runAsGroup": "<COMPONENT.UserGroup>",
     "runAsNonRoot": "<boolean>",
     "runAsUser": "<COMPONENT.UserGroup>",
@@ -13,6 +14,7 @@
     "sysctls": "<[]COMPONENTS.Sysctl>",
     "windowsOptions": {
         "gmsaCredentialSpec": "<string>",
-        "gmsaCredentialSpecName": "<string>"
+        "gmsaCredentialSpecName": "<string>",
+        "runAsUserName": "<string>"
     }
 }

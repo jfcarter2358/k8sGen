@@ -1,4 +1,5 @@
 {
+    "appProtocol": "<string>",
     "name": "<string>",
     "nodePort": "<integer>",
     "port": "<integer>",

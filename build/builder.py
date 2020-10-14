@@ -159,6 +159,8 @@ def get_from_key_list(data, keys):
         return data[keys[0]]
 
 def delete_from_key_list(data, keys):
+    if data == None:
+        return False
     # if the key doesn't exist then return None
     if not keys[0] in data.keys():
         return False

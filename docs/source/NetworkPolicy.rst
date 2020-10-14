@@ -80,7 +80,7 @@ Key Names and Types
 +------------------+------------------------------------+
 | Key              | Type                               |
 +==================+====================================+
-| apiVersion       | extensions/v1beta1                 |
+| apiVersion       | networking.k8s.io/v1               |
 +------------------+------------------------------------+
 | kind             | NetworkPolicy                      |
 +------------------+------------------------------------+
@@ -102,7 +102,7 @@ JSON fields
 .. code-block:: JSON
 
     {
-        "apiVersion": "extensions/v1beta1",
+        "apiVersion": "networking.k8s.io/v1",
         "kind": "NetworkPolicy",
         "metadata": "<COMPONENT.Metadata>",
         "spec": {

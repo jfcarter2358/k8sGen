@@ -8,6 +8,7 @@
             "extra": "<map[string][]string>",
             "groups": "<[]string>",
             "request": "<string>",
+            "signerName": "<string>",
             "uid": "<string>",
             "usages": "<[]string>",
             "username": "<string>"

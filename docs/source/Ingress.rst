@@ -77,23 +77,31 @@ Possible return values include:
 Key Names and Types
 -------------------
 
-+--------------------------+---------------------------+
-| Key                      | Type                      |
-+==========================+===========================+
-| apiVersion               | extensions/v1beta1        |
-+--------------------------+---------------------------+
-| kind                     | Ingress                   |
-+--------------------------+---------------------------+
-| metadata                 | <COMPONENT.Metadata>      |
-+--------------------------+---------------------------+
-| spec_backend_serviceName | <string>                  |
-+--------------------------+---------------------------+
-| spec_backend_servicePort | <string>                  |
-+--------------------------+---------------------------+
-| spec_rules               | <[]COMPONENT.IngressRule> |
-+--------------------------+---------------------------+
-| spec_tls                 | <[]COMPONENT.IngressTLS>  |
-+--------------------------+---------------------------+
++--------------------------------+---------------------------+
+| Key                            | Type                      |
++================================+===========================+
+| apiVersion                     | extensions/v1beta1        |
++--------------------------------+---------------------------+
+| kind                           | Ingress                   |
++--------------------------------+---------------------------+
+| metadata                       | <COMPONENT.Metadata>      |
++--------------------------------+---------------------------+
+| spec_backend_resource_apiGroup | <string>                  |
++--------------------------------+---------------------------+
+| spec_backend_resource_kind     | <string>                  |
++--------------------------------+---------------------------+
+| spec_backend_resource_name     | <string>                  |
++--------------------------------+---------------------------+
+| spec_backend_serviceName       | <string>                  |
++--------------------------------+---------------------------+
+| spec_backend_servicePort       | <string>                  |
++--------------------------------+---------------------------+
+| spec_ingressClassName          | <string>                  |
++--------------------------------+---------------------------+
+| spec_rules                     | <[]COMPONENT.IngressRule> |
++--------------------------------+---------------------------+
+| spec_tls                       | <[]COMPONENT.IngressTLS>  |
++--------------------------------+---------------------------+
 
 
 JSON fields
@@ -107,9 +115,15 @@ JSON fields
         "metadata": "<COMPONENT.Metadata>",
         "spec": {
             "backend": {
+                "resource": {
+                    "apiGroup": "<string>",
+                    "kind": "<string>",
+                    "name": "<string>"
+                },
                 "serviceName": "<string>",
                 "servicePort": "<string>"
             },
+            "ingressClassName": "<string>",
             "rules": "<[]COMPONENT.IngressRule>",
             "tls": "<[]COMPONENT.IngressTLS>"
         }

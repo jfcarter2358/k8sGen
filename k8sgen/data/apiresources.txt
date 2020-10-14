@@ -4,7 +4,6 @@ TokenReview
 StorageClass
 CustomResourceDefinition
 CSIDriver
-ENIConfig
 Binding
 SelfSubjectRulesReview
 Role
@@ -15,6 +14,7 @@ CronJob
 RuntimeClass
 ClusterRole
 Service
+IngressClass
 Ingress
 PriorityClass
 PersistentVolume
@@ -48,4 +48,5 @@ RoleBinding
 ClusterRoleBinding
 Endpoints
 LocalSubjectAccessReview
+EndpointSlice
 ControllerRevision

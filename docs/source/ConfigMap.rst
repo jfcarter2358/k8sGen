@@ -86,6 +86,8 @@ Key Names and Types
 +------------+----------------------+
 | data       | <map[string]string>  |
 +------------+----------------------+
+| immutable  | <boolean>            |
++------------+----------------------+
 | kind       | ConfigMap            |
 +------------+----------------------+
 | metadata   | <COMPONENT.Metadata> |
@@ -101,6 +103,7 @@ JSON fields
         "apiVersion": "v1",
         "binaryData": "<map[string]string>",
         "data": "<map[string]string>",
+        "immutable": "<boolean>",
         "kind": "ConfigMap",
         "metadata": "<COMPONENT.Metadata>"
     }

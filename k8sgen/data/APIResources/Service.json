@@ -10,6 +10,7 @@
             "externalName": "<string>",
             "externalTrafficPolicy": "<string>",
             "healthCheckNodePort": "<integer>",
+            "ipFamily": "<string>",
             "loadBalancerIP": "<string>",
             "loadBalancerSourceRanges": "<[]string>",
             "ports": "<[]COMPONENT.ServicePort>",
@@ -21,6 +22,7 @@
                     "timeoutSeconds": "<integer>"
                 }
             },
+            "topologyKeys": "<[]string>",
             "type": "<string>"
         }
     }

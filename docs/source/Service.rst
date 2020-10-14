@@ -96,6 +96,8 @@ Key Names and Types
 +----------------------------------------------------+---------------------------+
 | spec_healthCheckNodePort                           | <integer>                 |
 +----------------------------------------------------+---------------------------+
+| spec_ipFamily                                      | <string>                  |
++----------------------------------------------------+---------------------------+
 | spec_loadBalancerIP                                | <string>                  |
 +----------------------------------------------------+---------------------------+
 | spec_loadBalancerSourceRanges                      | <[]string>                |
@@ -109,6 +111,8 @@ Key Names and Types
 | spec_sessionAffinity                               | <string>                  |
 +----------------------------------------------------+---------------------------+
 | spec_sessionAffinityConfig_clientIP_timeoutSeconds | <integer>                 |
++----------------------------------------------------+---------------------------+
+| spec_topologyKeys                                  | <[]string>                |
 +----------------------------------------------------+---------------------------+
 | spec_type                                          | <string>                  |
 +----------------------------------------------------+---------------------------+
@@ -129,6 +133,7 @@ JSON fields
             "externalName": "<string>",
             "externalTrafficPolicy": "<string>",
             "healthCheckNodePort": "<integer>",
+            "ipFamily": "<string>",
             "loadBalancerIP": "<string>",
             "loadBalancerSourceRanges": "<[]string>",
             "ports": "<[]COMPONENT.ServicePort>",
@@ -140,6 +145,7 @@ JSON fields
                     "timeoutSeconds": "<integer>"
                 }
             },
+            "topologyKeys": "<[]string>",
             "type": "<string>"
         }
     }

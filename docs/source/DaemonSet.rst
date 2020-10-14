@@ -80,7 +80,7 @@ Key Names and Types
 +--------------------------------------------------+---------------------------+
 | Key                                              | Type                      |
 +==================================================+===========================+
-| apiVersion                                       | extensions/v1beta1        |
+| apiVersion                                       | apps/v1                   |
 +--------------------------------------------------+---------------------------+
 | kind                                             | DaemonSet                 |
 +--------------------------------------------------+---------------------------+
@@ -96,8 +96,6 @@ Key Names and Types
 +--------------------------------------------------+---------------------------+
 | spec_template_spec                               | <COMPONENT.ContainerSpec> |
 +--------------------------------------------------+---------------------------+
-| spec_templateGeneration                          | <integer>                 |
-+--------------------------------------------------+---------------------------+
 | spec_updateStrategy_rollingUpdate_maxUnavailable | <string>                  |
 +--------------------------------------------------+---------------------------+
 | spec_updateStrategy_type                         | <string>                  |
@@ -110,7 +108,7 @@ JSON fields
 .. code-block:: JSON
 
     {
-        "apiVersion": "extensions/v1beta1",
+        "apiVersion": "apps/v1",
         "kind": "DaemonSet",
         "metadata": "<COMPONENT.Metadata>",
         "spec": {
@@ -121,7 +119,6 @@ JSON fields
                 "metadata": "<COMPONENT.Metadata>",
                 "spec": "<COMPONENT.ContainerSpec>"
             },
-            "templateGeneration": "<integer>",
             "updateStrategy": {
                 "rollingUpdate": {
                     "maxUnavailable": "<string>"

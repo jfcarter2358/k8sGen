@@ -19,11 +19,12 @@ API Resources
    CustomResourceDefinition.rst
    DaemonSet.rst
    Deployment.rst
-   ENIConfig.rst
+   EndpointSlice.rst
    Endpoints.rst
    Event.rst
    HorizontalPodAutoscaler.rst
    Ingress.rst
+   IngressClass.rst
    Job.rst
    Lease.rst
    LimitRange.rst

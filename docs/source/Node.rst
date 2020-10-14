@@ -100,6 +100,8 @@ Key Names and Types
 +----------------------------------------------+----------------------+
 | spec_podCIDR                                 | <string>             |
 +----------------------------------------------+----------------------+
+| spec_podCIDRs                                | <[]string>           |
++----------------------------------------------+----------------------+
 | spec_providerID                              | <string>             |
 +----------------------------------------------+----------------------+
 | spec_taints                                  | <[]COMPONENT.Taint>  |
@@ -129,6 +131,7 @@ JSON fields
             },
             "externalID": "<string>",
             "podCIDR": "<string>",
+            "podCIDRs": "<[]string>",
             "providerID": "<string>",
             "taints": "<[]COMPONENT.Taint>",
             "unschedulable": "<boolean>"

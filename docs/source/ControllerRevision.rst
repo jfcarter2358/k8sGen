@@ -82,7 +82,7 @@ Key Names and Types
 +============+======================+
 | apiVersion | apps/v1              |
 +------------+----------------------+
-| data_Raw   | <string>             |
+| data       | <map[string]>        |
 +------------+----------------------+
 | kind       | ControllerRevision   |
 +------------+----------------------+
@@ -99,9 +99,7 @@ JSON fields
 
     {
         "apiVersion": "apps/v1",
-        "data": {
-            "Raw": "<string>"
-        },
+        "data": "<map[string]>",
         "kind": "ControllerRevision",
         "metadata": "<COMPONENT.Metadata>",
         "revision": "<integer>"

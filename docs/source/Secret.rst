@@ -84,6 +84,8 @@ Key Names and Types
 +------------+----------------------+
 | data       | <map[string]string>  |
 +------------+----------------------+
+| immutable  | <boolean>            |
++------------+----------------------+
 | kind       | Secret               |
 +------------+----------------------+
 | metadata   | <COMPONENT.Metadata> |
@@ -102,6 +104,7 @@ JSON fields
     {
         "apiVersion": "v1",
         "data": "<map[string]string>",
+        "immutable": "<boolean>",
         "kind": "Secret",
         "metadata": "<COMPONENT.Metadata>",
         "stringData": "<map[string]string>",

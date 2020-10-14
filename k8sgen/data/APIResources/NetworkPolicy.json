@@ -1,7 +1,7 @@
 {
-    "description": "DEPRECATED 1.9 - This group version of NetworkPolicy is deprecated by networking/v1/NetworkPolicy. NetworkPolicy describes what network traffic is allowed for a set of Pods",
+    "description": "NetworkPolicy describes what network traffic is allowed for a set of Pods",
     "json": {
-        "apiVersion": "extensions/v1beta1",
+        "apiVersion": "networking.k8s.io/v1",
         "kind": "NetworkPolicy",
         "metadata": "<COMPONENT.Metadata>",
         "spec": {

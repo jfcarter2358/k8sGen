@@ -74,30 +74,31 @@ for fi in fs:
     out += component_template.replace('(( COMPONENT ))', fi[:-5]) + '\n\n'
     with open('k8sgen/data/Components/' + fi) as f:
         data = json.load(f)
-    key_strings = utils.get_key_dict(data)
-    rows = {k:v for (k, v) in key_strings.items() if type(v) == str}
-    row_keys = [k for (k, v) in rows.items()]
-    row_vals = [v for (k, v) in rows.items()]
+    if data != None:
+        key_strings = utils.get_key_dict(data)
+        rows = {k:v for (k, v) in key_strings.items() if type(v) == str}
+        row_keys = [k for (k, v) in rows.items()]
+        row_vals = [v for (k, v) in rows.items()]
 
-    max_key = len(max(row_keys, key=len))
-    max_val = len(max(row_vals, key=len))
+        max_key = len(max(row_keys, key=len))
+        max_val = len(max(row_vals, key=len))
 
-    row_string  = '+-' + ('-' * max_key) + '-+-' + ('-' * max_val) + '-+\n'
-    row_string += '| ' + 'Key' + (' ' * (max_key - 3)) + ' | ' + 'Type' + (' ' * (max_val - 4)) + ' |\n'
-    row_string += '+=' + ('=' * max_key) + '=+=' + ('=' * max_val) + '=+\n'
-    for (k, v) in rows.items():
-        row_string += '| ' + k + (' ' * (max_key - len(k))) + ' | ' + v + (' ' * (max_val - len(v))) + ' |\n'
-        row_string += '+-' + ('-' * max_key) + '-+-' + ('-' * max_val) + '-+\n'
-    
-    data_strings = json.dumps(data, indent=4).split('\n')
-    data_strings = ['    ' + d for d in data_strings]
-    data_string = '\n'.join(data_strings)
+        row_string  = '+-' + ('-' * max_key) + '-+-' + ('-' * max_val) + '-+\n'
+        row_string += '| ' + 'Key' + (' ' * (max_key - 3)) + ' | ' + 'Type' + (' ' * (max_val - 4)) + ' |\n'
+        row_string += '+=' + ('=' * max_key) + '=+=' + ('=' * max_val) + '=+\n'
+        for (k, v) in rows.items():
+            row_string += '| ' + k + (' ' * (max_key - len(k))) + ' | ' + v + (' ' * (max_val - len(v))) + ' |\n'
+            row_string += '+-' + ('-' * max_key) + '-+-' + ('-' * max_val) + '-+\n'
+        
+        data_strings = json.dumps(data, indent=4).split('\n')
+        data_strings = ['    ' + d for d in data_strings]
+        data_string = '\n'.join(data_strings)
 
 
-    with open('docs/source/{}.rst'.format(fi[:-5]), 'w') as f:
-        f.write(component_doc_template.replace('(( COMPONENT ))', fi[:-5]).replace('(( ROWS ))', row_string).replace('(( JSON ))', data_string))
-    with open('docs/source/Components.rst', 'w') as f:
-        f.write(component_doc_main_template.replace('(( COMPONENT_LIST ))', '\n   '.join(sorted(rst))))
+        with open('docs/source/{}.rst'.format(fi[:-5]), 'w') as f:
+            f.write(component_doc_template.replace('(( COMPONENT ))', fi[:-5]).replace('(( ROWS ))', row_string).replace('(( JSON ))', data_string))
+        with open('docs/source/Components.rst', 'w') as f:
+            f.write(component_doc_main_template.replace('(( COMPONENT_LIST ))', '\n   '.join(sorted(rst))))
 
 with open('k8sgen/Components.py', 'w') as f:
     f.write(out)

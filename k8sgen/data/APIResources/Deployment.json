@@ -1,7 +1,7 @@
 {
-    "description": "DEPRECATED - This group version of Deployment is deprecated by apps/v1beta2/Deployment. See the release notes for more information. Deployment enables declarative updates for Pods and ReplicaSets.",
+    "description": "Deployment enables declarative updates for Pods and ReplicaSets.",
     "json": {
-        "apiVersion": "extensions/v1beta1",
+        "apiVersion": "apps/v1",
         "kind": "Deployment",
         "metadata": "<COMPONENT.Metadata>",
         "spec": {
@@ -10,9 +10,6 @@
             "progressDeadlineSeconds": "<integer>",
             "replicas": "<integer>",
             "revisionHistoryLimit": "<integer>",
-            "rollbackTo": {
-                "revision": "<integer>"
-            },
             "selector": "<COMPONENT.Selector>",
             "strategy": {
                 "rollingUpdate": {

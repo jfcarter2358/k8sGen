@@ -4,6 +4,21 @@
         "apiVersion": "node.k8s.io/v1beta1",
         "handler": "<string>",
         "kind": "RuntimeClass",
-        "metadata": "<COMPONENT.Metadata>"
+        "metadata": "<COMPONENT.Metadata>",
+        "overhead": {
+            "podFixed": "<map[string]string>"
+        },
+        "scheduling": {
+            "nodeSelector": "<map[string]string>",
+            "tolerations": [
+                {
+                    "effect": "<string>",
+                    "key": "<string>",
+                    "operator": "<string>",
+                    "tolerationSeconds": "<integer>",
+                    "value": "<string>"
+                }
+            ]
+        }
     }
 }

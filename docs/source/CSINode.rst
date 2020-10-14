@@ -80,7 +80,7 @@ Key Names and Types
 +--------------+-----------------------------+
 | Key          | Type                        |
 +==============+=============================+
-| apiVersion   | storage.k8s.io/v1beta1      |
+| apiVersion   | storage.k8s.io/v1           |
 +--------------+-----------------------------+
 | kind         | CSINode                     |
 +--------------+-----------------------------+
@@ -96,7 +96,7 @@ JSON fields
 .. code-block:: JSON
 
     {
-        "apiVersion": "storage.k8s.io/v1beta1",
+        "apiVersion": "storage.k8s.io/v1",
         "kind": "CSINode",
         "metadata": "<COMPONENT.Metadata>",
         "spec": {

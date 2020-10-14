@@ -150,6 +150,12 @@ Key Names and Types
 +-------------------------------------------------------------+-----------------------------+
 | schema_openAPIV3Schema_x-kubernetes-int-or-string           | <boolean>                   |
 +-------------------------------------------------------------+-----------------------------+
+| schema_openAPIV3Schema_x-kubernetes-list-map-keys           | <[]string>                  |
++-------------------------------------------------------------+-----------------------------+
+| schema_openAPIV3Schema_x-kubernetes-list-type               | <string>                    |
++-------------------------------------------------------------+-----------------------------+
+| schema_openAPIV3Schema_x-kubernetes-map-type                | <string>                    |
++-------------------------------------------------------------+-----------------------------+
 | schema_openAPIV3Schema_x-kubernetes-preserve-unknown-fields | <boolean>                   |
 +-------------------------------------------------------------+-----------------------------+
 | served                                                      | <boolean>                   |
@@ -218,6 +224,9 @@ JSON fields
                 "uniqueItems": "<boolean>",
                 "x-kubernetes-embedded-resource": "<boolean>",
                 "x-kubernetes-int-or-string": "<boolean>",
+                "x-kubernetes-list-map-keys": "<[]string>",
+                "x-kubernetes-list-type": "<string>",
+                "x-kubernetes-map-type": "<string>",
                 "x-kubernetes-preserve-unknown-fields": "<boolean>"
             }
         },

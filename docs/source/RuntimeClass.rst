@@ -77,17 +77,31 @@ Possible return values include:
 Key Names and Types
 -------------------
 
-+------------+----------------------+
-| Key        | Type                 |
-+============+======================+
-| apiVersion | node.k8s.io/v1beta1  |
-+------------+----------------------+
-| handler    | <string>             |
-+------------+----------------------+
-| kind       | RuntimeClass         |
-+------------+----------------------+
-| metadata   | <COMPONENT.Metadata> |
-+------------+----------------------+
++------------------------------------------+----------------------+
+| Key                                      | Type                 |
++==========================================+======================+
+| apiVersion                               | node.k8s.io/v1beta1  |
++------------------------------------------+----------------------+
+| handler                                  | <string>             |
++------------------------------------------+----------------------+
+| kind                                     | RuntimeClass         |
++------------------------------------------+----------------------+
+| metadata                                 | <COMPONENT.Metadata> |
++------------------------------------------+----------------------+
+| overhead_podFixed                        | <map[string]string>  |
++------------------------------------------+----------------------+
+| scheduling_nodeSelector                  | <map[string]string>  |
++------------------------------------------+----------------------+
+| scheduling_tolerations_effect            | <string>             |
++------------------------------------------+----------------------+
+| scheduling_tolerations_key               | <string>             |
++------------------------------------------+----------------------+
+| scheduling_tolerations_operator          | <string>             |
++------------------------------------------+----------------------+
+| scheduling_tolerations_tolerationSeconds | <integer>            |
++------------------------------------------+----------------------+
+| scheduling_tolerations_value             | <string>             |
++------------------------------------------+----------------------+
 
 
 JSON fields
@@ -99,5 +113,20 @@ JSON fields
         "apiVersion": "node.k8s.io/v1beta1",
         "handler": "<string>",
         "kind": "RuntimeClass",
-        "metadata": "<COMPONENT.Metadata>"
+        "metadata": "<COMPONENT.Metadata>",
+        "overhead": {
+            "podFixed": "<map[string]string>"
+        },
+        "scheduling": {
+            "nodeSelector": "<map[string]string>",
+            "tolerations": [
+                {
+                    "effect": "<string>",
+                    "key": "<string>",
+                    "operator": "<string>",
+                    "tolerationSeconds": "<integer>",
+                    "value": "<string>"
+                }
+            ]
+        }
     }

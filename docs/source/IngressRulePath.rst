@@ -77,15 +77,23 @@ Possible return values include:
 Key Names and Types
 -------------------
 
-+---------------------+----------+
-| Key                 | Type     |
-+=====================+==========+
-| backend_serviceName | <string> |
-+---------------------+----------+
-| backend_servicePort | <string> |
-+---------------------+----------+
-| path                | <string> |
-+---------------------+----------+
++---------------------------+----------+
+| Key                       | Type     |
++===========================+==========+
+| backend_resource_apiGroup | <string> |
++---------------------------+----------+
+| backend_resource_kind     | <string> |
++---------------------------+----------+
+| backend_resource_name     | <string> |
++---------------------------+----------+
+| backend_serviceName       | <string> |
++---------------------------+----------+
+| backend_servicePort       | <string> |
++---------------------------+----------+
+| path                      | <string> |
++---------------------------+----------+
+| pathType                  | <string> |
++---------------------------+----------+
 
 
 JSON fields
@@ -95,8 +103,14 @@ JSON fields
 
     {
         "backend": {
+            "resource": {
+                "apiGroup": "<string>",
+                "kind": "<string>",
+                "name": "<string>"
+            },
             "serviceName": "<string>",
             "servicePort": "<string>"
         },
-        "path": "<string>"
+        "path": "<string>",
+        "pathType": "<string>"
     }

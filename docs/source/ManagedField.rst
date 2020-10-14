@@ -82,7 +82,9 @@ Key Names and Types
 +============+===============+
 | apiVersion | <string>      |
 +------------+---------------+
-| fields     | <map[string]> |
+| fieldsType | <string>      |
++------------+---------------+
+| fieldsV1   | <map[string]> |
 +------------+---------------+
 | manager    | <string>      |
 +------------+---------------+
@@ -99,7 +101,8 @@ JSON fields
 
     {
         "apiVersion": "<string>",
-        "fields": "<map[string]>",
+        "fieldsType": "<string>",
+        "fieldsV1": "<map[string]>",
         "manager": "<string>",
         "operation": "<string>",
         "time": "<string>"

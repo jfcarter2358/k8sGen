@@ -77,15 +77,17 @@ Possible return values include:
 Key Names and Types
 -------------------
 
-+----------+-----------+
-| Key      | Type      |
-+==========+===========+
-| name     | <string>  |
-+----------+-----------+
-| port     | <integer> |
-+----------+-----------+
-| protocol | <string>  |
-+----------+-----------+
++-------------+-----------+
+| Key         | Type      |
++=============+===========+
+| appProtocol | <string>  |
++-------------+-----------+
+| name        | <string>  |
++-------------+-----------+
+| port        | <integer> |
++-------------+-----------+
+| protocol    | <string>  |
++-------------+-----------+
 
 
 JSON fields
@@ -94,6 +96,7 @@ JSON fields
 .. code-block:: JSON
 
     {
+        "appProtocol": "<string>",
         "name": "<string>",
         "port": "<integer>",
         "protocol": "<string>"

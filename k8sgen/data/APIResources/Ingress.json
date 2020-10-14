@@ -6,9 +6,15 @@
         "metadata": "<COMPONENT.Metadata>",
         "spec": {
             "backend": {
+                "resource": {
+                    "apiGroup": "<string>",
+                    "kind": "<string>",
+                    "name": "<string>"
+                },
                 "serviceName": "<string>",
                 "servicePort": "<string>"
             },
+            "ingressClassName": "<string>",
             "rules": "<[]COMPONENT.IngressRule>",
             "tls": "<[]COMPONENT.IngressTLS>"
         }

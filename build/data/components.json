@@ -359,6 +359,10 @@
         "Endpoints": [
             "initializers"
         ],
+        "EndpointSlice": [
+            "status",
+            "initializers"
+        ],
         "ENIConfig": [
             "initializers"
         ],
@@ -370,6 +374,10 @@
             "initializers"
         ],
         "Ingress": [
+            "status",
+            "initializers"
+        ],
+        "IngressClass": [
             "status",
             "initializers"
         ],

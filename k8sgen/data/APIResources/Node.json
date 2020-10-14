@@ -16,6 +16,7 @@
             },
             "externalID": "<string>",
             "podCIDR": "<string>",
+            "podCIDRs": "<[]string>",
             "providerID": "<string>",
             "taints": "<[]COMPONENT.Taint>",
             "unschedulable": "<boolean>"

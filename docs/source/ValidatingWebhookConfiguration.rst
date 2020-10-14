@@ -77,17 +77,17 @@ Possible return values include:
 Key Names and Types
 -------------------
 
-+------------+--------------------------------------+
-| Key        | Type                                 |
-+============+======================================+
-| apiVersion | admissionregistration.k8s.io/v1beta1 |
-+------------+--------------------------------------+
-| kind       | ValidatingWebhookConfiguration       |
-+------------+--------------------------------------+
-| metadata   | <COMPONENT.Metadata>                 |
-+------------+--------------------------------------+
-| webhooks   | <[]COMPONENT.Webhook>                |
-+------------+--------------------------------------+
++------------+---------------------------------+
+| Key        | Type                            |
++============+=================================+
+| apiVersion | admissionregistration.k8s.io/v1 |
++------------+---------------------------------+
+| kind       | ValidatingWebhookConfiguration  |
++------------+---------------------------------+
+| metadata   | <COMPONENT.Metadata>            |
++------------+---------------------------------+
+| webhooks   | <[]COMPONENT.Webhook>           |
++------------+---------------------------------+
 
 
 JSON fields
@@ -96,7 +96,7 @@ JSON fields
 .. code-block:: JSON
 
     {
-        "apiVersion": "admissionregistration.k8s.io/v1beta1",
+        "apiVersion": "admissionregistration.k8s.io/v1",
         "kind": "ValidatingWebhookConfiguration",
         "metadata": "<COMPONENT.Metadata>",
         "webhooks": "<[]COMPONENT.Webhook>"
