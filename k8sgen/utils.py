@@ -133,9 +133,9 @@ def recurse_build(data, key_list, elements, indent=0):
                 data[k] = elements[key]
             else:
                 if type(data[k]) == dict:
-                    data[k] = recurse_build(data[k], key_list, elements, components_list, apiresources_list, indent = indent+2)
+                    data[k] = recurse_build(data[k], key_list, elements, indent = indent+2)
                 elif type(data[k]) == list:
-                    data[k] = recurse_build(data[k], key_list, elements, components_list, apiresources_list, indent = indent+2)
+                    data[k] = recurse_build(data[k], key_list, elements, indent = indent+2)
     return data
 
 def get_key_string(data):
