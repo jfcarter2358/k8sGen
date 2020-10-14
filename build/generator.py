@@ -16,10 +16,13 @@ with open('build/data/templates/component_doc.template.rst') as f:
     component_doc_template = f.read()
 with open('build/data/templates/component_doc.template.main.rst') as f:
     component_doc_main_template = f.read()
+with open('build/data/templates/presenters.template.py') as f:
+    presenter_template = f.read()
 
 # build APIResources.py
 
 out = 'import json\nimport yaml\nfrom k8sgen import utils\nimport pkgutil\n\n'
+out += presenter_template + '\n'
 fs = os.listdir('k8sgen/data/APIResources')
 
 names = [f[:-5] for f in fs]
@@ -63,6 +66,7 @@ with open('k8sgen/APIResources.py', 'w') as f:
 # build Components.py
 
 out = 'import json\nimport yaml\nfrom k8sgen import utils\nimport pkgutil\n\n'
+out += presenter_template + '\n'
 fs = os.listdir('k8sgen/data/Components')
 
 names = [f[:-5] for f in fs]
