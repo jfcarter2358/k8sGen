@@ -48,16 +48,19 @@ class (( COMPONENT )):
 
     # get the fields that the component utilizes and return them
     def fields(self):
-        f = pkgutil.get_data(__name__, 'data/Components/(( COMPONENT )).json')
-        data = json.loads(f.decode("utf-8"))
+        # f = pkgutil.get_data(__name__, 'data/Components/(( COMPONENT )).json')
+        # data = json.loads(f.decode("utf-8"))
+        data = data_file.k8sgen_data['components_data']['(( COMPONENT ))']
         return data
             
     # write out the component class to a json object
     def to_json(self):
-        f = pkgutil.get_data(__name__, 'data/Components/(( COMPONENT )).json')
-        data = json.loads(f.decode("utf-8"))
-        f = pkgutil.get_data(__name__, 'data/components.txt')
-        components_list = f.decode("utf-8").split('\n')
+        # f = pkgutil.get_data(__name__, 'data/Components/(( COMPONENT )).json')
+        # data = json.loads(f.decode("utf-8"))
+        # f = pkgutil.get_data(__name__, 'data/components.txt')
+        # components_list = f.decode("utf-8").split('\n')
+        data = data_file.k8sgen_data['components_data']['(( COMPONENT ))']
+        components_list = data_file.k8sgen_data['components']
         data = utils.recurse_build(data, [], self.elements)
         expanded = utils.recurse_expand(data, components_list)
         filtered = utils.clean_null(expanded)

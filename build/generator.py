@@ -19,9 +19,16 @@ with open('build/data/templates/component_doc.template.main.rst') as f:
 with open('build/data/templates/presenters.template.py') as f:
     presenter_template = f.read()
 
+k8sgen_data = {
+    'api_resources_data': {},
+    'api_resources': [],
+    'components_data': {},
+    'components': []
+}
+
 # build APIResources.py
 
-out = 'import json\nimport yaml\nfrom k8sgen import utils\nimport pkgutil\n\n'
+out = 'import json\nimport yaml\nfrom k8sgen import utils\nfrom k8sgen import data_file\nimport pkgutil\n\n'
 out += presenter_template + '\n'
 fs = os.listdir('k8sgen/data/APIResources')
 
@@ -29,11 +36,13 @@ names = [f[:-5] for f in fs]
 rst = [n + '.rst' for n in names]
 with open('k8sgen/data/apiresources.txt', 'w') as f:
     f.write('\n'.join(names))
+k8sgen_data['api_resources'] = names
 
 for fi in fs:
     out += apiresource_template.replace('(( APIRESOURCE ))', fi[:-5]) + '\n\n'
     with open('k8sgen/data/APIResources/' + fi) as f:
         data = json.load(f)
+    k8sgen_data['api_resources_data'][fi[:-5]] = data
     key_strings = utils.get_key_dict(data['json'])
     rows = {k:v for (k, v) in key_strings.items() if type(v) == str}
     row_keys = [k for (k, v) in rows.items()]
@@ -60,12 +69,10 @@ for fi in fs:
 
 with open('k8sgen/APIResources.py', 'w') as f:
     f.write(out)
-    
-
 
 # build Components.py
 
-out = 'import json\nimport yaml\nfrom k8sgen import utils\nimport pkgutil\n\n'
+out = 'import json\nimport yaml\nfrom k8sgen import utils\nfrom k8sgen import data_file\nimport pkgutil\n\n'
 out += presenter_template + '\n'
 fs = os.listdir('k8sgen/data/Components')
 
@@ -73,11 +80,13 @@ names = [f[:-5] for f in fs]
 rst = [n + '.rst' for n in names]
 with open('k8sgen/data/components.txt', 'w') as f:
     f.write('\n'.join(names))
+k8sgen_data['components'] = names
 
 for fi in fs:
     out += component_template.replace('(( COMPONENT ))', fi[:-5]) + '\n\n'
     with open('k8sgen/data/Components/' + fi) as f:
         data = json.load(f)
+    k8sgen_data['components_data'][fi[:-5]] = data
     if data != None:
         key_strings = utils.get_key_dict(data)
         rows = {k:v for (k, v) in key_strings.items() if type(v) == str}
@@ -106,3 +115,6 @@ for fi in fs:
 
 with open('k8sgen/Components.py', 'w') as f:
     f.write(out)
+
+with open('k8sgen/data_file.py', 'w') as f:
+    f.write('k8sgen_data = {}'.format(json.dumps(k8sgen_data, indent=4).replace(': null', ': None')))

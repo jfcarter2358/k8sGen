@@ -55,24 +55,27 @@ def stringify(obj):
     return name + '(' + str_rep[:-2] + ')'
 
 def clean_null(d):
-   clean = {}
-   for k, v in d.items():
-        if type(v) == dict:
-            nested = clean_null(v)
-            if len(nested.keys()) > 0:
-                clean[k] = nested
-        elif type(v) == list:
-            for i in range(0, len(v)):
-                v[i] = clean_null(v[i])
-            v = [i for i in v if i]
-            if len(v) > 0:
+    clean = {}
+    if type(d) == dict:
+        for k, v in d.items():
+            if type(v) == dict:
+                nested = clean_null(v)
+                if len(nested.keys()) > 0:
+                    clean[k] = nested
+            elif type(v) == list:
+                for i in range(0, len(v)):
+                    v[i] = clean_null(v[i])
+                v = [i for i in v if i]
+                if len(v) > 0:
+                    clean[k] = v
+            elif v:
                 clean[k] = v
-        elif v:
-            clean[k] = v
-        for k in clean:
-            if clean[k] == {} or clean[k] == []:
-                del clean[k]
-   return clean
+            for k in clean:
+                if clean[k] == {} or clean[k] == []:
+                    del clean[k]
+    else:
+        clean = d
+    return clean
 
 def clean_unset(data):
     if type(data) == dict:
