@@ -42,19 +42,13 @@ class (( APIRESOURCE )):
 
     # get the fields that the API resource utilizes and return them
     def fields(self):
-        # f = pkgutil.get_data(__name__, 'data/APIResources/(( APIRESOURCE )).json')
-        # data = json.loads(f.decode("utf-8"))
-        data = data_file.k8sgen_data['api_resources_data']['(( APIRESOURCE ))']
+        data = copy.deepcopy(data_file.k8sgen_data['api_resources_data']['(( APIRESOURCE ))'])
         return data['json']
             
     # write out the API resource class to a json object
     def to_json(self):
-        # f = pkgutil.get_data(__name__, 'data/APIResources/(( APIRESOURCE )).json')
-        # data = json.loads(f.decode("utf-8"))
-        # f = pkgutil.get_data(__name__, 'data/components.txt')
-        # components_list = f.decode("utf-8").split('\n')
-        data = data_file.k8sgen_data['api_resources_data']['(( APIRESOURCE ))']
-        components_list = data_file.k8sgen_data['components']
+        data = copy.deepcopy(data_file.k8sgen_data['api_resources_data']['(( APIRESOURCE ))'])
+        components_list = copy.deepcopy(data_file.k8sgen_data['components'])
         data = utils.recurse_build(data['json'], [], self.elements)
         expanded = utils.recurse_expand(data, components_list)
         filtered = utils.clean_null(expanded)

@@ -28,7 +28,7 @@ k8sgen_data = {
 
 # build APIResources.py
 
-out = 'import json\nimport yaml\nfrom k8sgen import utils\nfrom k8sgen import data_file\nimport pkgutil\n\n'
+out = 'import json\nimport yaml\nfrom k8sgen import utils\nfrom k8sgen import data_file\nimport copy\n\n'
 out += presenter_template + '\n'
 fs = os.listdir('k8sgen/data/APIResources')
 
@@ -72,7 +72,7 @@ with open('k8sgen/APIResources.py', 'w') as f:
 
 # build Components.py
 
-out = 'import json\nimport yaml\nfrom k8sgen import utils\nfrom k8sgen import data_file\nimport pkgutil\n\n'
+out = 'import json\nimport yaml\nfrom k8sgen import utils\nfrom k8sgen import data_file\nimport copy\n\n'
 out += presenter_template + '\n'
 fs = os.listdir('k8sgen/data/Components')
 
