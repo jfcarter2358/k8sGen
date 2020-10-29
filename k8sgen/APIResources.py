@@ -1,348 +1,261 @@
-import json
-import yaml
-from k8sgen import utils
-from k8sgen import data_file
-import copy
+from base import K8sObject
 
-def str_presenter(dumper, data):
-    if len(data.splitlines()) > 1:  # check for multiline string
-        return dumper.represent_scalar('tag:yaml.org,2002:str', data, style='|')
-    return dumper.represent_scalar('tag:yaml.org,2002:str', data)
 
-def represent_none(self, _):
-    return self.represent_scalar('tag:yaml.org,2002:null', '')
-
-yaml.add_representer(str, str_presenter)
-yaml.add_representer(type(None), represent_none)
-class APIResource:
-    def __init__(self, api_name):
-        self.api_name = api_name
-        self.elements = {}
-
-    # set any specific field to a value
-    def set(self, **kwargs):
-        ret = []
-        key_strings = utils.get_key_string(self.fields())
-        for key, value in kwargs.items():
-            ky = key.replace('_', '.')
-            if ky.startswith('.'):
-                ky = ky[1:]
-                if ky in key_strings:
-                    self.elements[ky] = value
-                    ret.append(True)
-                else:
-                    ret.append((False, 'invalid key name'))
-            else:
-                matches = []
-                for k in key_strings:
-                    if k.endswith(ky):
-                        matches.append(k)
-                if len(matches) == 1:
-                    self.elements[matches[0]] = value
-                    ret.append(True)
-                elif len(matches) == 0:
-                    ret.append((False, 'invalid key name'))
-                else:
-                    ret.append((False, 'ambiguous key name'))
-        return ret
-
-    # get the values that have been set for specific fields
-    def get(self, *args):
-        ret = {}
-        for key in args:
-            ky = key.replace('_', '.')
-            if ky in self.elements.keys():
-                ret[key] = self.elements[ky]
-            else:
-                return ('Invalid key', key)
-        return ret
-
-    # get the fields that the API resource utilizes and return them
-    def fields(self):
-        data = copy.deepcopy(data_file.k8sgen_data['api_resources_data'][self.api_name])
-        return data['json']
-
-    # write out the API resource class to a json object
-    def to_json(self):
-        data = copy.deepcopy(data_file.k8sgen_data['api_resources_data'][self.api_name])
-        components_list = copy.deepcopy(data_file.k8sgen_data['components'])
-        data = utils.recurse_build(data['json'], [], self.elements)
-        expanded = utils.recurse_expand(data, components_list)
-        filtered = utils.clean_null(expanded)
-        return filtered
-
-    # write out the API resource class to a yaml object
-    def to_yaml(self):
-        data = self.to_json()
-        return yaml.dump(data)
-
-    def to_string(self):
-        variables = utils.clean_null(utils.clean_unset({k.replace('.', '_'):v for (k, v) in self.elements.items()}))
-        str_rep = ''
-        for v in variables:
-            str_rep += '{}={}, '.format(v, variables[v])
-        class_name = type(self).__name__
-        return '{}({})'.format(class_name, str_rep[:-2])
-
-    def __repr__(self):
-        return self.to_string()
-
-    def __str__(self):
-        return self.to_string()
-
-class DaemonSet(APIResource):
+class DaemonSet(K8sObject):
     def __init__(self):
-        super().__init__(api_name="DaemonSet")
+        super().__init__(name="DaemonSet")
 
 
-class ReplicationController(APIResource):
+class ReplicationController(K8sObject):
     def __init__(self):
-        super().__init__(api_name="ReplicationController")
+        super().__init__(name="ReplicationController")
 
 
-class TokenReview(APIResource):
+class TokenReview(K8sObject):
     def __init__(self):
-        super().__init__(api_name="TokenReview")
+        super().__init__(name="TokenReview")
 
 
-class StorageClass(APIResource):
+class StorageClass(K8sObject):
     def __init__(self):
-        super().__init__(api_name="StorageClass")
+        super().__init__(name="StorageClass")
 
 
-class CustomResourceDefinition(APIResource):
+class CustomResourceDefinition(K8sObject):
     def __init__(self):
-        super().__init__(api_name="CustomResourceDefinition")
+        super().__init__(name="CustomResourceDefinition")
 
 
-class CSIDriver(APIResource):
+class CSIDriver(K8sObject):
     def __init__(self):
-        super().__init__(api_name="CSIDriver")
+        super().__init__(name="CSIDriver")
 
-class Binding(APIResource):
+
+class Binding(K8sObject):
     def __init__(self):
-        super().__init__(api_name="Binding")
+        super().__init__(name="Binding")
 
 
-class SelfSubjectRulesReview(APIResource):
+class SelfSubjectRulesReview(K8sObject):
     def __init__(self):
-        super().__init__(api_name="SelfSubjectRulesReview")
+        super().__init__(name="SelfSubjectRulesReview")
 
 
-class Role(APIResource):
+class Role(K8sObject):
     def __init__(self):
-        super().__init__(api_name="Role")
+        super().__init__(name="Role")
 
 
-class Deployment(APIResource):
+class Deployment(K8sObject):
     def __init__(self):
-        super().__init__(api_name="Deployment")
+        super().__init__(name="Deployment")
 
 
-class ValidatingWebhookConfiguration(APIResource):
+class ValidatingWebhookConfiguration(K8sObject):
     def __init__(self):
-        super().__init__(api_name="ValidatingWebhookConfiguration")
+        super().__init__(name="ValidatingWebhookConfiguration")
 
 
-class PodSecurityPolicy(APIResource):
+class PodSecurityPolicy(K8sObject):
     def __init__(self):
-        super().__init__(api_name="PodSecurityPolicy")
+        super().__init__(name="PodSecurityPolicy")
 
-class CronJob(APIResource):
+
+class CronJob(K8sObject):
     def __init__(self):
-        super().__init__(api_name="CronJob")
+        super().__init__(name="CronJob")
 
 
-class RuntimeClass(APIResource):
+class RuntimeClass(K8sObject):
     def __init__(self):
-        super().__init__(api_name="RuntimeClass")
+        super().__init__(name="RuntimeClass")
 
 
-class ClusterRole(APIResource):
+class ClusterRole(K8sObject):
     def __init__(self):
-        super().__init__(api_name="ClusterRole")
+        super().__init__(name="ClusterRole")
 
 
-class Service(APIResource):
+class Service(K8sObject):
     def __init__(self):
-        super().__init__(api_name="Service")
+        super().__init__(name="Service")
 
 
-class IngressClass(APIResource):
+class IngressClass(K8sObject):
     def __init__(self):
-        super().__init__(api_name="IngressClass")
+        super().__init__(name="IngressClass")
 
 
-class Ingress(APIResource):
+class Ingress(K8sObject):
     def __init__(self):
-        super().__init__(api_name="Ingress")
+        super().__init__(name="Ingress")
 
 
-class PriorityClass(APIResource):
+class PriorityClass(K8sObject):
     def __init__(self):
-        super().__init__(api_name="PriorityClass")
+        super().__init__(name="PriorityClass")
 
 
-class PersistentVolume(APIResource):
+class PersistentVolume(K8sObject):
     def __init__(self):
-        super().__init__(api_name="PersistentVolume")
+        super().__init__(name="PersistentVolume")
 
 
-class Event(APIResource):
+class Event(K8sObject):
     def __init__(self):
-        super().__init__(api_name="Event")
+        super().__init__(name="Event")
 
 
-class CSINode(APIResource):
+class CSINode(K8sObject):
     def __init__(self):
-        super().__init__(api_name="CSINode")
+        super().__init__(name="CSINode")
 
 
-class ReplicaSet(APIResource):
+class ReplicaSet(K8sObject):
     def __init__(self):
-        super().__init__(api_name="ReplicaSet")
+        super().__init__(name="ReplicaSet")
 
 
-class MutatingWebhookConfiguration(APIResource):
+class MutatingWebhookConfiguration(K8sObject):
     def __init__(self):
-        super().__init__(api_name="MutatingWebhookConfiguration")
+        super().__init__(name="MutatingWebhookConfiguration")
 
 
-class ServiceAccount(APIResource):
+class ServiceAccount(K8sObject):
     def __init__(self):
-        super().__init__(api_name="ServiceAccount")
+        super().__init__(name="ServiceAccount")
 
 
-class CertificateSigningRequest(APIResource):
+class CertificateSigningRequest(K8sObject):
     def __init__(self):
-        super().__init__(api_name="CertificateSigningRequest")
+        super().__init__(name="CertificateSigningRequest")
 
 
-class SubjectAccessReview(APIResource):
+class SubjectAccessReview(K8sObject):
     def __init__(self):
-        super().__init__(api_name="SubjectAccessReview")
+        super().__init__(name="SubjectAccessReview")
 
 
-class APIService(APIResource):
+class APIService(K8sObject):
     def __init__(self):
-        super().__init__(api_name="APIService")
+        super().__init__(name="APIService")
 
 
-class ConfigMap(APIResource):
+class ConfigMap(K8sObject):
     def __init__(self):
-        super().__init__(api_name="ConfigMap")
+        super().__init__(name="ConfigMap")
 
 
-class SelfSubjectAccessReview(APIResource):
+class SelfSubjectAccessReview(K8sObject):
     def __init__(self):
-        super().__init__(api_name="SelfSubjectAccessReview")
+        super().__init__(name="SelfSubjectAccessReview")
 
 
-class Lease(APIResource):
+class Lease(K8sObject):
     def __init__(self):
-        super().__init__(api_name="Lease")
+        super().__init__(name="Lease")
 
 
-class Job(APIResource):
+class Job(K8sObject):
     def __init__(self):
-        super().__init__(api_name="Job")
+        super().__init__(name="Job")
 
 
-class PodDisruptionBudget(APIResource):
+class PodDisruptionBudget(K8sObject):
     def __init__(self):
-        super().__init__(api_name="PodDisruptionBudget")
+        super().__init__(name="PodDisruptionBudget")
 
 
-class Namespace(APIResource):
+class Namespace(K8sObject):
     def __init__(self):
-        super().__init__(api_name="Namespace")
+        super().__init__(name="Namespace")
 
 
-class HorizontalPodAutoscaler(APIResource):
+class HorizontalPodAutoscaler(K8sObject):
     def __init__(self):
-        super().__init__(api_name="HorizontalPodAutoscaler")
+        super().__init__(name="HorizontalPodAutoscaler")
 
 
-class Pod(APIResource):
+class Pod(K8sObject):
     def __init__(self):
-        super().__init__(api_name="Pod")
+        super().__init__(name="Pod")
 
 
-class PodTemplate(APIResource):
+class PodTemplate(K8sObject):
     def __init__(self):
-        super().__init__(api_name="PodTemplate")
+        super().__init__(name="PodTemplate")
 
 
-class Secret(APIResource):
+class Secret(K8sObject):
     def __init__(self):
-        super().__init__(api_name="Secret")
+        super().__init__(name="Secret")
 
 
-class LimitRange(APIResource):
+class LimitRange(K8sObject):
     def __init__(self):
-        super().__init__(api_name="LimitRange")
+        super().__init__(name="LimitRange")
 
 
-class NetworkPolicy(APIResource):
+class NetworkPolicy(K8sObject):
     def __init__(self):
-        super().__init__(api_name="NetworkPolicy")
+        super().__init__(name="NetworkPolicy")
 
 
-class ResourceQuota(APIResource):
+class ResourceQuota(K8sObject):
     def __init__(self):
-        super().__init__(api_name="ResourceQuota")
+        super().__init__(name="ResourceQuota")
 
 
-class VolumeAttachment(APIResource):
+class VolumeAttachment(K8sObject):
     def __init__(self):
-        super().__init__(api_name="VolumeAttachment")
+        super().__init__(name="VolumeAttachment")
 
 
-class PersistentVolumeClaim(APIResource):
+class PersistentVolumeClaim(K8sObject):
     def __init__(self):
-        super().__init__(api_name="PersistentVolumeClaim")
+        super().__init__(name="PersistentVolumeClaim")
 
 
-class Node(APIResource):
+class Node(K8sObject):
     def __init__(self):
-        super().__init__(api_name="Node")
+        super().__init__(name="Node")
 
 
-class ComponentStatus(APIResource):
+class ComponentStatus(K8sObject):
     def __init__(self):
-        super().__init__(api_name="ComponentStatus")
+        super().__init__(name="ComponentStatus")
 
 
-class StatefulSet(APIResource):
+class StatefulSet(K8sObject):
     def __init__(self):
-        super().__init__(api_name="StatefulSet")
+        super().__init__(name="StatefulSet")
 
 
-class RoleBinding(APIResource):
+class RoleBinding(K8sObject):
     def __init__(self):
-        super().__init__(api_name="RoleBinding")
+        super().__init__(name="RoleBinding")
 
 
-class ClusterRoleBinding(APIResource):
+class ClusterRoleBinding(K8sObject):
     def __init__(self):
-        super().__init__(api_name="ClusterRoleBinding")
+        super().__init__(name="ClusterRoleBinding")
 
 
-class Endpoints(APIResource):
+class Endpoints(K8sObject):
     def __init__(self):
-        super().__init__(api_name="Endpoints")
+        super().__init__(name="Endpoints")
 
 
-class LocalSubjectAccessReview(APIResource):
+class LocalSubjectAccessReview(K8sObject):
     def __init__(self):
-        super().__init__(api_name="LocalSubjectAccessReview")
+        super().__init__(name="LocalSubjectAccessReview")
 
 
-class EndpointSlice(APIResource):
+class EndpointSlice(K8sObject):
     def __init__(self):
-        super().__init__(api_name="EndpointSlice")
+        super().__init__(name="EndpointSlice")
 
 
-class ControllerRevision(APIResource):
+class ControllerRevision(K8sObject):
     def __init__(self):
-        super().__init__(api_name="ControllerRevision")
+        super().__init__(name="ControllerRevision")
