@@ -1,6 +1,7 @@
 import os
 import json
 import utils
+import shutil
 
 # load the templates
 
@@ -16,8 +17,6 @@ with open('build/data/templates/component_doc.template.rst') as f:
     component_doc_template = f.read()
 with open('build/data/templates/component_doc.template.main.rst') as f:
     component_doc_main_template = f.read()
-with open('build/data/templates/presenters.template.py') as f:
-    presenter_template = f.read()
 
 k8sgen_data = {
     'api_resources_data': {},
@@ -28,8 +27,7 @@ k8sgen_data = {
 
 # build APIResources.py
 
-out = 'import json\nimport yaml\nfrom k8sgen import utils\nfrom k8sgen import data_file\nimport copy\n\n'
-out += presenter_template + '\n'
+out = 'from k8sgen import base\nfrom k8sgen.base import K8sObject\n\n'
 fs = os.listdir('k8sgen/data/APIResources')
 
 names = [f[:-5] for f in fs]
@@ -72,8 +70,7 @@ with open('k8sgen/APIResources.py', 'w') as f:
 
 # build Components.py
 
-out = 'import json\nimport yaml\nfrom k8sgen import utils\nfrom k8sgen import data_file\nimport copy\n\n'
-out += presenter_template + '\n'
+out = 'from k8sgen import base\nfrom k8sgen.base import K8sObject\n\n'
 fs = os.listdir('k8sgen/data/Components')
 
 names = [f[:-5] for f in fs]
@@ -107,7 +104,6 @@ for fi in fs:
         data_strings = ['    ' + d for d in data_strings]
         data_string = '\n'.join(data_strings)
 
-
         with open('docs/source/{}.rst'.format(fi[:-5]), 'w') as f:
             f.write(component_doc_template.replace('(( COMPONENT ))', fi[:-5]).replace('(( ROWS ))', row_string).replace('(( JSON ))', data_string))
         with open('docs/source/Components.rst', 'w') as f:
@@ -118,3 +114,5 @@ with open('k8sgen/Components.py', 'w') as f:
 
 with open('k8sgen/data_file.py', 'w') as f:
     f.write('k8sgen_data = {}'.format(json.dumps(k8sgen_data, indent=4).replace(': null', ': None')))
+
+shutil.copy('build/data/templates/base.template.py', 'k8sgen/base.py')

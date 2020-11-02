@@ -1,6 +1,3 @@
-from k8sgen import APIResources
-from k8sgen import Components
-
 def get_json(obj):
     if type(obj) == dict:
         return obj
