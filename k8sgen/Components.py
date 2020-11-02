@@ -9,7 +9,7 @@ Available manifest keys are:
 '''
 class VolumeMount(K8sObject):
     def __init__(self):
-        super().__init__(name="VolumeMount")
+        super().__init__(name="VolumeMount", data_source='components_data')
 
 '''
 Kubernetes ManagedField component for use in API resources
@@ -19,7 +19,7 @@ Available manifest keys are:
 '''
 class ManagedField(K8sObject):
     def __init__(self):
-        super().__init__(name="ManagedField")
+        super().__init__(name="ManagedField", data_source='components_data')
 
 '''
 Kubernetes HostAlias component for use in API resources
@@ -29,7 +29,7 @@ Available manifest keys are:
 '''
 class HostAlias(K8sObject):
     def __init__(self):
-        super().__init__(name="HostAlias")
+        super().__init__(name="HostAlias", data_source='components_data')
 
 '''
 Kubernetes NetworkPolicyIngress component for use in API resources
@@ -39,7 +39,7 @@ Available manifest keys are:
 '''
 class NetworkPolicyIngress(K8sObject):
     def __init__(self):
-        super().__init__(name="NetworkPolicyIngress")
+        super().__init__(name="NetworkPolicyIngress", data_source='components_data')
 
 '''
 Kubernetes VolumeClaimTemplate component for use in API resources
@@ -49,7 +49,7 @@ Available manifest keys are:
 '''
 class VolumeClaimTemplate(K8sObject):
     def __init__(self):
-        super().__init__(name="VolumeClaimTemplate")
+        super().__init__(name="VolumeClaimTemplate", data_source='components_data')
 
 '''
 Kubernetes DownwardAPIItem component for use in API resources
@@ -59,7 +59,7 @@ Available manifest keys are:
 '''
 class DownwardAPIItem(K8sObject):
     def __init__(self):
-        super().__init__(name="DownwardAPIItem")
+        super().__init__(name="DownwardAPIItem", data_source='components_data')
 
 '''
 Kubernetes NodePreferredAffinity component for use in API resources
@@ -69,7 +69,7 @@ Available manifest keys are:
 '''
 class NodePreferredAffinity(K8sObject):
     def __init__(self):
-        super().__init__(name="NodePreferredAffinity")
+        super().__init__(name="NodePreferredAffinity", data_source='components_data')
 
 '''
 Kubernetes Volume component for use in API resources
@@ -79,7 +79,7 @@ Available manifest keys are:
 '''
 class Volume(K8sObject):
     def __init__(self):
-        super().__init__(name="Volume")
+        super().__init__(name="Volume", data_source='components_data')
 
 '''
 Kubernetes IngressTLS component for use in API resources
@@ -89,7 +89,7 @@ Available manifest keys are:
 '''
 class IngressTLS(K8sObject):
     def __init__(self):
-        super().__init__(name="IngressTLS")
+        super().__init__(name="IngressTLS", data_source='components_data')
 
 '''
 Kubernetes IngressRulePath component for use in API resources
@@ -99,7 +99,7 @@ Available manifest keys are:
 '''
 class IngressRulePath(K8sObject):
     def __init__(self):
-        super().__init__(name="IngressRulePath")
+        super().__init__(name="IngressRulePath", data_source='components_data')
 
 '''
 Kubernetes AllowedFlexVolume component for use in API resources
@@ -109,7 +109,7 @@ Available manifest keys are:
 '''
 class AllowedFlexVolume(K8sObject):
     def __init__(self):
-        super().__init__(name="AllowedFlexVolume")
+        super().__init__(name="AllowedFlexVolume", data_source='components_data')
 
 '''
 Kubernetes ComponentStatusCondition component for use in API resources
@@ -119,7 +119,7 @@ Available manifest keys are:
 '''
 class ComponentStatusCondition(K8sObject):
     def __init__(self):
-        super().__init__(name="ComponentStatusCondition")
+        super().__init__(name="ComponentStatusCondition", data_source='components_data')
 
 '''
 Kubernetes NonResourceAttribute component for use in API resources
@@ -129,7 +129,7 @@ Available manifest keys are:
 '''
 class NonResourceAttribute(K8sObject):
     def __init__(self):
-        super().__init__(name="NonResourceAttribute")
+        super().__init__(name="NonResourceAttribute", data_source='components_data')
 
 '''
 Kubernetes EnvironmentVariable component for use in API resources
@@ -139,7 +139,7 @@ Available manifest keys are:
 '''
 class EnvironmentVariable(K8sObject):
     def __init__(self):
-        super().__init__(name="EnvironmentVariable")
+        super().__init__(name="EnvironmentVariable", data_source='components_data')
 
 '''
 Kubernetes Webhook component for use in API resources
@@ -149,7 +149,7 @@ Available manifest keys are:
 '''
 class Webhook(K8sObject):
     def __init__(self):
-        super().__init__(name="Webhook")
+        super().__init__(name="Webhook", data_source='components_data')
 
 '''
 Kubernetes ProjectedVolumeSource component for use in API resources
@@ -159,7 +159,7 @@ Available manifest keys are:
 '''
 class ProjectedVolumeSource(K8sObject):
     def __init__(self):
-        super().__init__(name="ProjectedVolumeSource")
+        super().__init__(name="ProjectedVolumeSource", data_source='components_data')
 
 '''
 Kubernetes AllowedHostPath component for use in API resources
@@ -169,7 +169,7 @@ Available manifest keys are:
 '''
 class AllowedHostPath(K8sObject):
     def __init__(self):
-        super().__init__(name="AllowedHostPath")
+        super().__init__(name="AllowedHostPath", data_source='components_data')
 
 '''
 Kubernetes ImagePullSecret component for use in API resources
@@ -179,7 +179,7 @@ Available manifest keys are:
 '''
 class ImagePullSecret(K8sObject):
     def __init__(self):
-        super().__init__(name="ImagePullSecret")
+        super().__init__(name="ImagePullSecret", data_source='components_data')
 
 '''
 Kubernetes SubsetPort component for use in API resources
@@ -189,7 +189,7 @@ Available manifest keys are:
 '''
 class SubsetPort(K8sObject):
     def __init__(self):
-        super().__init__(name="SubsetPort")
+        super().__init__(name="SubsetPort", data_source='components_data')
 
 '''
 Kubernetes RoleRule component for use in API resources
@@ -199,7 +199,7 @@ Available manifest keys are:
 '''
 class RoleRule(K8sObject):
     def __init__(self):
-        super().__init__(name="RoleRule")
+        super().__init__(name="RoleRule", data_source='components_data')
 
 '''
 Kubernetes ServicePort component for use in API resources
@@ -209,7 +209,7 @@ Available manifest keys are:
 '''
 class ServicePort(K8sObject):
     def __init__(self):
-        super().__init__(name="ServicePort")
+        super().__init__(name="ServicePort", data_source='components_data')
 
 '''
 Kubernetes Selector component for use in API resources
@@ -219,7 +219,7 @@ Available manifest keys are:
 '''
 class Selector(K8sObject):
     def __init__(self):
-        super().__init__(name="Selector")
+        super().__init__(name="Selector", data_source='components_data')
 
 '''
 Kubernetes Range component for use in API resources
@@ -229,7 +229,7 @@ Available manifest keys are:
 '''
 class Range(K8sObject):
     def __init__(self):
-        super().__init__(name="Range")
+        super().__init__(name="Range", data_source='components_data')
 
 '''
 Kubernetes AllowedCSIDriver component for use in API resources
@@ -239,7 +239,7 @@ Available manifest keys are:
 '''
 class AllowedCSIDriver(K8sObject):
     def __init__(self):
-        super().__init__(name="AllowedCSIDriver")
+        super().__init__(name="AllowedCSIDriver", data_source='components_data')
 
 '''
 Kubernetes PrinterColumn component for use in API resources
@@ -249,7 +249,7 @@ Available manifest keys are:
 '''
 class PrinterColumn(K8sObject):
     def __init__(self):
-        super().__init__(name="PrinterColumn")
+        super().__init__(name="PrinterColumn", data_source='components_data')
 
 '''
 Kubernetes ContainerPort component for use in API resources
@@ -259,7 +259,7 @@ Available manifest keys are:
 '''
 class ContainerPort(K8sObject):
     def __init__(self):
-        super().__init__(name="ContainerPort")
+        super().__init__(name="ContainerPort", data_source='components_data')
 
 '''
 Kubernetes ConfigMapItem component for use in API resources
@@ -269,7 +269,7 @@ Available manifest keys are:
 '''
 class ConfigMapItem(K8sObject):
     def __init__(self):
-        super().__init__(name="ConfigMapItem")
+        super().__init__(name="ConfigMapItem", data_source='components_data')
 
 '''
 Kubernetes NodeSelectorTerm component for use in API resources
@@ -279,7 +279,7 @@ Available manifest keys are:
 '''
 class NodeSelectorTerm(K8sObject):
     def __init__(self):
-        super().__init__(name="NodeSelectorTerm")
+        super().__init__(name="NodeSelectorTerm", data_source='components_data')
 
 '''
 Kubernetes DNSConfigOptions component for use in API resources
@@ -289,7 +289,7 @@ Available manifest keys are:
 '''
 class DNSConfigOptions(K8sObject):
     def __init__(self):
-        super().__init__(name="DNSConfigOptions")
+        super().__init__(name="DNSConfigOptions", data_source='components_data')
 
 '''
 Kubernetes Metadata component for use in API resources
@@ -299,7 +299,7 @@ Available manifest keys are:
 '''
 class Metadata(K8sObject):
     def __init__(self):
-        super().__init__(name="Metadata")
+        super().__init__(name="Metadata", data_source='components_data')
 
 '''
 Kubernetes ClusterRule component for use in API resources
@@ -309,7 +309,7 @@ Available manifest keys are:
 '''
 class ClusterRule(K8sObject):
     def __init__(self):
-        super().__init__(name="ClusterRule")
+        super().__init__(name="ClusterRule", data_source='components_data')
 
 '''
 Kubernetes PodPreferredAffinity component for use in API resources
@@ -319,7 +319,7 @@ Available manifest keys are:
 '''
 class PodPreferredAffinity(K8sObject):
     def __init__(self):
-        super().__init__(name="PodPreferredAffinity")
+        super().__init__(name="PodPreferredAffinity", data_source='components_data')
 
 '''
 Kubernetes ResourceDefinitionVersion component for use in API resources
@@ -329,7 +329,7 @@ Available manifest keys are:
 '''
 class ResourceDefinitionVersion(K8sObject):
     def __init__(self):
-        super().__init__(name="ResourceDefinitionVersion")
+        super().__init__(name="ResourceDefinitionVersion", data_source='components_data')
 
 '''
 Kubernetes AllowedTopology component for use in API resources
@@ -339,7 +339,7 @@ Available manifest keys are:
 '''
 class AllowedTopology(K8sObject):
     def __init__(self):
-        super().__init__(name="AllowedTopology")
+        super().__init__(name="AllowedTopology", data_source='components_data')
 
 '''
 Kubernetes SecurityContext component for use in API resources
@@ -349,7 +349,7 @@ Available manifest keys are:
 '''
 class SecurityContext(K8sObject):
     def __init__(self):
-        super().__init__(name="SecurityContext")
+        super().__init__(name="SecurityContext", data_source='components_data')
 
 '''
 Kubernetes LifecycleDefinition component for use in API resources
@@ -359,7 +359,7 @@ Available manifest keys are:
 '''
 class LifecycleDefinition(K8sObject):
     def __init__(self):
-        super().__init__(name="LifecycleDefinition")
+        super().__init__(name="LifecycleDefinition", data_source='components_data')
 
 '''
 Kubernetes OwnerReference component for use in API resources
@@ -369,7 +369,7 @@ Available manifest keys are:
 '''
 class OwnerReference(K8sObject):
     def __init__(self):
-        super().__init__(name="OwnerReference")
+        super().__init__(name="OwnerReference", data_source='components_data')
 
 '''
 Kubernetes SecretItem component for use in API resources
@@ -379,7 +379,7 @@ Available manifest keys are:
 '''
 class SecretItem(K8sObject):
     def __init__(self):
-        super().__init__(name="SecretItem")
+        super().__init__(name="SecretItem", data_source='components_data')
 
 '''
 Kubernetes PodAntiAffinity component for use in API resources
@@ -389,7 +389,7 @@ Available manifest keys are:
 '''
 class PodAntiAffinity(K8sObject):
     def __init__(self):
-        super().__init__(name="PodAntiAffinity")
+        super().__init__(name="PodAntiAffinity", data_source='components_data')
 
 '''
 Kubernetes Container component for use in API resources
@@ -399,7 +399,7 @@ Available manifest keys are:
 '''
 class Container(K8sObject):
     def __init__(self):
-        super().__init__(name="Container")
+        super().__init__(name="Container", data_source='components_data')
 
 '''
 Kubernetes Address component for use in API resources
@@ -409,7 +409,7 @@ Available manifest keys are:
 '''
 class Address(K8sObject):
     def __init__(self):
-        super().__init__(name="Address")
+        super().__init__(name="Address", data_source='components_data')
 
 '''
 Kubernetes IngressRule component for use in API resources
@@ -419,7 +419,7 @@ Available manifest keys are:
 '''
 class IngressRule(K8sObject):
     def __init__(self):
-        super().__init__(name="IngressRule")
+        super().__init__(name="IngressRule", data_source='components_data')
 
 '''
 Kubernetes ScopeSelector component for use in API resources
@@ -429,7 +429,7 @@ Available manifest keys are:
 '''
 class ScopeSelector(K8sObject):
     def __init__(self):
-        super().__init__(name="ScopeSelector")
+        super().__init__(name="ScopeSelector", data_source='components_data')
 
 '''
 Kubernetes UserGroup component for use in API resources
@@ -439,7 +439,7 @@ Available manifest keys are:
 '''
 class UserGroup(K8sObject):
     def __init__(self):
-        super().__init__(name="UserGroup")
+        super().__init__(name="UserGroup", data_source='components_data')
 
 '''
 Kubernetes PodRequiredAntiAffinity component for use in API resources
@@ -449,7 +449,7 @@ Available manifest keys are:
 '''
 class PodRequiredAntiAffinity(K8sObject):
     def __init__(self):
-        super().__init__(name="PodRequiredAntiAffinity")
+        super().__init__(name="PodRequiredAntiAffinity", data_source='components_data')
 
 '''
 Kubernetes EnvironmentVariableSource component for use in API resources
@@ -459,7 +459,7 @@ Available manifest keys are:
 '''
 class EnvironmentVariableSource(K8sObject):
     def __init__(self):
-        super().__init__(name="EnvironmentVariableSource")
+        super().__init__(name="EnvironmentVariableSource", data_source='components_data')
 
 '''
 Kubernetes Limit component for use in API resources
@@ -469,7 +469,7 @@ Available manifest keys are:
 '''
 class Limit(K8sObject):
     def __init__(self):
-        super().__init__(name="Limit")
+        super().__init__(name="Limit", data_source='components_data')
 
 '''
 Kubernetes NodeAffinity component for use in API resources
@@ -479,7 +479,7 @@ Available manifest keys are:
 '''
 class NodeAffinity(K8sObject):
     def __init__(self):
-        super().__init__(name="NodeAffinity")
+        super().__init__(name="NodeAffinity", data_source='components_data')
 
 '''
 Kubernetes NetworkPolicyEgress component for use in API resources
@@ -489,7 +489,7 @@ Available manifest keys are:
 '''
 class NetworkPolicyEgress(K8sObject):
     def __init__(self):
-        super().__init__(name="NetworkPolicyEgress")
+        super().__init__(name="NetworkPolicyEgress", data_source='components_data')
 
 '''
 Kubernetes Subset component for use in API resources
@@ -499,7 +499,7 @@ Available manifest keys are:
 '''
 class Subset(K8sObject):
     def __init__(self):
-        super().__init__(name="Subset")
+        super().__init__(name="Subset", data_source='components_data')
 
 '''
 Kubernetes DNSConfig component for use in API resources
@@ -509,7 +509,7 @@ Available manifest keys are:
 '''
 class DNSConfig(K8sObject):
     def __init__(self):
-        super().__init__(name="DNSConfig")
+        super().__init__(name="DNSConfig", data_source='components_data')
 
 '''
 Kubernetes PodAffinity component for use in API resources
@@ -519,7 +519,7 @@ Available manifest keys are:
 '''
 class PodAffinity(K8sObject):
     def __init__(self):
-        super().__init__(name="PodAffinity")
+        super().__init__(name="PodAffinity", data_source='components_data')
 
 '''
 Kubernetes MatchExpression component for use in API resources
@@ -529,7 +529,7 @@ Available manifest keys are:
 '''
 class MatchExpression(K8sObject):
     def __init__(self):
-        super().__init__(name="MatchExpression")
+        super().__init__(name="MatchExpression", data_source='components_data')
 
 '''
 Kubernetes Probe component for use in API resources
@@ -539,7 +539,7 @@ Available manifest keys are:
 '''
 class Probe(K8sObject):
     def __init__(self):
-        super().__init__(name="Probe")
+        super().__init__(name="Probe", data_source='components_data')
 
 '''
 Kubernetes ServiceAccountSecret component for use in API resources
@@ -549,7 +549,7 @@ Available manifest keys are:
 '''
 class ServiceAccountSecret(K8sObject):
     def __init__(self):
-        super().__init__(name="ServiceAccountSecret")
+        super().__init__(name="ServiceAccountSecret", data_source='components_data')
 
 '''
 Kubernetes ReadinessGate component for use in API resources
@@ -559,7 +559,7 @@ Available manifest keys are:
 '''
 class ReadinessGate(K8sObject):
     def __init__(self):
-        super().__init__(name="ReadinessGate")
+        super().__init__(name="ReadinessGate", data_source='components_data')
 
 '''
 Kubernetes Toleration component for use in API resources
@@ -569,7 +569,7 @@ Available manifest keys are:
 '''
 class Toleration(K8sObject):
     def __init__(self):
-        super().__init__(name="Toleration")
+        super().__init__(name="Toleration", data_source='components_data')
 
 '''
 Kubernetes NodeRequiredAffinity component for use in API resources
@@ -579,7 +579,7 @@ Available manifest keys are:
 '''
 class NodeRequiredAffinity(K8sObject):
     def __init__(self):
-        super().__init__(name="NodeRequiredAffinity")
+        super().__init__(name="NodeRequiredAffinity", data_source='components_data')
 
 '''
 Kubernetes MatchLabelExpression component for use in API resources
@@ -589,7 +589,7 @@ Available manifest keys are:
 '''
 class MatchLabelExpression(K8sObject):
     def __init__(self):
-        super().__init__(name="MatchLabelExpression")
+        super().__init__(name="MatchLabelExpression", data_source='components_data')
 
 '''
 Kubernetes Sysctl component for use in API resources
@@ -599,7 +599,7 @@ Available manifest keys are:
 '''
 class Sysctl(K8sObject):
     def __init__(self):
-        super().__init__(name="Sysctl")
+        super().__init__(name="Sysctl", data_source='components_data')
 
 '''
 Kubernetes HTTPHeader component for use in API resources
@@ -609,7 +609,7 @@ Available manifest keys are:
 '''
 class HTTPHeader(K8sObject):
     def __init__(self):
-        super().__init__(name="HTTPHeader")
+        super().__init__(name="HTTPHeader", data_source='components_data')
 
 '''
 Kubernetes ResourceAttribute component for use in API resources
@@ -619,7 +619,7 @@ Available manifest keys are:
 '''
 class ResourceAttribute(K8sObject):
     def __init__(self):
-        super().__init__(name="ResourceAttribute")
+        super().__init__(name="ResourceAttribute", data_source='components_data')
 
 '''
 Kubernetes ClientConfig component for use in API resources
@@ -629,7 +629,7 @@ Available manifest keys are:
 '''
 class ClientConfig(K8sObject):
     def __init__(self):
-        super().__init__(name="ClientConfig")
+        super().__init__(name="ClientConfig", data_source='components_data')
 
 '''
 Kubernetes VolumeDevice component for use in API resources
@@ -639,7 +639,7 @@ Available manifest keys are:
 '''
 class VolumeDevice(K8sObject):
     def __init__(self):
-        super().__init__(name="VolumeDevice")
+        super().__init__(name="VolumeDevice", data_source='components_data')
 
 '''
 Kubernetes PodPreferredAntiAffinity component for use in API resources
@@ -649,7 +649,7 @@ Available manifest keys are:
 '''
 class PodPreferredAntiAffinity(K8sObject):
     def __init__(self):
-        super().__init__(name="PodPreferredAntiAffinity")
+        super().__init__(name="PodPreferredAntiAffinity", data_source='components_data')
 
 '''
 Kubernetes PodRequiredAffinity component for use in API resources
@@ -659,7 +659,7 @@ Available manifest keys are:
 '''
 class PodRequiredAffinity(K8sObject):
     def __init__(self):
-        super().__init__(name="PodRequiredAffinity")
+        super().__init__(name="PodRequiredAffinity", data_source='components_data')
 
 '''
 Kubernetes Taint component for use in API resources
@@ -669,7 +669,7 @@ Available manifest keys are:
 '''
 class Taint(K8sObject):
     def __init__(self):
-        super().__init__(name="Taint")
+        super().__init__(name="Taint", data_source='components_data')
 
 '''
 Kubernetes ContainerSpec component for use in API resources
@@ -679,7 +679,7 @@ Available manifest keys are:
 '''
 class ContainerSpec(K8sObject):
     def __init__(self):
-        super().__init__(name="ContainerSpec")
+        super().__init__(name="ContainerSpec", data_source='components_data')
 
 '''
 Kubernetes ClusterRoleBindingSubject component for use in API resources
@@ -689,7 +689,7 @@ Available manifest keys are:
 '''
 class ClusterRoleBindingSubject(K8sObject):
     def __init__(self):
-        super().__init__(name="ClusterRoleBindingSubject")
+        super().__init__(name="ClusterRoleBindingSubject", data_source='components_data')
 
 '''
 Kubernetes CSINodeDriver component for use in API resources
@@ -699,5 +699,5 @@ Available manifest keys are:
 '''
 class CSINodeDriver(K8sObject):
     def __init__(self):
-        super().__init__(name="CSINodeDriver")
+        super().__init__(name="CSINodeDriver", data_source='components_data')
 

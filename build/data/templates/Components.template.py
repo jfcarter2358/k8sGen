@@ -6,4 +6,4 @@ Available manifest keys are:
 '''
 class (( COMPONENT ))(K8sObject):
     def __init__(self):
-        super().__init__(name="(( COMPONENT ))")
+        super().__init__(name="(( COMPONENT ))", data_source='components_data')

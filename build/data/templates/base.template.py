@@ -17,8 +17,9 @@ yaml.add_representer(type(None), represent_none)
 
 
 class K8sObject:
-    def __init__(self, name):
+    def __init__(self, name, data_source):
         self.name = name
+        self.data_source = data_source
         self.elements = {}
 
     # set any specific field to a value
@@ -61,12 +62,12 @@ class K8sObject:
 
     # get the fields that the API resource utilizes and return them
     def fields(self):
-        data = copy.deepcopy(data_file.k8sgen_data["api_resources_data"][self.name])
+        data = copy.deepcopy(data_file.k8sgen_data[self.data_source][self.name])
         return data["json"]
 
     # write out the API resource class to a json object
     def to_json(self):
-        data = copy.deepcopy(data_file.k8sgen_data["api_resources_data"][self.name])
+        data = copy.deepcopy(data_file.k8sgen_data[self.data_source][self.name])
         components_list = copy.deepcopy(data_file.k8sgen_data["components"])
         data = utils.recurse_build(data["json"], [], self.elements)
         expanded = utils.recurse_expand(data, components_list)
