@@ -63,13 +63,19 @@ class K8sObject:
     # get the fields that the API resource utilizes and return them
     def fields(self):
         data = copy.deepcopy(data_file.k8sgen_data[self.data_source][self.name])
-        return data["json"]
+        if self.data_source == 'api_resources_data':
+            return data["json"]
+        else:
+            return data
 
     # write out the API resource class to a json object
     def to_json(self):
         data = copy.deepcopy(data_file.k8sgen_data[self.data_source][self.name])
         components_list = copy.deepcopy(data_file.k8sgen_data["components"])
-        data = utils.recurse_build(data["json"], [], self.elements)
+        if self.data_source == 'api_resources_data':
+            data = utils.recurse_build(data["json"], [], self.elements)
+        else:
+            data = utils.recurse_build(data, [], self.elements)
         expanded = utils.recurse_expand(data, components_list)
         filtered = utils.clean_null(expanded)
         return filtered
