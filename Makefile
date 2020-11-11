@@ -13,13 +13,13 @@ docs:
 	cd k8sgen/docs; make html
 
 bump-major:
-	bumpversion major src/aphelper/VERSION
+	bumpversion major k8sgen/VERSION
 
 bump-minor:
-	bumpversion minor src/aphelper/VERSION
+	bumpversion minor k8sgen/VERSION
 
 bump-patch:
-	bumpversion patch src/aphelper/VERSION
+	bumpversion patch k8sgen/VERSION
 
 pypi:
 	python setup.py sdist bdist_wheel
