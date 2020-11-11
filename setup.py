@@ -8,6 +8,7 @@ setuptools.setup(
     version="0.0.1",
     author="John Carter",
     author_email="jfcarter2358@gmail.com",
+    license="MIT",
     description="A Python package to enable dynamic generation of Kubernetes manifests",
     long_description=long_description,
     long_description_content_type="text/markdown",
