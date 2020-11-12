@@ -26,6 +26,7 @@ An example config.jsonc file is shown below:
     }
 
 Definition files are more complex, it contains two main sections
+
 * return
     * the APIResource that you want to generate the manifest for
 * components
@@ -60,6 +61,7 @@ You'll notice that we create a "configmap" and "metadata" object. You can create
 In addition, as you can see in the "configmap" object, you can reference other objects via the format "${.<object name>}".
 
 There are four main templating patterns in use in k8sgen (keep in mind, these are only acted on if htey are in a "fields" section of an object):
+
 * ${.object_name}
     * This tells k8sgen that you want to replace this with the generated output of the object "object_name" within your definition file
 * ${config.dot.notation.path}
@@ -70,6 +72,7 @@ There are four main templating patterns in use in k8sgen (keep in mind, these ar
     * This tells k8sgen that you want to replace this with a map where the keys are the filenames and the values are the contents of those values
 
 Each object in the definition file is made up of three main parts
+
 * name
     * The name of the object also serves as its key in the jsonc document. This is what you will use to reference it within the document
 * type
@@ -79,6 +82,7 @@ Each object in the definition file is made up of three main parts
 
 Using the Builder class
 +++++++++++++++++++++++
+
 Once you have the requisite files created (you can also use strings/dictionaries in-memory) you can then use the K8sBuilder class.
 
 To generate a compiled k8sgen object, run the following code:
