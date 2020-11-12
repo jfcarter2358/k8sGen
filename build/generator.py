@@ -115,4 +115,6 @@ with open('k8sgen/Components.py', 'w') as f:
 with open('k8sgen/data_file.py', 'w') as f:
     f.write('k8sgen_data = {}'.format(json.dumps(k8sgen_data, indent=4).replace(': null', ': None')))
 
-shutil.copy('build/data/templates/base.template.py', 'k8sgen/base.py')
+static_files = os.listdir('build/data/static')
+for sf in static_files:
+    shutil.copy('build/data/static/{}'.format(sf), 'k8sgen/{}'.format(sf))

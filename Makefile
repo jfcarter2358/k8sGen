@@ -1,4 +1,4 @@
-.PHONY: build generate clean build-all docs bump-major bump-minor bump-patch pypi
+.PHONY: build generate clean build-all docs bump-major bump-minor bump-patch pypi-build pypi-test pypi-upload
 
 build:
 	python build/builder.py n
@@ -21,8 +21,12 @@ bump-minor:
 bump-patch:
 	bumpversion patch k8sgen/VERSION
 
-pypi:
+pypi-build:
 	python setup.py sdist bdist_wheel
 	twine check dist/*
+
+pypi-test:
 	twine upload --repository-url https://test.pypi.org/legacy/ dist/*
+
+pypi-upload:
 	twine upload dist/*

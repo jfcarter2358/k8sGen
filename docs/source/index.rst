@@ -10,8 +10,9 @@ Welcome to k8sGen's documentation!
    :maxdepth: 2
    :caption: Contents:
 
-   Components.rst
+   Builder.rst
    APIResources.rst
+   Components.rst
 
 .. _Address:
 
@@ -29,7 +30,7 @@ Installation
 
 To install k8sGen, run
 
-``pip install git+git://github.com/jfcarter2358/k8sgen``
+``pip install k8sgen``
 
 and then begin using it in your Python program
 

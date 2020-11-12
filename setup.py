@@ -1,11 +1,14 @@
 import setuptools
 
-with open("README.md", "r") as fh:
-    long_description = fh.read()
+with open("README.md", "r") as f:
+    long_description = f.read()
+
+with open("k8sgen/VERSION", "r") as f:
+    version = f.read()
 
 setuptools.setup(
     name="k8sgen",
-    version="0.0.1",
+    version=version,
     author="John Carter",
     author_email="jfcarter2358@gmail.com",
     license="MIT",

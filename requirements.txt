@@ -1,1 +1,2 @@
 PyYAML==5.3
+jsoncparser==0.0.5
