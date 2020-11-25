@@ -1,6 +1,6 @@
 import os
 import json
-import utils
+import meta_utils as utils
 import shutil
 
 # load the templates

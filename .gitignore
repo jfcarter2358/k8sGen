@@ -5,6 +5,7 @@ test.py
 test.config.jsonc
 test.definition.jsonc
 test.yaml
+/demo
 
 .DS_Store
 .vscode/

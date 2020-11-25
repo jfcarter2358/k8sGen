@@ -22,6 +22,7 @@ bump-patch:
 	bumpversion patch k8sgen/VERSION
 
 pypi-build:
+	rm -rf dist/*
 	python setup.py sdist bdist_wheel
 	twine check dist/*
 

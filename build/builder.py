@@ -1,234 +1,245 @@
-import yaml
-import json
+from k8sgen import APIResources, Components, utils
+import jsonc
+import re
 import os
-import shutil
-import subprocess
-import sys
 
-def build_resources():
-    p = subprocess.Popen('kubectl api-resources', shell=True, stdout=subprocess.PIPE)
-    output = p.communicate()[0].decode()
+class K8sBuilder:
+    def __init__(self):
+        pass
 
-    resources = []
-    resource_lines = output.split('\n')
-    for rl in resource_lines[1:]:
-        r = rl.split(' ')[-1]
-        if len(r) > 0:
-            resources.append(r)
+    def build_manifest(self, definition=None, config=None, definition_path=None, config_path=None, path_replacements={}):
+        if definition_path:
+            with open(definition_path) as f:
+                definition = f.read()
 
-    resources = list(set(resources))
-    resources.sort()
+        if config_path:
+            with open(config_path) as f:
+                config = f.read()
 
-    with open('build/data/resources.txt', 'w') as f:
-        f.write('\n'.join(resources))
+        if definition == None or config == None:
+            err = ValueError('Missing definition or config data')
+            raise err
 
-    for r in resources:
-        os.system('kubectl explain {0} --recursive > build/data/resources/{0}.txt'.format(r))
+        if type(definition) == str:
+            self.definition_data = jsonc.loads(definition)
+        else:
+            self.definition_data = definition
 
-def build_components(components):
-    for k in components['build']:
-        key_list = components['build'][k].split('.')
+        if type(config) == str:
+            self.config_data = jsonc.loads(config)
+        else:
+            self.config_data = config
 
-        data = parse(key_list[0])
+        self.path_replacements = path_replacements
 
-        component_data = get_from_key_list(data['json'], key_list[1:])
+        local_pattern = re.compile('\$\{\.\S*\}')
+        group_pattern = re.compile('\$\{group\.\S*\}')
 
-        if type(component_data) == list:
-            component_data = component_data[0]
-        
-        with open('k8sgen/data/Components/{}.json'.format(k), 'w') as f:
-            json.dump(component_data, f, indent=4)
+        patterns = [
+            '\$\{\.\S*\}',
+            '\$\{config\.\S*\}',
+            '\$\{group\.\S*\}',
+            '\$\{file\.\S*\}',
+            '\$\{files\.\S*\}'
+        ]
 
-def format_components(components):
-    for c in components['build']:
-        print(c)
-        with open('k8sgen/data/Components/{}.json'.format(c)) as f:
-            data = json.load(f)
-        key_list = components['build'][c].split('.')[1:]
+        refs = {}
+        group_refs = {}
 
-        for k in components['ignore']['Components']:
-            delete_from_key_list(data, k.split('.'))
+        components = self.definition_data['components']
+        to_return  = self.definition_data['return']
+        self.groups = {}
 
-        for k in components['replace']:
-            r = k[:k.find('.')]
-            key = k[k.find('.') + 1:]
-            if c == r:
-                if get_from_key_list(data, key.split('.')) != None:
-                    data = set_from_key_list(data, key.split('.'), components['replace'][k]) 
+        for c in components:
+            if 'group' in components[c].keys():
+                if components[c]['group'] in self.groups.keys():
+                    self.groups[components[c]['group']].append(c)
+                else:
+                    self.groups[components[c]['group']] = [c]
+            group_refs[c] = self.find_refs(components[c]['fields'], group_pattern)
 
-        with open('k8sgen/data/Components/{}.json'.format(c), 'w') as f:
-            json.dump(data, f, indent=4)
+        for c in components:
+            refs[c] = self.find_refs(components[c]['fields'], local_pattern)
+            for group in group_refs[c]:
+                refs[c] += self.groups[group]
+            refs[c] = [r for r in list(set(refs[c])) if r != c]
 
-def parse(resource):
-    with open('build/data/resources/{}.txt'.format(resource)) as f:
-        lines = f.read().split('\n')
+        order = self.get_order(refs)
+        self.objs = {}
 
-    fields_index = -1
-    kind = ""
-    version = ""
-    description = ""
-    is_description = False
+        for c in order:
+            self.objs[c] = self.get_obj(components[c]['type'])
+            fields = components[c]['fields']
+            for pattern in patterns:
+                compiled_pattern = re.compile(pattern)
+                fields = self.replace_refs(fields, compiled_pattern)
 
-    index = 0
-    for l in lines:
-        index += 1
-        if l.startswith('FIELDS:'):
-            is_description = False
-            fields_index = index
-            break
-        if is_description:
-            description += ' ' + l.strip()
-        if l.startswith('KIND:'):
-            kind = l[l.rfind(' ') + 1:]
-        if l.startswith('VERSION:'):
-            version = l[l.rfind(' ') + 1:]
-        if l.startswith('DESCRIPTION:'):
-            is_description = True
+            if fields == None:
+                self.objs[c] = None
+            else:
+                keys = list(fields.keys())
 
-    fields = '\n'.join(lines[fields_index:])
-    fields = fields.replace('\t<', ' <')
-    fields = fields.replace(' <', ': <')
+                if 'env' in keys:
+                    if fields['env'] != None:
+                        fields['env'] = format_env(fields['env'])
 
-    fields = fields.split('\n')
+                for k in keys:
+                    fields['_' + k] = fields[k]
+                    del fields[k]
 
-    for i in range(0, len(fields)):
-        indent = len(fields[i]) - len(fields[i].replace(' - ', '   ').lstrip())
-        parts = fields[i].strip().split(': ')
-        if len(parts) > 1:
-            if parts[1] == '<[]Object>':
-                child_indent = len(fields[i+1]) - len(fields[i+1].replace(' - ', '   ').lstrip())
-                if child_indent > indent:
-                    fields[i+1] = fields[i+1][:indent+1] + '-' + fields[i+1][indent+2:]
+                self.objs[c].set(**fields)
 
-    fields = '\n'.join(fields)
+        return self.objs[to_return]
     
-    fields = fields.replace('<map[string]Object>', '')
-    fields = fields.replace('<Object>', '')
-    fields = fields.replace('<[]Object>', '')
+    def find_refs(self, data, pattern):
+        refs = []
+        if type(data) == dict:
+            for k in data:
+                if type(data[k]) == dict:
+                    refs += self.find_refs(data[k], pattern)
+                elif type(data[k]) == list:
+                    refs += self.find_refs(data[k], pattern)
+                elif type(data[k]) == str:
+                    res = [r[:-1].split('.')[1] for r in pattern.findall(data[k])]
+                    refs += res
+        elif type(data) == list:
+            for k in range(0, len(data)):
+                if type(data[k]) == dict:
+                    refs += self.find_refs(data[k], pattern)
+                elif type(data[k]) == list:
+                    refs += self.find_refs(data[k], pattern)
+                elif type(data[k]) == str:
+                    res = [r[:-1].split('.')[1] for r in pattern.findall(data[k])]
+                    refs += res
+        return refs
 
-    # with open('build/debug.txt', 'w') as f:
-    #     f.write(fields)
-
-    fields_data = yaml.safe_load(fields)     
-
-    kind = kind.strip()
-    version = version.strip()
-    description = description.strip()
-    if fields_data == None:
-        fields_data = {}
-
-    fields_data['apiVersion'] = version
-    fields_data['kind'] = kind
-
-    data = {
-        "description": description,
-        "json": fields_data
-    }
-
-    return data
-
-def format_resource(resource, components):
-    data = parse(resource) 
-
-    for k in components['replace']:
-        r = k[:k.find('.')]
-        key = k[k.find('.') + 1:]
-        if resource == r:
-            if get_from_key_list(data['json'], key.split('.')) != None:
-                data['json'] = set_from_key_list(data['json'], key.split('.'), components['replace'][k])   
-
-    for k in components['ignore'][resource]:
-        delete_from_key_list(data['json'], k.split('.'))
-
-    with open('k8sgen/data/APIResources/{}.json'.format(resource), 'w') as f:
-        json.dump(data, f, indent=4)
-
-def get_from_key_list(data, keys):
-    if type(data) != dict and type(data) != list:
+    def replace_refs(self, data, pattern):
+        refs = []
+        if type(data) == dict:
+            for k in data:
+                if type(data[k]) == dict:
+                    refs += self.replace_refs(data[k], pattern)
+                elif type(data[k]) == list:
+                    refs += self.replace_refs(data[k], pattern)
+                elif type(data[k]) == str:
+                    res = [(r[2:-1].split('.')[0], r[2:-1].split('.')[1:]) for r in pattern.findall(data[k])]
+                    if len(res) > 0:
+                        data[k] = self.handle_ref(res[0][0], res[0][1])
+        elif type(data) == list:
+            for k in range(0, len(data)):
+                if type(data[k]) == dict:
+                    refs += self.replace_refs(data[k], pattern)
+                elif type(data[k]) == list:
+                    refs += self.replace_refs(data[k], pattern)
+                elif type(data[k]) == str:
+                    res = [(r[2:-1].split('.')[0], r[2:-1].split('.')[1:]) for r in pattern.findall(data[k])]
+                    if len(res) > 0:
+                        data[k] = self.handle_ref(res[0][0], res[0][1])
+        elif type(data) == str:
+            res = [(r[2:-1].split('.')[0], r[2:-1].split('.')[1:]) for r in pattern.findall(data)]
+            if len(res) > 0:
+                data = self.handle_ref(res[0][0], res[0][1])
         return data
-    if type(data) == list:
-        data = data[0]
-    # if the key doesn't exist then return None
-    if not keys[0] in data.keys():
+
+    def handle_ref(self, ref_type, ref_path):
+        if ref_type == '':
+            out = self.objs[ref_path[0]]
+            return out
+        if ref_type == 'config':
+            out = utils.get_from_key_list(self.config_data, ref_path)
+            return out
+        if ref_type == 'group':
+            out = []
+            for obj in self.groups[ref_path[0]]:
+                out.append(self.objs[obj])
+            return out
+        if ref_type == 'file':
+            out = ''
+            path = '.'.join(ref_path)
+            for k in self.path_replacements:
+                path = path.replace('<{}>'.format(k), self.path_replacements[k])
+            with open(path) as f:
+                out = f.read()
+            return out
+        if ref_type == 'files':
+            out = {}
+            path = '.'.join(ref_path)
+            for k in self.path_replacements:
+                path = path.replace('<{}>'.format(k), self.path_replacements[k])
+            files = self.files_in(path)
+            for file_path in files:
+                filename = os.path.basename(file_path)
+                with open(file_path) as f:
+                    out[filename] = f.read()
+            return out
+
+    def get_order(self, refs):
+        order = []
+        to_remove = []
+        while len(refs) > 0:
+            for n in refs:
+                if len(refs[n]) == 0:
+                    order.append(n)
+                    to_remove.append(n)
+            for r in to_remove:
+                del refs[r]
+            for n in refs:
+                refs[n] = [ref for ref in refs[n] if not ref in to_remove]
+            to_remove = []
+
+        return order
+
+    def get_obj(self, obj_type):
+        parts = obj_type.split('.')
+
+        if parts[0] == 'APIResources':
+            class_ = getattr(APIResources, parts[1])
+            out = class_()
+            return out
+        if parts[0] == 'Components':
+            class_ = getattr(Components, parts[1])
+            out = class_()
+            return out
         return None
-    if len(keys) > 1:
-        # if we aren't at the last key then go a level deeper
-        return get_from_key_list(data[keys[0]], keys[1:])
-    else:
-        # return the value we want
-        return data[keys[0]]
 
-def delete_from_key_list(data, keys):
-    if data == None:
-        return False
-    # if the key doesn't exist then return None
-    if not keys[0] in data.keys():
-        return False
-    if len(keys) > 1:
-        # if we aren't at the last key then go a level deeper
-        if type(data[keys[0]]) == list:
-            return [delete_from_key_list(data[keys[0]][0], keys[1:])]
-        else:
-            return delete_from_key_list(data[keys[0]], keys[1:])
-    else:
-        # return the value we want
-        del data[keys[0]]
-        return True
+    def format_env(self, data):
+        out = []
+        for k in data:
+            if k.startswith('.comment'):
+                continue
+            if type(data[k]) != dict:
+                if type(data[k]) == bool:
+                    data[k] = '{}'.format(data[k]).lower()
+                    out.append({
+                        'name': k,
+                        'value': data[k]
+                    })
+                elif type(data[k]) != str:
+                    data[k] = '{}'.format(data[k])
+                    out.append({
+                        'name': k,
+                        'value': data[k]
+                    })
+                else:
+                    out.append({
+                        'name': k,
+                        'value': data[k]
+                    })
+            else:
+                out.append({
+                    'name': k,
+                    'valueFrom': data[k]
+                })
+        if len(out) == 0:
+            out = None
+        return out
 
-def set_from_key_list(data, keys, value):
-    if type(data) != dict and type(data) != list:
-        return data
-    # if the key doesn't exist then return None
-    if not keys[0] in data.keys():
-        if len(keys) == 1:
-            data[keys[0]] = value
-            return data
-        else:
-            return None
-        return None
-    if len(keys) > 1:
-        # if we aren't at the last key then go a level deeper
-        if type(data[keys[0]]) == list:
-            ret = [set_from_key_list(data[keys[0]][0], keys[1:], value)]
-        else:
-            ret = set_from_key_list(data[keys[0]], keys[1:], value)
-        if ret == None:
-            return None
-        else:
-            data[keys[0]] = ret
-    else:
-        # return the value we want
-        data[keys[0]] = value
-    return data
+    def files_in(self, path):
+        to_ignore = ['.DS_Store']
 
-if os.path.exists('k8sgen/data'):
-    shutil.rmtree('k8sgen/data')
-os.mkdir('k8sgen/data')
-os.mkdir('k8sgen/data/APIResources')
-os.mkdir('k8sgen/data/Components')
-
-if sys.argv[1] == 'y':
-    if os.path.exists('build/data/resources'):
-        shutil.rmtree('build/data/resources')
-    os.mkdir('build/data/resources')
-
-    print('getting resources...')
-    build_resources()
-
-with open('build/data/resources.txt') as f:
-    resources = f.read().split('\n')
-
-with open('build/data/components.json') as f:
-    components = json.load(f)
-
-print('building components...')
-build_components(components)
-
-print('fomatting components...')
-format_components(components)
-
-print('formatting resources...')
-for r in resources:
-    format_resource(r, components)
-
-print('done!')
+        files = []
+        for root, folders, filenames in os.walk(path):
+            for name in filenames:
+                if name not in to_ignore:
+                    files.append(os.path.join(root, name))
+        return files

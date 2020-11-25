@@ -160,3 +160,8 @@ def get_paths(d, current = []):
         elif isinstance(b, list):
             for i in b:
                 yield from get_paths(i, current+[a])
+
+def fix_brace_strings(text):
+    text = text.replace('\'{}\'', '{}')
+    text = text.replace('"{}"', '{}')
+    return text

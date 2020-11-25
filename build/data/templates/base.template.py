@@ -83,7 +83,8 @@ class K8sObject:
     # write out the API resource class to a yaml object
     def to_yaml(self):
         data = self.to_json()
-        return yaml.dump(data)
+        text = yaml.dump(data)
+        return utils.fix_brace_strings(text)
 
     def to_string(self):
         variables = utils.clean_null(

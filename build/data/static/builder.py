@@ -223,7 +223,3 @@ class K8sBuilder:
                 if name not in to_ignore:
                     files.append(os.path.join(root, name))
         return files
-
-    def fix_brace_strings(self, text):
-        text = text.replace('\'{}\'', '{}')
-        return text
