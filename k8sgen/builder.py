@@ -33,24 +33,42 @@ class K8sBuilder:
         self.path_replacements = path_replacements
 
         local_pattern = re.compile('\$\{\.\S*\}')
+        group_pattern = re.compile('\$\{group\.\S*\}',)
 
         patterns = [
             '\$\{\.\S*\}',
             '\$\{config\.\S*\}',
+            '\$\{group\.\S*\}',
             '\$\{file\.\S*\}',
             '\$\{files\.\S*\}'
         ]
 
         refs = {}
+        group_refs = {}
+
+        self.objs = {}
+        self.groups = {}
 
         components = self.definition_data['components']
         to_return  = self.definition_data['return']
 
         for c in components:
+            if 'group' in components[c].keys():
+                group = components[c]['group']
+                if group in self.groups.keys():
+                    self.groups[group].append(c)
+                else:
+                    self.groups[group] = [c]
+            group_refs[c] = self.find_refs(components[c]['fields'], group_pattern)
+
+        for c in components:
             refs[c] = self.find_refs(components[c]['fields'], local_pattern)
+            if group_refs[c]:
+                for gr in group_refs[c]:
+                    refs[c] += self.groups[gr]
+            refs[c] = list(set(refs[c]))
 
         order = self.get_order(refs)
-        self.objs = {}
 
         for c in order:
             self.objs[c] = self.get_obj(components[c]['type'])
@@ -129,6 +147,11 @@ class K8sBuilder:
     def handle_ref(self, ref_type, ref_path):
         if ref_type == '':
             out = self.objs[ref_path[0]]
+            return out
+        if ref_type == 'group':
+            out = []
+            for item in self.groups[ref_path[0]]:
+                out.append(self.objs[item])
             return out
         if ref_type == 'config':
             out = utils.get_from_key_list(self.config_data, ref_path)
