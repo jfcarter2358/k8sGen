@@ -102,6 +102,7 @@ def clean_unset(data):
                 for vt in VARIABLE_TYPES:
                     if data[k].startswith(vt):
                         data[k] = None
+                        break
                 # if data[k].startswith('<') and data[k].endswith('>'):
                 #     data[k] = None
     else:
@@ -114,6 +115,7 @@ def clean_unset(data):
                 for vt in VARIABLE_TYPES:
                     if data[k].startswith(vt):
                         data[k] = None
+                        break
                 # if data[k].startswith('<') and data[k].endswith('>'):
                 #     data[k] = None
     return data
@@ -133,6 +135,7 @@ def recurse_expand(data, components_list, indent=0):
                     for vt in VARIABLE_TYPES:
                         if data[k].startswith(vt):
                             data[k] = None
+                            break
                     # if data[k].startswith('<') and data[k].endswith('>'):
                     #     data[k] = None
     else:
@@ -148,6 +151,7 @@ def recurse_expand(data, components_list, indent=0):
                     for vt in VARIABLE_TYPES:
                         if data[k].startswith(vt):
                             data[k] = None
+                            break
                     # if data[k].startswith('<') and data[k].endswith('>'):
                     #     data[k] = None
     return data
