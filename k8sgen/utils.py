@@ -1,3 +1,20 @@
+VARIABLE_TYPES = [
+    '<string',
+    '<boolean',
+    '<map',
+    '<integer',
+    '<float',
+    '<double',
+    '<COMPONENT',
+    '<[]string',
+    '<[]boolean',
+    '<[]map',
+    '<[]integer',
+    '<[]float',
+    '<[]double',
+    '<[]COMPONENT',
+]
+
 def get_json(obj):
     if type(obj) == dict:
         return obj
@@ -82,8 +99,11 @@ def clean_unset(data):
             elif type(data[k]) == list:
                 data[k] = clean_unset(data[k])
             elif type(data[k]) == str:
-                if data[k].startswith('<') and data[k].endswith('>'):
-                    data[k] = None
+                for vt in VARIABLE_TYPES:
+                    if data[k].startswith(vt):
+                        data[k] = None
+                # if data[k].startswith('<') and data[k].endswith('>'):
+                #     data[k] = None
     else:
         for k in range(0, len(data)):
             if type(data[k]) == dict:
@@ -91,8 +111,11 @@ def clean_unset(data):
             elif type(data[k]) == list:
                 data[k] = clean_unset(data[k])
             elif type(data[k]) == str:
-                if data[k].startswith('<') and data[k].endswith('>'):
-                    data[k] = None
+                for vt in VARIABLE_TYPES:
+                    if data[k].startswith(vt):
+                        data[k] = None
+                # if data[k].startswith('<') and data[k].endswith('>'):
+                #     data[k] = None
     return data
 
 def recurse_expand(data, components_list, indent=0):
@@ -107,8 +130,11 @@ def recurse_expand(data, components_list, indent=0):
                 elif type(data[k]) == list:
                     data[k] = recurse_expand(data[k], components_list, indent = indent+2)
                 elif type(data[k]) == str:
-                    if data[k].startswith('<') and data[k].endswith('>'):
-                        data[k] = None
+                    for vt in VARIABLE_TYPES:
+                        if data[k].startswith(vt):
+                            data[k] = None
+                    # if data[k].startswith('<') and data[k].endswith('>'):
+                    #     data[k] = None
     else:
         for k in range(0, len(data)):
             if type(data[k]).__name__ in components_list:
@@ -119,8 +145,11 @@ def recurse_expand(data, components_list, indent=0):
                 elif type(data[k]) == list:
                     data[k] = recurse_expand(data[k], components_list, indent = indent+2)
                 elif type(data[k]) == str:
-                    if data[k].startswith('<') and data[k].endswith('>'):
-                        data[k] = None
+                    for vt in VARIABLE_TYPES:
+                        if data[k].startswith(vt):
+                            data[k] = None
+                    # if data[k].startswith('<') and data[k].endswith('>'):
+                    #     data[k] = None
     return data
 
 def recurse_build(data, key_list, elements, indent=0):
