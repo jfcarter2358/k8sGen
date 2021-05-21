@@ -106,7 +106,7 @@ Key Names and Types
 +--------------------------------------------+---------------------------------+
 | spec_forbiddenSysctls                      | <[]string>                      |
 +--------------------------------------------+---------------------------------+
-| spec_fsGroup                               | <COMPONENT.UserGroup>           |
+| spec_fsGroup                               | <integer>                       |
 +--------------------------------------------+---------------------------------+
 | spec_hostIPC                               | <boolean>                       |
 +--------------------------------------------+---------------------------------+
@@ -122,9 +122,9 @@ Key Names and Types
 +--------------------------------------------+---------------------------------+
 | spec_requiredDropCapabilities              | <[]string>                      |
 +--------------------------------------------+---------------------------------+
-| spec_runAsGroup                            | <COMPONENT.UserGroup>           |
+| spec_runAsGroup                            | <integer>                       |
 +--------------------------------------------+---------------------------------+
-| spec_runAsUser                             | <COMPONENT.UserGroup>           |
+| spec_runAsUser                             | <integer>                       |
 +--------------------------------------------+---------------------------------+
 | spec_runtimeClass_allowedRuntimeClassNames | <[]string>                      |
 +--------------------------------------------+---------------------------------+
@@ -166,7 +166,7 @@ JSON fields
             "defaultAddCapabilities": "<[]string>",
             "defaultAllowPrivilegeEscalation": "<boolean>",
             "forbiddenSysctls": "<[]string>",
-            "fsGroup": "<COMPONENT.UserGroup>",
+            "fsGroup": "<integer>",
             "hostIPC": "<boolean>",
             "hostNetwork": "<boolean>",
             "hostPID": "<boolean>",
@@ -174,8 +174,8 @@ JSON fields
             "privileged": "<boolean>",
             "readOnlyRootFilesystem": "<boolean>",
             "requiredDropCapabilities": "<[]string>",
-            "runAsGroup": "<COMPONENT.UserGroup>",
-            "runAsUser": "<COMPONENT.UserGroup>",
+            "runAsGroup": "<integer>",
+            "runAsUser": "<integer>",
             "runtimeClass": {
                 "allowedRuntimeClassNames": "<[]string>",
                 "defaultRuntimeClassName": "<string>"

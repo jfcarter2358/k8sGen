@@ -1,9 +1,9 @@
 {
-    "fsGroup": "<COMPONENT.UserGroup>",
+    "fsGroup": "<integer>",
     "fsGroupChangePolicy": "<string>",
-    "runAsGroup": "<COMPONENT.UserGroup>",
+    "runAsGroup": "<integer>",
     "runAsNonRoot": "<boolean>",
-    "runAsUser": "<COMPONENT.UserGroup>",
+    "runAsUser": "<integer>",
     "seLinuxOptions": {
         "level": "<string>",
         "role": "<string>",

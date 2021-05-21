@@ -15,7 +15,7 @@
             "defaultAddCapabilities": "<[]string>",
             "defaultAllowPrivilegeEscalation": "<boolean>",
             "forbiddenSysctls": "<[]string>",
-            "fsGroup": "<COMPONENT.UserGroup>",
+            "fsGroup": "<integer>",
             "hostIPC": "<boolean>",
             "hostNetwork": "<boolean>",
             "hostPID": "<boolean>",
@@ -23,8 +23,8 @@
             "privileged": "<boolean>",
             "readOnlyRootFilesystem": "<boolean>",
             "requiredDropCapabilities": "<[]string>",
-            "runAsGroup": "<COMPONENT.UserGroup>",
-            "runAsUser": "<COMPONENT.UserGroup>",
+            "runAsGroup": "<integer>",
+            "runAsUser": "<integer>",
             "runtimeClass": {
                 "allowedRuntimeClassNames": "<[]string>",
                 "defaultRuntimeClassName": "<string>"

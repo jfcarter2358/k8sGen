@@ -80,15 +80,15 @@ Key Names and Types
 +---------------------------------------+-----------------------+
 | Key                                   | Type                  |
 +=======================================+=======================+
-| fsGroup                               | <COMPONENT.UserGroup> |
+| fsGroup                               | <integer>             |
 +---------------------------------------+-----------------------+
 | fsGroupChangePolicy                   | <string>              |
 +---------------------------------------+-----------------------+
-| runAsGroup                            | <COMPONENT.UserGroup> |
+| runAsGroup                            | <integer>             |
 +---------------------------------------+-----------------------+
 | runAsNonRoot                          | <boolean>             |
 +---------------------------------------+-----------------------+
-| runAsUser                             | <COMPONENT.UserGroup> |
+| runAsUser                             | <integer>             |
 +---------------------------------------+-----------------------+
 | seLinuxOptions_level                  | <string>              |
 +---------------------------------------+-----------------------+
@@ -116,11 +116,11 @@ JSON fields
 .. code-block:: JSON
 
     {
-        "fsGroup": "<COMPONENT.UserGroup>",
+        "fsGroup": "<integer>",
         "fsGroupChangePolicy": "<string>",
-        "runAsGroup": "<COMPONENT.UserGroup>",
+        "runAsGroup": "<integer>",
         "runAsNonRoot": "<boolean>",
-        "runAsUser": "<COMPONENT.UserGroup>",
+        "runAsUser": "<integer>",
         "seLinuxOptions": {
             "level": "<string>",
             "role": "<string>",

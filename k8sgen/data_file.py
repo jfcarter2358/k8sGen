@@ -1663,7 +1663,7 @@ k8sgen_data = {
                     "defaultAddCapabilities": "<[]string>",
                     "defaultAllowPrivilegeEscalation": "<boolean>",
                     "forbiddenSysctls": "<[]string>",
-                    "fsGroup": "<COMPONENT.UserGroup>",
+                    "fsGroup": "<integer>",
                     "hostIPC": "<boolean>",
                     "hostNetwork": "<boolean>",
                     "hostPID": "<boolean>",
@@ -1671,8 +1671,8 @@ k8sgen_data = {
                     "privileged": "<boolean>",
                     "readOnlyRootFilesystem": "<boolean>",
                     "requiredDropCapabilities": "<[]string>",
-                    "runAsGroup": "<COMPONENT.UserGroup>",
-                    "runAsUser": "<COMPONENT.UserGroup>",
+                    "runAsGroup": "<integer>",
+                    "runAsUser": "<integer>",
                     "runtimeClass": {
                         "allowedRuntimeClassNames": "<[]string>",
                         "defaultRuntimeClassName": "<string>"
@@ -3338,11 +3338,11 @@ k8sgen_data = {
             "min": "<integer>"
         },
         "SecurityContext": {
-            "fsGroup": "<COMPONENT.UserGroup>",
+            "fsGroup": "<integer>",
             "fsGroupChangePolicy": "<string>",
-            "runAsGroup": "<COMPONENT.UserGroup>",
+            "runAsGroup": "<integer>",
             "runAsNonRoot": "<boolean>",
-            "runAsUser": "<COMPONENT.UserGroup>",
+            "runAsUser": "<integer>",
             "seLinuxOptions": {
                 "level": "<string>",
                 "role": "<string>",
