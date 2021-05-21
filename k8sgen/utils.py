@@ -82,7 +82,7 @@ def clean_null(d):
                 v = [i for i in v if i]
                 if len(v) > 0:
                     clean[k] = v
-            elif v:
+            elif v or v == 0 or v == "":
                 clean[k] = v
             for k in clean:
                 if clean[k] == {} or clean[k] == []:
