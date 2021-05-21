@@ -10,7 +10,7 @@ generate:
 	python build/generator.py
 
 docs:
-	cd k8sgen/docs; make html
+	cd docs; make html
 
 bump-major:
 	bumpversion major k8sgen/VERSION
